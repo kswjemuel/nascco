@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="insurancedbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="card_processor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="consumer_key" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="api_key" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="end_point" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="commercial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="option_one_id" Type="bigint" Nullable="false" />
+          <Property Name="option_two_id" Type="bigint" Nullable="false" />
+          <Property Name="option_three_id" Type="bigint" Nullable="false" />
+          <Property Name="status_id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="coverage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="id_number" Type="int" Nullable="false" />
+          <Property Name="spouse" Type="int" Nullable="false" />
+          <Property Name="bio_child" Type="int" Nullable="false" />
+          <Property Name="bio_child_over_eighten" Type="int" Nullable="false" />
+          <Property Name="bio_child_over_twenty_six" Type="int" Nullable="false" />
+          <Property Name="living_parents_in_law_under_seventy_six" Type="int" Nullable="false" />
+          <Property Name="living_bio_parents_under_seventy_six" Type="int" Nullable="false" />
+          <Property Name="additional_relations" Type="int" Nullable="false" />
+          <Property Name="coverage_id" Type="bigint" Nullable="false" />
+          <Property Name="date_created" Type="datetime" Nullable="false" />
+          <Property Name="created_by_id" Type="bigint" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="group_options">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="registered_group_id" Type="bigint" Nullable="false" />
+          <Property Name="option_id" Type="bigint" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="member_id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="middle_name" Type="varchar" MaxLength="255" />
+          <Property Name="dob" Type="datetime" Nullable="false" />
+          <Property Name="random_id_number" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status_id" Type="bigint" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="registered_group_id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="option">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="assured_amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="option_description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="rate" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="limit" Type="int" />
+        </EntityType>
+        <EntityType Name="option_limit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="option_id" Type="bigint" Nullable="false" />
+          <Property Name="limit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="registered_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status_id" Type="bigint" Nullable="false" />
+          <Property Name="date_created" Type="datetime" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="id_number" Type="int" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status_id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="discount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="date_created" Type="datetime" Nullable="false" />
+          <Property Name="date_updated" Type="datetime" />
+          <Property Name="registered_group_id" Type="bigint" Nullable="false" />
+          <Property Name="status_id" Type="bigint" Nullable="false" />
+          <Property Name="card_number" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="card_type" Type="varchar" MaxLength="255" />
+          <Property Name="card_last_four" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="card_processor_id" Type="bigint" Nullable="false" />
+          <Property Name="cvv" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="gateway_transaction_id" Type="varchar" MaxLength="50" />
+          <Property Name="transaction_type_id" Type="bigint" Nullable="false" />
+          <Property Name="created_by" Type="bigint" Nullable="false" />
+          <Property Name="exp_year" Type="varchar" MaxLength="50" />
+          <Property Name="exp_month" Type="varchar" MaxLength="50" />
+          <Property Name="currency" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="transaction_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user_account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="full_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="status_id" Type="bigint" Nullable="false" />
+          <Property Name="role_id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_commercial_option_one_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="option_one_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commercial_option_three_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="option_three_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commercial_option_two_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="option_two_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commercial_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_customer_coverage_id">
+          <End Role="coverage" Type="Self.coverage" Multiplicity="1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="coverage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="coverage_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_options_member_id">
+          <End Role="member_info" Type="Self.member_info" Multiplicity="1" />
+          <End Role="group_options" Type="Self.group_options" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member_info">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_options">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_options_option_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="group_options" Type="Self.group_options" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_options">
+              <PropertyRef Name="option_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_options_registered_group_id">
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="1" />
+          <End Role="group_options" Type="Self.group_options" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_options">
+              <PropertyRef Name="registered_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_info_created_by">
+          <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
+          <End Role="member_info" Type="Self.member_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member_info">
+              <PropertyRef Name="created_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_info_registered_group_id">
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="1" />
+          <End Role="member_info" Type="Self.member_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member_info">
+              <PropertyRef Name="registered_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_info_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="member_info" Type="Self.member_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member_info">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_option_limit_option_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="option_limit" Type="Self.option_limit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="option_limit">
+              <PropertyRef Name="option_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registered_group_created_by">
+          <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_group">
+              <PropertyRef Name="created_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registered_group_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_group">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="role">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_card_processor_id">
+          <End Role="card_processor" Type="Self.card_processor" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="card_processor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="card_processor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_created_by">
+          <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="created_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_registered_group_id">
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="registered_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_transaction_type_id">
+          <End Role="transaction_type" Type="Self.transaction_type" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="transaction_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="transaction_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_role_id">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user_account" Type="Self.user_account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_account">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="user_account" Type="Self.user_account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_account">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="insurancedbModelStoreContainer">
+          <EntitySet Name="card_processor" EntityType="Self.card_processor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="commercial" EntityType="Self.commercial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="coverage" EntityType="Self.coverage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="group_options" EntityType="Self.group_options" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member_info" EntityType="Self.member_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="option" EntityType="Self.option" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="option_limit" EntityType="Self.option_limit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registered_group" EntityType="Self.registered_group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="status" EntityType="Self.status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transaction" EntityType="Self.transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="transaction_type" EntityType="Self.transaction_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_account" EntityType="Self.user_account" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_commercial_option_one_id" Association="Self.FK_commercial_option_one_id">
+            <End Role="option" EntitySet="option" />
+            <End Role="commercial" EntitySet="commercial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commercial_option_three_id" Association="Self.FK_commercial_option_three_id">
+            <End Role="option" EntitySet="option" />
+            <End Role="commercial" EntitySet="commercial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commercial_option_two_id" Association="Self.FK_commercial_option_two_id">
+            <End Role="option" EntitySet="option" />
+            <End Role="commercial" EntitySet="commercial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commercial_status_id" Association="Self.FK_commercial_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="commercial" EntitySet="commercial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_customer_coverage_id" Association="Self.FK_customer_coverage_id">
+            <End Role="coverage" EntitySet="coverage" />
+            <End Role="customer" EntitySet="customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_options_member_id" Association="Self.FK_group_options_member_id">
+            <End Role="member_info" EntitySet="member_info" />
+            <End Role="group_options" EntitySet="group_options" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_options_option_id" Association="Self.FK_group_options_option_id">
+            <End Role="option" EntitySet="option" />
+            <End Role="group_options" EntitySet="group_options" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_options_registered_group_id" Association="Self.FK_group_options_registered_group_id">
+            <End Role="registered_group" EntitySet="registered_group" />
+            <End Role="group_options" EntitySet="group_options" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_info_created_by" Association="Self.FK_member_info_created_by">
+            <End Role="user_account" EntitySet="user_account" />
+            <End Role="member_info" EntitySet="member_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_info_registered_group_id" Association="Self.FK_member_info_registered_group_id">
+            <End Role="registered_group" EntitySet="registered_group" />
+            <End Role="member_info" EntitySet="member_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_info_status_id" Association="Self.FK_member_info_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="member_info" EntitySet="member_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_option_limit_option_id" Association="Self.FK_option_limit_option_id">
+            <End Role="option" EntitySet="option" />
+            <End Role="option_limit" EntitySet="option_limit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registered_group_created_by" Association="Self.FK_registered_group_created_by">
+            <End Role="user_account" EntitySet="user_account" />
+            <End Role="registered_group" EntitySet="registered_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registered_group_status_id" Association="Self.FK_registered_group_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="registered_group" EntitySet="registered_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_status_id" Association="Self.FK_role_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="role" EntitySet="role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_card_processor_id" Association="Self.FK_transaction_card_processor_id">
+            <End Role="card_processor" EntitySet="card_processor" />
+            <End Role="transaction" EntitySet="transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_created_by" Association="Self.FK_transaction_created_by">
+            <End Role="user_account" EntitySet="user_account" />
+            <End Role="transaction" EntitySet="transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_registered_group_id" Association="Self.FK_transaction_registered_group_id">
+            <End Role="registered_group" EntitySet="registered_group" />
+            <End Role="transaction" EntitySet="transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_status_id" Association="Self.FK_transaction_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="transaction" EntitySet="transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_transaction_type_id" Association="Self.FK_transaction_transaction_type_id">
+            <End Role="transaction_type" EntitySet="transaction_type" />
+            <End Role="transaction" EntitySet="transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_role_id" Association="Self.FK_user_account_role_id">
+            <End Role="role" EntitySet="role" />
+            <End Role="user_account" EntitySet="user_account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_status_id" Association="Self.FK_user_account_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="user_account" EntitySet="user_account" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="insurancedbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="card_processor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="consumer_key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="api_key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="end_point" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK_transaction_card_processor_id" FromRole="card_processor" ToRole="transaction" />
+        </EntityType>
+        <EntityType Name="commercial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="option_one_id" Type="Int64" Nullable="false" />
+          <Property Name="option_two_id" Type="Int64" Nullable="false" />
+          <Property Name="option_three_id" Type="Int64" Nullable="false" />
+          <Property Name="status_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="option" Relationship="Self.FK_commercial_option_one_id" FromRole="commercial" ToRole="option" />
+          <NavigationProperty Name="option1" Relationship="Self.FK_commercial_option_three_id" FromRole="commercial" ToRole="option" />
+          <NavigationProperty Name="option2" Relationship="Self.FK_commercial_option_two_id" FromRole="commercial" ToRole="option" />
+          <NavigationProperty Name="status" Relationship="Self.FK_commercial_status_id" FromRole="commercial" ToRole="status" />
+        </EntityType>
+        <EntityType Name="coverage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="customers" Relationship="Self.FK_customer_coverage_id" FromRole="coverage" ToRole="customer" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_number" Type="Int32" Nullable="false" />
+          <Property Name="spouse" Type="Int32" Nullable="false" />
+          <Property Name="bio_child" Type="Int32" Nullable="false" />
+          <Property Name="bio_child_over_eighten" Type="Int32" Nullable="false" />
+          <Property Name="bio_child_over_twenty_six" Type="Int32" Nullable="false" />
+          <Property Name="living_parents_in_law_under_seventy_six" Type="Int32" Nullable="false" />
+          <Property Name="living_bio_parents_under_seventy_six" Type="Int32" Nullable="false" />
+          <Property Name="additional_relations" Type="Int32" Nullable="false" />
+          <Property Name="coverage_id" Type="Int64" Nullable="false" />
+          <Property Name="date_created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_by_id" Type="Int64" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="coverage" Relationship="Self.FK_customer_coverage_id" FromRole="customer" ToRole="coverage" />
+        </EntityType>
+        <EntityType Name="group_options">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="registered_group_id" Type="Int64" Nullable="false" />
+          <Property Name="option_id" Type="Int64" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="member_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="member_info" Relationship="Self.FK_group_options_member_id" FromRole="group_options" ToRole="member_info" />
+          <NavigationProperty Name="option" Relationship="Self.FK_group_options_option_id" FromRole="group_options" ToRole="option" />
+          <NavigationProperty Name="registered_group" Relationship="Self.FK_group_options_registered_group_id" FromRole="group_options" ToRole="registered_group" />
+        </EntityType>
+        <EntityType Name="member_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="last_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="middle_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="random_id_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status_id" Type="Int64" Nullable="false" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="registered_group_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="group_options" Relationship="Self.FK_group_options_member_id" FromRole="member_info" ToRole="group_options" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK_member_info_created_by" FromRole="member_info" ToRole="user_account" />
+          <NavigationProperty Name="registered_group" Relationship="Self.FK_member_info_registered_group_id" FromRole="member_info" ToRole="registered_group" />
+          <NavigationProperty Name="status" Relationship="Self.FK_member_info_status_id" FromRole="member_info" ToRole="status" />
+        </EntityType>
+        <EntityType Name="option">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="assured_amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="option_description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rate" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="limit" Type="Int32" />
+          <NavigationProperty Name="commercials" Relationship="Self.FK_commercial_option_one_id" FromRole="option" ToRole="commercial" />
+          <NavigationProperty Name="commercials1" Relationship="Self.FK_commercial_option_three_id" FromRole="option" ToRole="commercial" />
+          <NavigationProperty Name="commercials2" Relationship="Self.FK_commercial_option_two_id" FromRole="option" ToRole="commercial" />
+          <NavigationProperty Name="group_options" Relationship="Self.FK_group_options_option_id" FromRole="option" ToRole="group_options" />
+          <NavigationProperty Name="option_limit" Relationship="Self.FK_option_limit_option_id" FromRole="option" ToRole="option_limit" />
+        </EntityType>
+        <EntityType Name="option_limit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="option_id" Type="Int64" Nullable="false" />
+          <Property Name="limit" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="option" Relationship="Self.FK_option_limit_option_id" FromRole="option_limit" ToRole="option" />
+        </EntityType>
+        <EntityType Name="registered_group">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status_id" Type="Int64" Nullable="false" />
+          <Property Name="date_created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="id_number" Type="Int32" />
+          <NavigationProperty Name="group_options" Relationship="Self.FK_group_options_registered_group_id" FromRole="registered_group" ToRole="group_options" />
+          <NavigationProperty Name="member_info" Relationship="Self.FK_member_info_registered_group_id" FromRole="registered_group" ToRole="member_info" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK_registered_group_created_by" FromRole="registered_group" ToRole="user_account" />
+          <NavigationProperty Name="status" Relationship="Self.FK_registered_group_status_id" FromRole="registered_group" ToRole="status" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK_transaction_registered_group_id" FromRole="registered_group" ToRole="transaction" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="status" Relationship="Self.FK_role_status_id" FromRole="role" ToRole="status" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK_user_account_role_id" FromRole="role" ToRole="user_account" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="commercials" Relationship="Self.FK_commercial_status_id" FromRole="status" ToRole="commercial" />
+          <NavigationProperty Name="member_info" Relationship="Self.FK_member_info_status_id" FromRole="status" ToRole="member_info" />
+          <NavigationProperty Name="registered_group" Relationship="Self.FK_registered_group_status_id" FromRole="status" ToRole="registered_group" />
+          <NavigationProperty Name="roles" Relationship="Self.FK_role_status_id" FromRole="status" ToRole="role" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK_transaction_status_id" FromRole="status" ToRole="transaction" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK_user_account_status_id" FromRole="status" ToRole="user_account" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="discount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="date_created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="date_updated" Type="DateTime" Precision="3" />
+          <Property Name="registered_group_id" Type="Int64" Nullable="false" />
+          <Property Name="status_id" Type="Int64" Nullable="false" />
+          <Property Name="card_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="card_type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="card_last_four" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="card_processor_id" Type="Int64" Nullable="false" />
+          <Property Name="cvv" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gateway_transaction_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="transaction_type_id" Type="Int64" Nullable="false" />
+          <Property Name="created_by" Type="Int64" Nullable="false" />
+          <Property Name="exp_year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="exp_month" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="card_processor" Relationship="Self.FK_transaction_card_processor_id" FromRole="transaction" ToRole="card_processor" />
+          <NavigationProperty Name="registered_group" Relationship="Self.FK_transaction_registered_group_id" FromRole="transaction" ToRole="registered_group" />
+          <NavigationProperty Name="status" Relationship="Self.FK_transaction_status_id" FromRole="transaction" ToRole="status" />
+          <NavigationProperty Name="user_account" Relationship="Self.FK_transaction_created_by" FromRole="transaction" ToRole="user_account" />
+          <NavigationProperty Name="transaction_type" Relationship="Self.FK_transaction_transaction_type_id" FromRole="transaction" ToRole="transaction_type" />
+        </EntityType>
+        <EntityType Name="transaction_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK_transaction_transaction_type_id" FromRole="transaction_type" ToRole="transaction" />
+        </EntityType>
+        <EntityType Name="user_account">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="full_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status_id" Type="Int64" Nullable="false" />
+          <Property Name="role_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="member_info" Relationship="Self.FK_member_info_created_by" FromRole="user_account" ToRole="member_info" />
+          <NavigationProperty Name="registered_group" Relationship="Self.FK_registered_group_created_by" FromRole="user_account" ToRole="registered_group" />
+          <NavigationProperty Name="role" Relationship="Self.FK_user_account_role_id" FromRole="user_account" ToRole="role" />
+          <NavigationProperty Name="status" Relationship="Self.FK_user_account_status_id" FromRole="user_account" ToRole="status" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK_transaction_created_by" FromRole="user_account" ToRole="transaction" />
+        </EntityType>
+        <Association Name="FK_transaction_card_processor_id">
+          <End Role="card_processor" Type="Self.card_processor" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="card_processor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="card_processor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commercial_option_one_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="option_one_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commercial_option_three_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="option_three_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commercial_option_two_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="option_two_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_commercial_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="commercial" Type="Self.commercial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="commercial">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_customer_coverage_id">
+          <End Role="coverage" Type="Self.coverage" Multiplicity="1" />
+          <End Role="customer" Type="Self.customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="coverage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="customer">
+              <PropertyRef Name="coverage_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_options_member_id">
+          <End Role="member_info" Type="Self.member_info" Multiplicity="1" />
+          <End Role="group_options" Type="Self.group_options" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member_info">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_options">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_options_option_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="group_options" Type="Self.group_options" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_options">
+              <PropertyRef Name="option_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_group_options_registered_group_id">
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="1" />
+          <End Role="group_options" Type="Self.group_options" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="group_options">
+              <PropertyRef Name="registered_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_info_created_by">
+          <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
+          <End Role="member_info" Type="Self.member_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member_info">
+              <PropertyRef Name="created_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_info_registered_group_id">
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="1" />
+          <End Role="member_info" Type="Self.member_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member_info">
+              <PropertyRef Name="registered_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_info_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="member_info" Type="Self.member_info" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member_info">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_option_limit_option_id">
+          <End Role="option" Type="Self.option" Multiplicity="1" />
+          <End Role="option_limit" Type="Self.option_limit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="option">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="option_limit">
+              <PropertyRef Name="option_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registered_group_created_by">
+          <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_group">
+              <PropertyRef Name="created_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registered_group_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="registered_group">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_registered_group_id">
+          <End Role="registered_group" Type="Self.registered_group" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registered_group">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="registered_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="role">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_role_id">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user_account" Type="Self.user_account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_account">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_status_id">
+          <End Role="status" Type="Self.status" Multiplicity="1" />
+          <End Role="user_account" Type="Self.user_account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user_account">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_created_by">
+          <End Role="user_account" Type="Self.user_account" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_account">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="created_by" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_transaction_transaction_type_id">
+          <End Role="transaction_type" Type="Self.transaction_type" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="transaction_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="transaction_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="insurancedbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="card_processor" EntityType="Self.card_processor" />
+          <EntitySet Name="commercials" EntityType="Self.commercial" />
+          <EntitySet Name="coverages" EntityType="Self.coverage" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="group_options" EntityType="Self.group_options" />
+          <EntitySet Name="member_info" EntityType="Self.member_info" />
+          <EntitySet Name="options" EntityType="Self.option" />
+          <EntitySet Name="option_limit" EntityType="Self.option_limit" />
+          <EntitySet Name="registered_group" EntityType="Self.registered_group" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="status" EntityType="Self.status" />
+          <EntitySet Name="transactions" EntityType="Self.transaction" />
+          <EntitySet Name="transaction_type" EntityType="Self.transaction_type" />
+          <EntitySet Name="user_account" EntityType="Self.user_account" />
+          <AssociationSet Name="FK_transaction_card_processor_id" Association="Self.FK_transaction_card_processor_id">
+            <End Role="card_processor" EntitySet="card_processor" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commercial_option_one_id" Association="Self.FK_commercial_option_one_id">
+            <End Role="option" EntitySet="options" />
+            <End Role="commercial" EntitySet="commercials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commercial_option_three_id" Association="Self.FK_commercial_option_three_id">
+            <End Role="option" EntitySet="options" />
+            <End Role="commercial" EntitySet="commercials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commercial_option_two_id" Association="Self.FK_commercial_option_two_id">
+            <End Role="option" EntitySet="options" />
+            <End Role="commercial" EntitySet="commercials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_commercial_status_id" Association="Self.FK_commercial_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="commercial" EntitySet="commercials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_customer_coverage_id" Association="Self.FK_customer_coverage_id">
+            <End Role="coverage" EntitySet="coverages" />
+            <End Role="customer" EntitySet="customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_options_member_id" Association="Self.FK_group_options_member_id">
+            <End Role="member_info" EntitySet="member_info" />
+            <End Role="group_options" EntitySet="group_options" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_options_option_id" Association="Self.FK_group_options_option_id">
+            <End Role="option" EntitySet="options" />
+            <End Role="group_options" EntitySet="group_options" />
+          </AssociationSet>
+          <AssociationSet Name="FK_group_options_registered_group_id" Association="Self.FK_group_options_registered_group_id">
+            <End Role="registered_group" EntitySet="registered_group" />
+            <End Role="group_options" EntitySet="group_options" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_info_created_by" Association="Self.FK_member_info_created_by">
+            <End Role="user_account" EntitySet="user_account" />
+            <End Role="member_info" EntitySet="member_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_info_registered_group_id" Association="Self.FK_member_info_registered_group_id">
+            <End Role="registered_group" EntitySet="registered_group" />
+            <End Role="member_info" EntitySet="member_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_info_status_id" Association="Self.FK_member_info_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="member_info" EntitySet="member_info" />
+          </AssociationSet>
+          <AssociationSet Name="FK_option_limit_option_id" Association="Self.FK_option_limit_option_id">
+            <End Role="option" EntitySet="options" />
+            <End Role="option_limit" EntitySet="option_limit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registered_group_created_by" Association="Self.FK_registered_group_created_by">
+            <End Role="user_account" EntitySet="user_account" />
+            <End Role="registered_group" EntitySet="registered_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registered_group_status_id" Association="Self.FK_registered_group_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="registered_group" EntitySet="registered_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_registered_group_id" Association="Self.FK_transaction_registered_group_id">
+            <End Role="registered_group" EntitySet="registered_group" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_status_id" Association="Self.FK_role_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="role" EntitySet="roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_role_id" Association="Self.FK_user_account_role_id">
+            <End Role="role" EntitySet="roles" />
+            <End Role="user_account" EntitySet="user_account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_status_id" Association="Self.FK_transaction_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_status_id" Association="Self.FK_user_account_status_id">
+            <End Role="status" EntitySet="status" />
+            <End Role="user_account" EntitySet="user_account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_created_by" Association="Self.FK_transaction_created_by">
+            <End Role="user_account" EntitySet="user_account" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_transaction_transaction_type_id" Association="Self.FK_transaction_transaction_type_id">
+            <End Role="transaction_type" EntitySet="transaction_type" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="insurancedbModelStoreContainer" CdmEntityContainer="insurancedbEntities">
+          <EntitySetMapping Name="card_processor">
+            <EntityTypeMapping TypeName="insurancedbModel.card_processor">
+              <MappingFragment StoreEntitySet="card_processor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="consumer_key" ColumnName="consumer_key" />
+                <ScalarProperty Name="api_key" ColumnName="api_key" />
+                <ScalarProperty Name="end_point" ColumnName="end_point" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commercials">
+            <EntityTypeMapping TypeName="insurancedbModel.commercial">
+              <MappingFragment StoreEntitySet="commercial">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="option_one_id" ColumnName="option_one_id" />
+                <ScalarProperty Name="option_two_id" ColumnName="option_two_id" />
+                <ScalarProperty Name="option_three_id" ColumnName="option_three_id" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="coverages">
+            <EntityTypeMapping TypeName="insurancedbModel.coverage">
+              <MappingFragment StoreEntitySet="coverage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="insurancedbModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+                <ScalarProperty Name="spouse" ColumnName="spouse" />
+                <ScalarProperty Name="bio_child" ColumnName="bio_child" />
+                <ScalarProperty Name="bio_child_over_eighten" ColumnName="bio_child_over_eighten" />
+                <ScalarProperty Name="bio_child_over_twenty_six" ColumnName="bio_child_over_twenty_six" />
+                <ScalarProperty Name="living_parents_in_law_under_seventy_six" ColumnName="living_parents_in_law_under_seventy_six" />
+                <ScalarProperty Name="living_bio_parents_under_seventy_six" ColumnName="living_bio_parents_under_seventy_six" />
+                <ScalarProperty Name="additional_relations" ColumnName="additional_relations" />
+                <ScalarProperty Name="coverage_id" ColumnName="coverage_id" />
+                <ScalarProperty Name="date_created" ColumnName="date_created" />
+                <ScalarProperty Name="created_by_id" ColumnName="created_by_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="group_options">
+            <EntityTypeMapping TypeName="insurancedbModel.group_options">
+              <MappingFragment StoreEntitySet="group_options">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="registered_group_id" ColumnName="registered_group_id" />
+                <ScalarProperty Name="option_id" ColumnName="option_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="member_info">
+            <EntityTypeMapping TypeName="insurancedbModel.member_info">
+              <MappingFragment StoreEntitySet="member_info">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="random_id_number" ColumnName="random_id_number" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="registered_group_id" ColumnName="registered_group_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="options">
+            <EntityTypeMapping TypeName="insurancedbModel.option">
+              <MappingFragment StoreEntitySet="option">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="assured_amount" ColumnName="assured_amount" />
+                <ScalarProperty Name="option_description" ColumnName="option_description" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="option_limit">
+            <EntityTypeMapping TypeName="insurancedbModel.option_limit">
+              <MappingFragment StoreEntitySet="option_limit">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="option_id" ColumnName="option_id" />
+                <ScalarProperty Name="limit" ColumnName="limit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registered_group">
+            <EntityTypeMapping TypeName="insurancedbModel.registered_group">
+              <MappingFragment StoreEntitySet="registered_group">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="date_created" ColumnName="date_created" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="id_number" ColumnName="id_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="insurancedbModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="status">
+            <EntityTypeMapping TypeName="insurancedbModel.status">
+              <MappingFragment StoreEntitySet="status">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transactions">
+            <EntityTypeMapping TypeName="insurancedbModel.transaction">
+              <MappingFragment StoreEntitySet="transaction">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="date_created" ColumnName="date_created" />
+                <ScalarProperty Name="date_updated" ColumnName="date_updated" />
+                <ScalarProperty Name="registered_group_id" ColumnName="registered_group_id" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="card_type" ColumnName="card_type" />
+                <ScalarProperty Name="card_last_four" ColumnName="card_last_four" />
+                <ScalarProperty Name="card_processor_id" ColumnName="card_processor_id" />
+                <ScalarProperty Name="cvv" ColumnName="cvv" />
+                <ScalarProperty Name="gateway_transaction_id" ColumnName="gateway_transaction_id" />
+                <ScalarProperty Name="transaction_type_id" ColumnName="transaction_type_id" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="exp_year" ColumnName="exp_year" />
+                <ScalarProperty Name="exp_month" ColumnName="exp_month" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transaction_type">
+            <EntityTypeMapping TypeName="insurancedbModel.transaction_type">
+              <MappingFragment StoreEntitySet="transaction_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_account">
+            <EntityTypeMapping TypeName="insurancedbModel.user_account">
+              <MappingFragment StoreEntitySet="user_account">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

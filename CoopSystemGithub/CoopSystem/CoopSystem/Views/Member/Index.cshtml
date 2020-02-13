@@ -1,0 +1,187 @@
+﻿@using Kendo.Mvc.UI;
+@model CoopSystemWebApp.Models.MemberModel
+@{
+    ViewBag.Title = "Member";
+}
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="card">
+            <h3>Members</h3>
+            <div class="row input-gap-bottom">
+                <div class="col-md-2 col-sm-2">
+                    @Html.Kendo().Button().Name("btnAddMember").Content("Add").Events(e => e.Click("onClick_CreateMember")).HtmlAttributes(new { @class = "k-primary k-primary pull-right", type = "button", @style = "width: 100%" })
+                </div>
+                <div class="col-md-2 col-sm-2"></div>
+                <div class="col-md-2 col-sm-2"></div>
+            </div>
+
+            <div>
+
+                @(Html.Kendo().Grid<CoopSystemWebApp.Models.MemberModel>()
+                                                                                .Name("MemberGrid")
+                                                                                .Columns(c =>
+                                                                                {
+                                                                                    c.Bound(m => m.MemberId).Hidden(true);
+                                                                                    c.Bound(m => m.FullName).Title("Name");
+                                                                                    c.Bound(m => m.EmployeeId).Title("CompanyID");
+                                                                                    //c.Bound(m => m.ContactNumbers).Title("Phone");
+                                                                                    //c.Bound(m => m.EmailAddress).Title("Email");
+                                                                                    //c.Bound(m => m.PresentAddress).Title("Address");
+                                                                                    c.Command(command =>
+                                                                                    {
+                                                                                        command.Custom("Edit").Click("onClick_EditMember").Text(" ").HtmlAttributes(new { @title = "View/Modify member." });
+                                                                                        command.Custom("ViewSpouse").Click("onClick_ViewMember").Text(" ").HtmlAttributes(new { @title = "Spouse/References Details" });
+                                                                                        command.Custom("Add").Click("onClick_CreateSpouse").Text(" ").HtmlAttributes(new { @title = "Add Spouse" });
+                                                                                    });
+
+                                                                                })
+                                                                                .ToolBar(t => t.Excel().HtmlAttributes(new { id = "exportExcelBtn" }))
+                                                                                    .Excel(e => e.FileName("member.xlsx")
+                                                                                               .ProxyURL(Url.Action("ExportToExcel", "Common"))
+                                                                                    )
+                                                                                .Pageable(pageable => pageable.ButtonCount(5))
+                                                                                .Sortable(sortable => sortable
+                                                                                .AllowUnsort(true)
+                                                                                .SortMode(GridSortMode.MultipleColumn))
+                                                                                .DataSource(ds => ds
+                                                                                    .Ajax()
+                                                                                    .PageSize(10)
+                                                                                    .ServerOperation(false)
+                                                                                    .Model(m => m.Id(p => p.MemberId))
+                                                                                    .Read(r => r.Action("GetMemberList", "Member"))
+                                                                                )
+                                                                            .Events(e => e.DataBound("onRowBound_GridPanel_Icons"))
+                )
+
+            </div>
+
+
+        </div>
+
+        @*spouse*@
+        <div class="card group_attribute hiddenx">
+            <h3>Spouse</h3>
+            <div id="spouse" class="text-right" style="color:white">
+                <label id="lblSponse"></label>
+            </div>
+            @(Html.Kendo().Grid<CoopSystemWebApp.Models.SpouseModel>()
+                                                                .Name("SpouseGrid")
+                                                                .Columns(c =>
+                                                                {
+                                                                    c.Bound(m => m.SpouseId).Hidden(true);
+                                                                    c.Bound(m => m.SpouseMemberId).Hidden(true);
+                                                                    c.Bound(m => m.SpouseMemberFullName).Title("Member");
+                                                                    c.Bound(m => m.SpouseFullName).Title("Name");
+                                                                    c.Bound(m => m.SpouseContactNumber).Title("Contact");
+                                                                    c.Bound(m => m.SpouseEmployerAddress).Title("Status");
+                                                                    c.Command(command =>
+                                                                    {
+
+                                                                        command.Custom("Edit").Click("onClick_EditSpouse").Text(" ").HtmlAttributes(new { @title = "Edit spouse." });
+                                                                        command.Custom("Delete").Click("onClick_DeleteSpouse").Text(" ").HtmlAttributes(new { @title = "Delete spouse." });
+
+                                                                    });
+
+                                                                })
+                                                                .Pageable(pageable => pageable.ButtonCount(5))
+                                                                .Sortable(sortable => sortable
+                                                                .AllowUnsort(true)
+                                                                .SortMode(GridSortMode.MultipleColumn))
+                                                                .DataSource(ds => ds
+                                                                    .Ajax()
+                                                                    .PageSize(10)
+                                                                    .ServerOperation(false)
+                                                                    .Model(m => m.Id(p => p.SpouseId))
+                                                                    .Read(r => r.Action("GetSpouseList", "Member").Data("filterByMemberId"))
+                                                                )
+                                                                    .Events(e => e.DataBound("onRowBound_GridPanel_Icons"))
+            )
+        </div>
+
+
+        @*references*@
+        <div class="card group_attribute hiddenx">
+            <h3>References</h3>
+            <div id="references" class="text-right" style="color:white">
+                <label id="lblReferences"></label>
+            </div>
+            @(Html.Kendo().Grid<CoopSystemWebApp.Models.ReferencesModel>()
+                                                                .Name("ReferencesGrid")
+                                                                .Columns(c =>
+                                                                {
+                                                                    c.Bound(m => m.ReferencesId).Hidden(true);
+                                                                    c.Bound(m => m.ReferencesMemberId).Hidden(true);
+                                                                    c.Bound(m => m.ReferencesMemberName).Title("Member");
+                                                                    c.Bound(m => m.ReferencesFullName).Title("Name");
+                                                                    c.Bound(m => m.ReferencesContactNumber).Title("Contact");
+                                                                    c.Bound(m => m.ReferencesAddress).Title("Address");                                                                    
+                                                                    c.Command(command =>
+                                                                    {
+
+                                                                    //command.Custom("Edit").Click("onClick_EditMember").Text(" ").HtmlAttributes(new { @title = "Modify Member Info." });
+                                                                    //command.Custom("Delete").Click("onClick_DeleteMember").Text(" ").HtmlAttributes(new { @title = "Delete Member." });
+
+                                                                });
+
+                                                                })
+                                                                .Pageable(pageable => pageable.ButtonCount(5))
+                                                                .Sortable(sortable => sortable
+                                                                .AllowUnsort(true)
+                                                                .SortMode(GridSortMode.MultipleColumn))
+                                                                .DataSource(ds => ds
+                                                                    .Ajax()
+                                                                    .PageSize(10)
+                                                                    .ServerOperation(false)
+                                                                    .Model(m => m.Id(p => p.ReferencesId))
+                                                                    .Read(r => r.Action("GetRerencesList", "Member").Data("filterByMemberId"))
+                                                                )
+                                                                    .Events(e => e.DataBound("onRowBound_GridPanel_Icons"))
+            )
+        </div>
+
+       
+
+    </div>
+</div>
+
+<script>
+
+
+    @*function onClick_DeleteGroup(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#window_Record").data("kendoWindow");
+        //var window_processing = $("#window_processing").data("kendoWindow");
+        $("#window_Record h4").html("Are you sure you want to delete this record?");
+        wnd.center().open();
+        e.preventDefault();
+        var values = {
+            Id: dataItem.Group_Id
+        };
+
+        $("#window_Record > div > div > #Yes").click(function () {
+            wnd.close();
+            $.ajax({
+                dataType: "html",
+                type: "POST",
+                url: "@(Url.Action("RemoveGroup", "Group"))",
+                data: values,
+                success: function (result) {
+                    var grid = $("#GridGroup").data("kendoGrid");
+                    grid.dataSource.read();
+                }
+            });
+
+        });
+
+        $("#window_Record > div > div > #No").click(function () {
+            wnd.close();
+        });
+    };*@
+
+
+
+
+</script>
+

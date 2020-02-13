@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nasccoModelStoreContainer" CdmEntityContainer="nasccoEntities">
+    <EntitySetMapping Name="employments">
+      <EntityTypeMapping TypeName="nasccoModel.employment">
+        <MappingFragment StoreEntitySet="employment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="date_hired" ColumnName="date_hired" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="employer_address" ColumnName="employer_address" />
+          <ScalarProperty Name="contact_numbers" ColumnName="contact_numbers" />
+          <ScalarProperty Name="monthly_income" ColumnName="monthly_income" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fees_category">
+      <EntityTypeMapping TypeName="nasccoModel.fees_category">
+        <MappingFragment StoreEntitySet="fees_category">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fees_masterfile">
+      <EntityTypeMapping TypeName="nasccoModel.fees_masterfile">
+        <MappingFragment StoreEntitySet="fees_masterfile">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="fees_category_id" ColumnName="fees_category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loan_application">
+      <EntityTypeMapping TypeName="nasccoModel.loan_application">
+        <MappingFragment StoreEntitySet="loan_application">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="terms_of_payment" ColumnName="terms_of_payment" />
+          <ScalarProperty Name="loan_type_id" ColumnName="loan_type_id" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="loan_type">
+      <EntityTypeMapping TypeName="nasccoModel.loan_type">
+        <MappingFragment StoreEntitySet="loan_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payments">
+      <EntityTypeMapping TypeName="nasccoModel.payment">
+        <MappingFragment StoreEntitySet="payment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fees_masterfile_id" ColumnName="fees_masterfile_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="references">
+      <EntityTypeMapping TypeName="nasccoModel.reference">
+        <MappingFragment StoreEntitySet="references">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+          <ScalarProperty Name="relation" ColumnName="relation" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="nasccoModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="settings">
+      <EntityTypeMapping TypeName="nasccoModel.setting">
+        <MappingFragment StoreEntitySet="settings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="fees_masterfile_id" ColumnName="fees_masterfile_id" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statuses">
+      <EntityTypeMapping TypeName="nasccoModel.status">
+        <MappingFragment StoreEntitySet="statuses">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="members">
+      <EntityTypeMapping TypeName="nasccoModel.member">
+        <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="statuses_id" ColumnName="statuses_id" />
+          <ScalarProperty Name="email_address" ColumnName="email_address" />
+          <ScalarProperty Name="contact_numbers" ColumnName="contact_numbers" />
+          <ScalarProperty Name="present_address_lenght_of_time" ColumnName="present_address_lenght_of_time" />
+          <ScalarProperty Name="provincial_address" ColumnName="provincial_address" />
+          <ScalarProperty Name="address_status" ColumnName="address_status" />
+          <ScalarProperty Name="present_address" ColumnName="present_address" />
+          <ScalarProperty Name="course" ColumnName="course" />
+          <ScalarProperty Name="highest_education" ColumnName="highest_education" />
+          <ScalarProperty Name="others_id" ColumnName="others_id" />
+          <ScalarProperty Name="sss_number" ColumnName="sss_number" />
+          <ScalarProperty Name="tin" ColumnName="tin" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="place_of_birth" ColumnName="place_of_birth" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="date_of_application" ColumnName="date_of_application" />
+          <ScalarProperty Name="pmes_certificate_number" ColumnName="pmes_certificate_number" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="nasccoModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="statuses_id" ColumnName="statuses_id" />
+          <ScalarProperty Name="roles_id" ColumnName="roles_id" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="spouses">
+      <EntityTypeMapping TypeName="nasccoModel.spouse">
+        <MappingFragment StoreEntitySet="spouse">
+          <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="date_ended" ColumnName="date_ended" />
+          <ScalarProperty Name="date_started" ColumnName="date_started" />
+          <ScalarProperty Name="employment_status" ColumnName="employment_status" />
+          <ScalarProperty Name="contact_numbers" ColumnName="contact_numbers" />
+          <ScalarProperty Name="monthly_income" ColumnName="monthly_income" />
+          <ScalarProperty Name="employer_contact" ColumnName="employer_contact" />
+          <ScalarProperty Name="employer_address" ColumnName="employer_address" />
+          <ScalarProperty Name="employer" ColumnName="employer" />
+          <ScalarProperty Name="occupation" ColumnName="occupation" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="middlename" ColumnName="middlename" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

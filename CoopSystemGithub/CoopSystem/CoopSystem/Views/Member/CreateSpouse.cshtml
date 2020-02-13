@@ -1,0 +1,178 @@
+﻿@using Kendo.Mvc.UI;
+@model CoopSystemWebApp.Models.SpouseModel
+@{
+    ViewBag.Title = "Add Spouse";
+}
+
+
+<div id="divErrorSpouse" class="text-center red-color hidden" style="color:red">
+    <label id="lblErrorSpouse"></label>
+</div>
+
+<div class="alert-danger text-center small">
+    <span style="color:red"><b>@ViewBag.Error</b></span>
+</div>
+
+
+
+
+@using (Html.BeginForm("SaveSpouse", "Member", FormMethod.Post, new { @id = "SaveSpouseForm" }))
+{
+    @Html.HiddenFor(m => m.SpouseId)
+    @Html.HiddenFor(m => m.SpouseMemberId)
+    <div class="k-edit-form-container">
+        <div class="forMember">
+            <div class="k-edit-label">
+                @Html.Label("Lastname")
+            </div>
+            <div data-container-for="CompanyID" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseLastName).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseLastName)
+            </div>
+
+
+            <div class="k-edit-label">
+                @Html.Label("Firstname")
+            </div>
+            <div data-container-for="Last_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseFirstName).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseFirstName)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Middlename")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseMiddleName).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseMiddleName)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Date of birth")
+            </div>
+            <div data-container-for="Date_Created" class="k-edit-field">
+                @Html.Kendo().DatePickerFor(m => m.SpouseDateOfBirth).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Contact Number")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseContactNumber).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseContactNumber)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Occupation")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseOccupation).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseOccupation)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Employer")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseEmployer).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseEmployer)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("SpouseEmployerAddress")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseEmployerAddress).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseEmployerAddress)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Contact")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseEmployerContact).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseEmployerContact)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Monthly Income")
+            </div>
+            <div data-container-for="OthersId" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SpouseMonthlyIncome).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SpouseMonthlyIncome)
+            </div>
+
+
+            <div class="k-edit-label">
+                @Html.Label("Employment Status")
+            </div>
+            <div data-container-for="Status_Id" class="k-edit-field">
+                @(Html.Kendo().DropDownListFor(m => m.SpouseEmploymentStatus)
+                                                                    .OptionLabel("Choose Status")
+                                                                    .DataTextField("StatusDescription")
+                                                                    .DataValueField("StatusesId")
+                                                                    .DataSource(ds =>
+                                                                    {
+                                                                        ds.Read(r => r.Action("GetStatus", "Common"));
+                                                                    })
+                                                                    .HtmlAttributes(new { @style = "width: 100%" })
+                )
+            </div>
+
+
+        </div>
+    </div>
+
+}
+
+
+<div class="k-content">
+    @if (Model.SpouseIsEditMode)
+    {
+        @Html.Kendo().Button().Name("btnUpdateSpouse").Content("Update").Events(e => e.Click("onClick_UpdateSpouse")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+
+    }
+    else
+    {
+        @Html.Kendo().Button().Name("btnSaveSpouse").Content("Save").Events(e => e.Click("onClick_SaveSpouse")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+    }
+    @Html.Kendo().Button().Name("btnCancelSpouse").Content("Cancel").Events(e => e.Click("onClick_CancelSpouse")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+</div>
+
+
+
+
+<script type="text/javascript">
+    //delete
+    function onClick_DeleteGroup(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#window_Record").data("kendoWindow");
+        var window_processing = $("#window_processing").data("kendoWindow");
+        $("#window_Record h4").html("Are you sure you want to delete this record?");
+        wnd.center().open();
+        e.preventDefault();
+        var values = {
+            Id: dataItem.Group_Id
+        };
+
+        $("#window_Record > div > div > #Yes").click(function () {
+            wnd.close();
+            $.ajax({
+                dataType: "html",
+                type: "POST",
+                url: "@(Url.Action("RemoveGroup", "Group"))",
+                data: values,
+                success: function (result) {
+                    var grid = $("#GridGroup").data("kendoGrid");
+                    grid.dataSource.read();
+                }
+            });
+
+        });
+
+        $("#window_Record > div > div > #No").click(function () {
+            wnd.close();
+        });
+    };
+</script>

@@ -1,0 +1,471 @@
+﻿@using Kendo.Mvc.UI;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASCCO&trade;</title>
+
+    @Styles.Render("~/bundles/font-awesome/css")
+    @Styles.Render("~/bundles/animate/css")
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/peicon7stroke/css")
+    @if (IsSectionDefined("Styles"))
+    {
+        @RenderSection("Styles", required: false)
+    }
+    @Styles.Render("~/bundles/custom/css")
+    @Styles.Render("~/bundles/homer/css")
+    <link href="@Url.Content("~/Content/kendo/2016.3.914/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.3.914/kendo.material.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/kendo.timezones.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.serialize-object.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-confirm.min.js")"></script>
+    <link href="@Url.Content("~/Content/jquery-confirm.min.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/jszip.min.js")"></script>
+    <script src="~/JavaScript/StyleSheet.js"></script>
+    <link href="~/Custom/StyleSheet.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="menus">
+        @Html.Partial("_Menus")
+    </div>
+
+    <div class="main-template container body-content col-md-8 col-sm-8">
+        @RenderBody()
+    </div>
+
+    <div id="footer">
+        @Html.Partial("_Footer")
+    </div>
+
+
+
+    @* Decommented 2/9/2020 *@
+    @*@Scripts.Render("~/bundles/jquery")*@
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+@Html.Partial("~/Views/Common/Window.cshtml")
+<script>
+    //CoopSystem
+    var GlobalMemberId = 0;
+
+    function onClick_DeleteSpouse(e) {
+        var dataItem = $("#SpouseGrid").data("kendoGrid").dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#window_Record").data("kendoWindow");        
+        $("#window_Record h4").html("Are you sure you want to delete this record?");
+        wnd.center().open();
+        e.preventDefault();
+        var values = {
+            id: dataItem.SpouseId
+        };
+
+        $("#window_Record > div > div > #Yes").click(function () {
+            wnd.close();
+            $.ajax({
+                dataType: "html",
+                type: "POST",
+                url: "@(Url.Action("RemoveSpouse", "Member"))",
+                data: values,
+                success: function (result) {
+                    RefreshGrid("#SpouseGrid");
+                    //GetTotal();
+                }
+            });
+
+        });
+
+        $("#window_Record > div > div > #No").click(function () {
+            wnd.close();
+        });
+    };
+
+    function onClick_ViewMember(e) {
+        e.preventDefault();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var id = dataItem.MemberId;
+        GlobalMemberId = id;
+       
+        //$(".group_attribute").removeClass("hidden");
+
+        RefreshGrid("#SpouseGrid");
+        RefreshGrid("#ReferencesGrid");
+        //RefreshGridTransactionPayment();
+        //GetTotal();
+    }
+
+    function filterByMemberId() {
+        return {
+            id: GlobalMemberId
+        };
+    }
+
+
+    function RefreshGrid(gridId) {
+        var grid = $(gridId).data("kendoGrid");
+        grid.dataSource.read();
+        grid.refresh();
+    }
+    
+
+
+    function onClick_CreateUser(e) {
+        e.preventDefault();
+        var window = $("#window_UserCreate").data("kendoWindow");
+        window.center().refresh().open();
+    }   
+
+    
+    function onClick_UpdateUser(e) {
+        e.preventDefault();
+        var url = "@Url.Action("Update", "User")";
+        var dataItems = $("#SaveUserForm").serialize();
+        var window = $("#window_UserCreate").data("kendoWindow");
+        var grid = $("#UserGrid").data("kendoGrid");
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: dataItems,
+            dataType: 'json',
+            success: function (result) {
+                $("#lblErrorUser").html(result.message);
+                $("#divErrorUser").removeClass("hidden");
+
+                if (result.result == "success") {
+                    window.close();
+                    grid.dataSource.read();
+                    grid.refresh();
+
+                }
+
+
+            },
+
+        error: function (result) {
+                $("#lblErrorUser").html(result.message);
+                $("#divErrorUser").removeClass("hidden");
+
+                grid.dataSource.read();
+                grid.refresh();
+            }
+        });
+    }
+    
+    function onClick_UpdateSpouse(e) {
+        e.preventDefault();
+        var url = "@Url.Action("UpdateSpouse", "Member")";
+        var dataItems = $("#SaveSpouseForm").serialize();
+        var window = $("#window_SpouseCreate").data("kendoWindow");
+        var grid = $("#SpouseGrid").data("kendoGrid");
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: dataItems,
+            dataType: 'json',
+            success: function (result) {
+                $("#lblErrorSpouse").html(result.message);
+                $("#divErrorSpouse").removeClass("hidden");
+
+                if (result.result == "success") {
+                    window.close();
+                    grid.dataSource.read();
+                    grid.refresh();
+
+                }
+
+
+            },
+
+        error: function (result) {
+            $("#lblErrorSpouse").html(result.message);
+            $("#divErrorSpouse").removeClass("hidden");
+
+                grid.dataSource.read();
+                grid.refresh();
+            }
+        });
+    }
+
+    function onClick_UpdateMember(e) {
+        e.preventDefault();
+        var url = "@Url.Action("Update", "Member")";
+        var dataItems = $("#SaveMemberForm").serialize();
+        var window = $("#window_MemberCreate").data("kendoWindow");
+        var grid = $("#MemberGrid").data("kendoGrid");
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: dataItems,
+            dataType: 'json',
+            success: function (result) {
+                $("#lblErrorMember").html(result.message);
+                $("#divErrorMember").removeClass("hidden");
+
+                if (result.result == "success") {
+                    window.close();
+                    grid.dataSource.read();
+                    grid.refresh();
+
+                }
+
+
+            },
+
+        error: function (result) {
+                $("#lblErrorMember").html(result.message);
+            $("#divErrorMember").removeClass("hidden");
+
+                grid.dataSource.read();
+                grid.refresh();
+            }
+        });
+    }
+    
+    function onClick_SaveUser(e) {
+        e.preventDefault();
+        var window = $("#window_UserCreate").data("kendoWindow");
+        var url = $("#SaveUserForm").attr("action");
+        var dataItems = $("#SaveUserForm").serialize();
+        var grid = $("#UserGrid").data("kendoGrid");
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: dataItems,
+            dataType: 'json',
+            success: function (result) {
+                $("#lblErrorUser").html(result.message);
+                $("#divErrorUser").removeClass("hidden");
+
+                if (result.result == "success") {
+                    window.close();
+                    grid.dataSource.read();
+                    grid.refresh();
+                }
+            },
+            error: function (result) {
+
+                $("#lblErrorUser").html(result.message);
+                $("#divErrorUser").removeClass("hidden");
+
+                grid.dataSource.read();
+                grid.refresh();
+            }
+        });
+
+    }
+
+    
+
+    function onClick_SaveSpouse(e) {
+        e.preventDefault();
+        var window = $("#window_SpouseCreate").data("kendoWindow");
+        var url = $("#SaveSpouseForm").attr("action");
+        var dataItems = $("#SaveSpouseForm").serialize();
+        var grid = $("#SpouseGrid").data("kendoGrid");
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: dataItems,
+            dataType: 'json',
+            success: function (result) {
+                $("#lblErrorSpouse").html(result.message);
+                $("#divErrorSpouse").removeClass("hidden");
+
+                if (result.result == "success") {
+                    window.close();
+                    grid.dataSource.read();
+                    grid.refresh();
+                }
+            },
+            error: function (result) {
+
+                $("#lblErrorSpouse").html(result.message);
+                $("#divErrorSpouse").removeClass("hidden");
+
+                grid.dataSource.read();
+                grid.refresh();
+            }
+        });
+
+    }
+    function onClick_SaveMember(e) {
+        e.preventDefault();
+        var window = $("#window_MemberCreate").data("kendoWindow");
+        var url = $("#SaveMemberForm").attr("action");
+        var dataItems = $("#SaveMemberForm").serialize();
+        var grid = $("#MemberGrid").data("kendoGrid");
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: dataItems,
+            dataType: 'json',
+            success: function (result) {
+                $("#lblErrorMember").html(result.message);
+                $("#divErrorMember").removeClass("hidden");
+
+                if (result.result == "success") {
+                    window.close();
+                    grid.dataSource.read();
+                    grid.refresh();
+                }
+            },
+            error: function (result) {
+
+                $("#lblErrorMember").html(result.message);
+                $("#divErrorMember").removeClass("hidden");
+
+                grid.dataSource.read();
+                grid.refresh();
+            }
+        });
+
+    }
+
+    
+    
+    function onClick_EditUser(e) {
+        e.preventDefault();    
+        var window = $("#window_UserCreate").data("kendoWindow")
+        window.center().open();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var id = dataItem.UserId;
+        $.ajax({
+            url: '@Url.Action("GetUserDetail", "User")',
+            data: { Id: id },
+            dataType: "html",
+            success: function (data) {
+                $("#window_UserCreate").html(data);
+            }
+        });
+    }
+    
+
+    function onClick_EditSpouse(e) {
+        e.preventDefault();    
+        var window = $("#window_SpouseCreate").data("kendoWindow")
+        window.center().open();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var id = dataItem.SpouseId;
+        $.ajax({
+            url: '@Url.Action("GetSpouseDetail", "Member")',
+            data: { Id: id },
+            dataType: "html",
+            success: function (data) {
+                $("#window_SpouseCreate").html(data);
+            }
+        });
+    }
+
+    function onClick_EditMember(e) {
+        e.preventDefault();    
+        var window = $("#window_MemberCreate").data("kendoWindow")
+        window.center().open();
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var id = dataItem.MemberId;
+        $.ajax({
+            url: '@Url.Action("GetMemberDetail", "Member")',
+            data: { Id: id },
+            dataType: "html",
+            success: function (data) {
+                $("#window_MemberCreate").html(data);
+            }
+        });
+    }
+
+    
+
+    
+
+    function onClick_CreateMember(e) {
+        e.preventDefault();
+        var window = $("#window_MemberCreate").data("kendoWindow");
+        window.center().refresh().open();
+    }
+       
+
+    function onClick_CreateSpouse(e) {
+    e.preventDefault();
+    var window = $("#window_SpouseCreate").data("kendoWindow")
+    window.center().open();
+    var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+    var id = dataItem.MemberId;
+    GlobalMemberId = id;
+    $.ajax({
+        url: '@Url.Action("CreateSpouse", "Member")',
+        data: { id: GlobalMemberId },
+        dataType: "html",
+        success: function (data) {
+            $("#window_SpouseCreate").html(data);
+        }
+    });
+}
+
+    
+
+    function onRowBound_GridPanel_Icons() {
+        $(".k-grid-SalesByUser").find("span").addClass("fa fa-credit-card");
+        $(".k-grid-Sales").find("span").addClass("fa fa-credit-card-alt");
+        $(".k-grid-Cancel").find("span").addClass("fa fa-times");
+        $(".k-grid-Delete").find("span").addClass("fa fa-trash-o fa-fw");
+        $(".k-grid-Edit").find("span").addClass("fa fa-pencil");
+        $(".k-grid-ViewMember").find("span").addClass("fa fa-eye");
+        $(".k-grid-ViewSpouse").find("span").addClass("fa fa-eye");
+        $(".k-grid-DetailInvoice").find("span").addClass("fa fa-list-ol");
+        $(".k-grid-AddMember").find("span").addClass("fa fa-plus");
+        $(".k-grid-Add").find("span").addClass("fa fa-plus");
+        $(".k-grid-Transaction").find("span").addClass("fa fa-money");
+
+    }
+    function onClick_SaveUserAccount(e) {
+        e.preventDefault();
+        
+    }
+
+    function onClick_CancelUserAccount(e) {
+        e.preventDefault();
+
+    } 
+
+    
+    function onClick_CancelUser(e) {
+        e.preventDefault();
+        var window = $("#window_UserCreate").data("kendoWindow");
+        window.close();
+    }
+    function onClick_CancelMember(e) {
+        e.preventDefault();
+        var window = $("#window_MemberCreate").data("kendoWindow");
+        window.close();
+    }
+
+    function onClick_CancelSpouse(e) {
+        e.preventDefault();
+        var window = $("#window_SpouseCreate").data("kendoWindow");
+        window.close();
+    }
+
+    
+    //End CoopSystem
+
+    
+</script>
+
+
+
+
+

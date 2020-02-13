@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nasccoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="employment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="position" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="date_hired" Type="date" Nullable="false" />
+    <Property Name="employer" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="employer_address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="contact_numbers" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="monthly_income" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="member_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fees_category">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fees_masterfile">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="fees_category_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="loan_application">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="member_id" Type="int" Nullable="false" />
+    <Property Name="terms_of_payment" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="loan_type_id" Type="int" Nullable="false" />
+    <Property Name="date_created" Type="date" Nullable="false" />
+    <Property Name="from_date" Type="date" />
+    <Property Name="to_date" Type="date" />
+  </EntityType>
+  <EntityType Name="loan_type">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pmes_certificate_number" Type="varchar" MaxLength="255" />
+    <Property Name="date_of_application" Type="date" Nullable="false" />
+    <Property Name="lastname" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="middlename" Type="varchar" MaxLength="255" />
+    <Property Name="date_of_birth" Type="date" Nullable="false" />
+    <Property Name="place_of_birth" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="height" Type="varchar" MaxLength="50" />
+    <Property Name="weight" Type="varchar" MaxLength="50" />
+    <Property Name="tin" Type="varchar" MaxLength="50" />
+    <Property Name="sss_number" Type="varchar" MaxLength="50" />
+    <Property Name="others_id" Type="varchar" MaxLength="255" />
+    <Property Name="highest_education" Type="varchar" MaxLength="255" />
+    <Property Name="course" Type="varchar" MaxLength="255" />
+    <Property Name="present_address" Type="text" Nullable="false" />
+    <Property Name="address_status" Type="varchar" MaxLength="50" />
+    <Property Name="provincial_address" Type="varchar" MaxLength="255" />
+    <Property Name="present_address_lenght_of_time" Type="varchar" MaxLength="255" />
+    <Property Name="contact_numbers" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="email_address" Type="varchar" MaxLength="50" />
+    <Property Name="statuses_id" Type="int" Nullable="false" />
+    <Property Name="employee_id" Type="int" Nullable="false" />
+    <Property Name="created_by_user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="payment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fees_masterfile_id" Type="int" Nullable="false" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="date_created" Type="date" Nullable="false" />
+    <Property Name="member_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="references">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="full_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="address" Type="text" Nullable="false" />
+    <Property Name="contact_number" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="relation" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="member_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="status_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="settings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="fees_masterfile_id" Type="int" />
+    <Property Name="tags" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="spouse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lastname" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="middlename" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="date_of_birth" Type="date" Nullable="false" />
+    <Property Name="occupation" Type="varchar" MaxLength="255" />
+    <Property Name="employer" Type="varchar" MaxLength="255" />
+    <Property Name="employer_address" Type="varchar" MaxLength="255" />
+    <Property Name="employer_contact" Type="varchar" MaxLength="255" />
+    <Property Name="monthly_income" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="contact_numbers" Type="varchar" MaxLength="255" />
+    <Property Name="employment_status" Type="int" Nullable="false" />
+    <Property Name="date_started" Type="date" />
+    <Property Name="date_ended" Type="date" />
+    <Property Name="member_id" Type="int" Nullable="false" />
+    <Property Name="created_by_user_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="statuses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="member_id" Type="int" Nullable="false" />
+    <Property Name="roles_id" Type="int" Nullable="false" />
+    <Property Name="statuses_id" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="password" Type="text" Nullable="false" />
+    <Property Name="created_by_user_id" Type="int" Nullable="false" />
+    <Property Name="date_created" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_employment_member_id">
+    <End Role="member" Type="Self.member" Multiplicity="1" />
+    <End Role="employment" Type="Self.employment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="employment">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_fees_masterfile_fees_category_id">
+    <End Role="fees_category" Type="Self.fees_category" Multiplicity="1" />
+    <End Role="fees_masterfile" Type="Self.fees_masterfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fees_category">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="fees_masterfile">
+        <PropertyRef Name="fees_category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loan_application_loan_type_id">
+    <End Role="loan_type" Type="Self.loan_type" Multiplicity="1" />
+    <End Role="loan_application" Type="Self.loan_application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="loan_type">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="loan_application">
+        <PropertyRef Name="loan_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loan_application_member_id">
+    <End Role="member" Type="Self.member" Multiplicity="1" />
+    <End Role="loan_application" Type="Self.loan_application" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="loan_application">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_created_by_user_id">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="created_by_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_statuses_id">
+    <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="statuses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="statuses_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_fees_masterfile_id">
+    <End Role="fees_masterfile" Type="Self.fees_masterfile" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fees_masterfile">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="fees_masterfile_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_payment_member_id">
+    <End Role="member" Type="Self.member" Multiplicity="1" />
+    <End Role="payment" Type="Self.payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="payment">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_references_member_id">
+    <End Role="member" Type="Self.member" Multiplicity="1" />
+    <End Role="references" Type="Self.references" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="references">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_role_status_id">
+    <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+    <End Role="roles" Type="Self.roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="statuses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="roles">
+        <PropertyRef Name="status_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_settings_fees_masterfile_id">
+    <End Role="fees_masterfile" Type="Self.fees_masterfile" Multiplicity="0..1" />
+    <End Role="settings" Type="Self.settings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fees_masterfile">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="settings">
+        <PropertyRef Name="fees_masterfile_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_spouse_created_by_user_id">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="spouse" Type="Self.spouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="spouse">
+        <PropertyRef Name="created_by_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_spouse_employment_status">
+    <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+    <End Role="spouse" Type="Self.spouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="statuses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="spouse">
+        <PropertyRef Name="employment_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_spouse_member_id">
+    <End Role="member" Type="Self.member" Multiplicity="1" />
+    <End Role="spouse" Type="Self.spouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="spouse">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_account_member_id">
+    <End Role="member" Type="Self.member" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="member_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_accounts_roles_id">
+    <End Role="roles" Type="Self.roles" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="roles_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_accounts_statuses_id">
+    <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="statuses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="statuses_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nasccoModelStoreContainer">
+    <EntitySet Name="employment" EntityType="Self.employment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fees_category" EntityType="Self.fees_category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fees_masterfile" EntityType="Self.fees_masterfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loan_application" EntityType="Self.loan_application" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="loan_type" EntityType="Self.loan_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="references" EntityType="Self.references" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="settings" EntityType="Self.settings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="spouse" EntityType="Self.spouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="statuses" EntityType="Self.statuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_employment_member_id" Association="Self.FK_employment_member_id">
+      <End Role="member" EntitySet="member" />
+      <End Role="employment" EntitySet="employment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_fees_masterfile_fees_category_id" Association="Self.FK_fees_masterfile_fees_category_id">
+      <End Role="fees_category" EntitySet="fees_category" />
+      <End Role="fees_masterfile" EntitySet="fees_masterfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loan_application_loan_type_id" Association="Self.FK_loan_application_loan_type_id">
+      <End Role="loan_type" EntitySet="loan_type" />
+      <End Role="loan_application" EntitySet="loan_application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loan_application_member_id" Association="Self.FK_loan_application_member_id">
+      <End Role="member" EntitySet="member" />
+      <End Role="loan_application" EntitySet="loan_application" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_created_by_user_id" Association="Self.FK_member_created_by_user_id">
+      <End Role="users" EntitySet="users" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_statuses_id" Association="Self.FK_member_statuses_id">
+      <End Role="statuses" EntitySet="statuses" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_fees_masterfile_id" Association="Self.FK_payment_fees_masterfile_id">
+      <End Role="fees_masterfile" EntitySet="fees_masterfile" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_payment_member_id" Association="Self.FK_payment_member_id">
+      <End Role="member" EntitySet="member" />
+      <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_references_member_id" Association="Self.FK_references_member_id">
+      <End Role="member" EntitySet="member" />
+      <End Role="references" EntitySet="references" />
+    </AssociationSet>
+    <AssociationSet Name="FK_role_status_id" Association="Self.FK_role_status_id">
+      <End Role="statuses" EntitySet="statuses" />
+      <End Role="roles" EntitySet="roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_settings_fees_masterfile_id" Association="Self.FK_settings_fees_masterfile_id">
+      <End Role="fees_masterfile" EntitySet="fees_masterfile" />
+      <End Role="settings" EntitySet="settings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_spouse_created_by_user_id" Association="Self.FK_spouse_created_by_user_id">
+      <End Role="users" EntitySet="users" />
+      <End Role="spouse" EntitySet="spouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_spouse_employment_status" Association="Self.FK_spouse_employment_status">
+      <End Role="statuses" EntitySet="statuses" />
+      <End Role="spouse" EntitySet="spouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_spouse_member_id" Association="Self.FK_spouse_member_id">
+      <End Role="member" EntitySet="member" />
+      <End Role="spouse" EntitySet="spouse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_account_member_id" Association="Self.FK_user_account_member_id">
+      <End Role="member" EntitySet="member" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_accounts_roles_id" Association="Self.FK_user_accounts_roles_id">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_accounts_statuses_id" Association="Self.FK_user_accounts_statuses_id">
+      <End Role="statuses" EntitySet="statuses" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

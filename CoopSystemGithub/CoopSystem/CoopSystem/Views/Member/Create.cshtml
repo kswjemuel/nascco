@@ -1,0 +1,283 @@
+﻿@using Kendo.Mvc.UI;
+@model CoopSystemWebApp.Models.MemberModel
+@{
+    ViewBag.Title = "Create Member";
+}
+
+
+<div id="divErrorMember" class="text-center red-color hidden" style="color:red">
+    <label id="lblErrorMember"></label>
+</div>
+
+<div class="alert-danger text-center small">
+    <span style="color:red"><b>@ViewBag.Error</b></span>
+</div>
+
+
+<!--
+
+ <form class="form-inline" action="/action_page.php">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox"> Remember me</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+-->
+
+@using (Html.BeginForm("SaveMember", "Member", FormMethod.Post, new { @id = "SaveMemberForm" }))
+{
+    @Html.HiddenFor(m => m.MemberId)
+
+    <div class="k-edit-form-container">
+        <div class="forMember">
+            <div class="k-edit-label">
+                @Html.Label("CompanyID")
+            </div>
+            <div data-container-for="CompanyID" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.EmployeeId).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.EmployeeId)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("DateOfApplication")
+            </div>
+            <div data-container-for="Date_Created" class="k-edit-field">
+                @Html.Kendo().DatePickerFor(m => m.DateOfApplication).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Lastname")
+            </div>
+            <div data-container-for="Last_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.LastName).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Firstname")
+            </div>
+            <div data-container-for="First_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.FirstName).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Middlename")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.MiddleName).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.MiddleName)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Date of birth")
+            </div>
+            <div data-container-for="Date_Created" class="k-edit-field">
+                @Html.Kendo().DatePickerFor(m => m.DateOfBirth).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("PlaceOfBirth")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.PlaceOfBirth).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.PlaceOfBirth)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Heigth")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.Heigth).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Heigth)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Weight")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.Weight).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Weight)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("SSSNumber")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.SssNumber).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.SssNumber)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("TIN")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.Tin).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Tin)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("OtherID")
+            </div>
+            <div data-container-for="OthersId" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.OthersId).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.OthersId)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Phone")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.ContactNumbers).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ContactNumbers)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Email")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.EmailAddress).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.EmailAddress)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("HighestEducation")
+            </div>
+            <div data-container-for="HighestEducation" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.HighestEducation).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.HighestEducation)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Course")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.Course).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Course)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("PresentAddress")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.PresentAddress).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.PresentAddress)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("AddressStatus")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.AddressStatus).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.AddressStatus)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("ProvincialAddress")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.ProvincialAddress).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ProvincialAddress)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("AddressLengthOfTime")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.PresentAddressLengthOfTime).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.PresentAddressLengthOfTime)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("PmesCertificateNo")
+            </div>
+            <div data-container-for="PmesCertificateNumber" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.PmesCertificateNumber).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.PmesCertificateNumber)
+            </div>
+
+
+
+
+            <div class="k-edit-label">
+                @Html.Label("Status")
+            </div>
+            <div data-container-for="Status_Id" class="k-edit-field">
+                @(Html.Kendo().DropDownListFor(m => m.StatusesId)
+                                                            .OptionLabel("Choose Status")
+                                                            .DataTextField("StatusDescription")
+                                                            .DataValueField("StatusesId")
+                                                            .DataSource(ds =>
+                                                            {
+                                                                ds.Read(r => r.Action("GetStatus", "Common"));
+                                                            })
+                                                            .HtmlAttributes(new { @style = "width: 100%" })
+                )
+            </div>
+
+
+        </div>
+    </div>
+
+}
+
+
+<div class="k-content">
+    @if (Model.MemberIsEditMode)
+    {
+        @Html.Kendo().Button().Name("btnUpdateMember").Content("Update").Events(e => e.Click("onClick_UpdateMember")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+
+    }
+    else
+    {
+        @Html.Kendo().Button().Name("btnSaveMember").Content("Save").Events(e => e.Click("onClick_SaveMember")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+    }
+    @Html.Kendo().Button().Name("btnCancelMember").Content("Cancel").Events(e => e.Click("onClick_CancelMember")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+</div>
+
+
+
+
+<script type="text/javascript">
+    //delete
+    function onClick_DeleteGroup(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#window_Record").data("kendoWindow");
+        var window_processing = $("#window_processing").data("kendoWindow");
+        $("#window_Record h4").html("Are you sure you want to delete this record?");
+        wnd.center().open();
+        e.preventDefault();
+        var values = {
+            Id: dataItem.Group_Id
+        };
+
+        $("#window_Record > div > div > #Yes").click(function () {
+            wnd.close();
+            $.ajax({
+                dataType: "html",
+                type: "POST",
+                url: "@(Url.Action("RemoveGroup", "Group"))",
+                data: values,
+                success: function (result) {
+                    var grid = $("#GridGroup").data("kendoGrid");
+                    grid.dataSource.read();
+                }
+            });
+
+        });
+
+        $("#window_Record > div > div > #No").click(function () {
+            wnd.close();
+        });
+    };
+</script>

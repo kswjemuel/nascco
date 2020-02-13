@@ -1,0 +1,2793 @@
+﻿.k-edit-form-container {
+    position: relative;
+    width: 600px;
+}
+
+.x-window
+{
+    top: 50% !important;
+    bottom: 50% !important;
+}
+
+.x-toolbar.x-docked.x-toolbar-footer.x-box-layout-ct
+{
+    background: white !important;
+}
+
+div.header
+{
+    text-align: center;
+    margin-bottom: 1%;
+    border: 1px solid gainsboro;
+    background: white;
+}
+
+h2.header
+{
+    margin: 1%;
+}
+
+.EmergencyContactPadding
+{
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#Button_RecalculateProgressNoteCount
+{
+    margin-bottom: 5px !important;
+}
+
+.HtmlEditor_PaddingLeftPosition
+{
+    padding: 30px 10px 0px 0px;
+}
+
+.HtmlEditor_PaddingRightPosition
+{
+    padding: 30px 0px 0px 10px;
+}
+
+.HtmlEditor_PaddingTop
+{
+    padding-top: 30px;
+}
+
+.BodyParSetupColumnWidth
+{
+    width: 25% !important;
+}
+
+.GridPanel_PaddingTop
+{
+    margin-top: 30px;
+}
+
+.Buttons_PaddingTop
+{
+    margin-top: 30px;
+}
+
+.Panel_HoursMaintenance_MarginRight
+{
+    margin-right: 5px;
+}
+
+.x-form-item-default.x-item-disabled
+{
+    opacity: 0.8 !important;
+}
+
+#Panel_Comments-innerCt
+{
+    padding-top: 11px !important;
+    padding-left: 0px !important;
+}
+
+li.active:not(#SettingsSideBar)
+{
+    /*background-color: #3fb554 !important;*/
+    background-color: #5A9EEC;
+}
+
+li.active:not(#SettingsSideBar) > a
+{
+    color: white !important;
+    /*background-color:#4990E2 !important;*/
+    background-color:#468bda  !important;
+}
+
+.NotesButton
+{
+    margin-top: 7px !important;
+    height: 24px !important;
+}
+
+.NotesAssessmentButton
+{
+    height: 24px !important;
+}
+
+.NotesBalanceButton
+{
+    height: 24px !important;
+}
+
+.InsuranceButton
+{
+    margin-top: 7px !important;
+}
+
+.margin-logo
+{
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+}
+
+.Class_CX
+{
+    color: orange !important;
+}
+
+.Class_NS
+{
+    color: red !important;
+}
+
+.Class_OK
+{
+    color: green !important;
+}
+
+.x-form-item-label-default
+{
+    color: black !important;
+}
+
+.x-form-item-default.x-item-disabled
+{
+    opacity: 1 !important;
+}
+
+.Yellow
+{
+    background-color: yellow !important;
+}
+
+.Red
+{
+    background-color: red;
+    color: white;
+}
+
+.Blue
+{
+    background-color: deepskyblue;
+}
+
+.Purple
+{
+    background-color: darkviolet;
+}
+
+.Black
+{
+    color: black !important;
+}
+
+.White
+{
+    color: white;
+}
+
+#Main label
+{
+    text-align: left !important;
+}
+
+.logout
+{
+    color: blue;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.TextRed
+{
+    color: red;
+}
+
+.red-and-bold
+{
+    color: red !important;
+    font-weight: bolder !important;
+}
+
+.x-toolbar-footer
+{
+    background-color: none !important;
+}
+
+.k-multiselect 
+{
+    display: inline-block;    
+    vertical-align: middle;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu
+{
+    width: 50px;
+}
+
+.hide-sidebar > #menu
+{
+    width: 50px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .logout_menu {
+    background-image: url('/Icons/logout-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .logout_menu {
+    background-image: url('/Icons/logout-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .patient_menu {
+    background-image: url('/Icons/patient-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .patient_menu {
+    background-image: url('/Icons/patient-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .schedule_menu {
+    background-image: url('/Icons/schedule-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .schedule_menu {
+    background-image: url('/Icons/schedule-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .statistics_menu {
+    background-image: url('/Icons/statistics-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .statistics_menu {
+    background-image: url('/Icons/statistics-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .reports_menu {
+    background-image: url('/Icons/reports-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .reports_menu {
+    background-image: url('/Icons/reports-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .receipts_menu {
+    background-image: url('/Icons/receipt-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .receipts_menu {
+    background-image: url('/Icons/receipt-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .first_visit_menu {
+    background-image: url('/Icons/first-visit-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .first_visit_menu {
+    background-image: url('/Icons/first-visit-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > .settings_menu {
+    background-image: url('/Icons/settings-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .settings_menu {
+    background-image: url('/Icons/settings-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > .hours_menu {
+    background-image: url('/Icons/hours-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .hours_menu {
+    background-image: url('/Icons/hours-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > .notes_menu {
+    background-image: url('/Icons/notes-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .notes_menu {
+    background-image: url('/Icons/notes-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > .doctor_menu {
+    background-image: url('/Icons/doctor-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .doctor_menu {
+    background-image: url('/Icons/doctor-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > .pcp_menu {
+    background-image: url('/Icons/pcp-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .pcp_menu {
+    background-image: url('/Icons/pcp-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > .user_menu {
+    background-image: url('/Icons/user-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .user_menu {
+    background-image: url('/Icons/user-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > .role_menu {
+    background-image: url('/Icons/roles-black.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .role_menu {
+    background-image: url('/Icons/roles-white.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > .icd_menu {
+    /*background-image: url('/Icons/roles-black.png');*/
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li.active > .icd_menu {
+    /*background-image: url('/Icons/roles-white.png');*/
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 47px;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > a span {
+    display: none;
+}
+
+.hide-sidebar > aside > aside > #navigation > #side-menu > li > ul > li > a span {
+    display: none;
+}
+
+#side-menu > li
+{
+    height: 47px !important;
+}
+
+#side-menu > li > ul > li
+{
+    height: 47px !important;
+}
+
+.divWrapper
+{
+    margin-top: 10px;
+}
+
+.input-group-sm > .input-group-addon
+{
+    height: 18px !important;
+}
+
+.input-group-sm > .input-group-addon.evaluation-date-label
+{
+    padding-right: 5px;
+}
+
+.input-group-sm > .input-group-addon.quality-of-pain-label
+{
+    padding-right: 11px;
+}
+
+.input-group-sm > .input-group-addon.short-rom-label
+{
+    padding-right: 12px;
+}
+
+span.input-group-addon.registration-label,
+.input-group-sm > .input-group-addon.dec-pain-label
+{
+    padding-right: 13px;
+}
+
+.input-group-sm > .input-group-addon.primary-functional-limit,
+.input-group-sm > .input-group-addon.long-rom-label,
+.input-group-sm > .input-group-addon.phone-mobile-label,
+.input-group-sm > .input-group-addon.walking-balance-label
+{
+    padding-right: 15px;
+}
+
+.input-group-sm > .input-group-addon.pcp-label
+{
+    padding-right: 16px;
+}
+
+span.input-group-addon.date-started-label,
+.input-group-sm > .input-group-addon.socialHistory-label,
+.input-group-sm > .input-group-addon.short-muscle-label
+{
+    padding-right: 17px;
+}
+
+.input-group-sm > .input-group-addon.office-doctor-label
+{
+    padding-right: 18px;
+}
+
+.input-group-sm > .input-group-addon.phone-home-label,
+.input-group-sm > .input-group-addon.policy-label
+{
+    padding-right: 19px;
+}
+
+.input-group-sm > .input-group-addon.long-muscle-label
+{
+    padding-right: 20px;
+}
+
+.input-group-sm > .input-group-addon.dob-label
+{
+    padding-right: 21px;
+}
+
+.input-group-sm > .case-poc-cert-label,
+.input-group-sm > .case-referring-doctor-label,
+.input-group-sm > .input-group-addon.relationship-label
+{
+    padding-right: 23px;
+}
+
+.input-group-sm > .input-group-addon.sitting-balance-label,
+.input-group-sm > .input-group-addon.phone-work-label
+{
+    padding-right: 24px;
+}
+span.input-group-addon.license-expiry-label,
+.input-group-sm > .input-group-addon.precaution-label,
+.input-group-sm > .input-group-addon.treat-weeks-label
+{
+    padding-right: 26px;
+}
+
+
+span.input-group-addon.postal-code-label,
+.input-group-sm > .input-group-addon.pain-at-rest-label
+{
+    padding-right: 27px;
+}
+
+span.input-group-addon.license-label
+{
+    padding-right: 29px;
+}
+
+.input-group-sm > .case-primary-doctor-label,
+.input-group-sm > .input-group-addon.obj-test-performed
+{
+    padding-right: 31px;
+}
+
+.input-group-sm > .input-group-addon.adl-label,
+.input-group-sm > .input-group-addon.firstname-label
+{
+    padding-right: 32px;
+}
+
+span.input-group-addon.user-comment-label,
+.input-group-sm > .input-group-addon.rec-treat-label,
+.input-group-sm > .input-group-addon.lastname-label
+{
+    padding-right: 33px;
+}
+
+span.input-group-addon.house-o-label,
+span.input-group-addon.username-label
+{
+    padding-right: 35px;
+}
+
+span.input-group-addon.credential-label,
+.input-group-sm > .input-group-addon.comment-label,
+.input-group-sm > .input-group-addon.insurance-label
+{
+    padding-right: 37px;
+}
+
+.input-group-sm > .file-name-label
+{
+    padding-right: 38px;
+}
+
+.input-group-sm > .case-poc-due-label,
+.input-group-sm > .input-group-addon.special-test-label
+{
+    padding-right: 39px;
+}
+
+.input-group-sm > .case-patient-name-label,
+.input-group-sm > .input-group-addon.short-add2-label,
+.input-group-sm > .input-group-addon.short-add1-label
+{
+    padding-right: 40px;
+}
+
+.input-group-sm > .input-group-addon.special2-test-label
+{
+    padding-right: 41px;
+}
+
+.input-group-sm > .input-group-addon.long-add1-label,
+.input-group-sm > .input-group-addon.long-add2-label
+{
+    padding-right: 43px;
+}
+
+.input-group-sm > .input-group-addon.address-label
+{
+    padding-right: 47px;
+}
+
+span.input-group-addon.street2-label,
+span.input-group-addon.street1-label,
+.input-group-sm > .input-group-addon.gender-label
+{
+    padding-right: 51px;
+}
+
+.input-group-sm > .input-group-addon.palpation-label
+{
+    padding-right: 54px;
+}
+
+.input-group-sm > .input-group-addon.height-label
+{
+    padding-right: 55px;
+}
+
+.input-group-sm > .input-group-addon.phone-label
+{
+    padding-right: 57px;
+}
+
+.input-group-sm > .input-group-addon.assessment-label,
+.input-group-sm > .input-group-addon.copay-label
+{
+    padding-right: 58px;
+}
+
+span.input-group-addon.password-label
+{
+    padding-right: 59px;
+}
+
+.input-group-sm > .input-group-addon.proj-goal-status
+{
+    padding-right: 60px;
+}
+
+span.input-group-addon.rate-label,
+.input-group-sm > .case-insurance-label
+{
+    padding-right: 62px;
+}
+
+.input-group-sm > .input-group-addon.objComments-label,
+.input-group-sm > .input-group-addon.vitals-label,
+.input-group-sm > .input-group-addon.posture-label
+{
+    padding-right: 63px;
+}
+
+.input-group-sm > .input-group-addon.exercise-perform-label,
+.input-group-sm > .input-group-addon.state-label
+{
+    padding-right: 64px;
+}
+
+.input-group-sm > .input-group-addon.dme-label
+{
+    padding-right: 65px;
+}
+
+span.input-group-addon.total-patients-label,
+.input-group-sm > .input-group-addon.severity-rationale
+{
+    padding-right: 66px;
+}
+
+.input-group-sm > .input-group-addon.year-label
+{
+    padding-right: 67px;
+}
+
+span.input-group-addon.role-label
+{
+    padding-right: 69px;
+}
+
+.input-group-sm > .input-group-addon.ssn-label
+{
+    padding-right: 70px;
+}
+
+.input-group-sm > .input-group-addon.city-label
+{
+    padding-right: 72px;
+}
+
+span.input-group-addon.fax-label,
+span.input-group-addon.total-copay-label,
+.input-group-sm > .input-group-addon.zip-label
+{
+    padding-right: 75px;
+}
+
+span.input-group-addon.ok-patients-label
+{
+    padding-right: 76px;
+}
+
+span.input-group-addon.ns-patients-label,
+span.input-group-addon.cx-patients-label
+{
+    padding-right: 79px;
+}
+
+.input-group-sm > .input-group-addon.id-label,
+.input-group-sm > .input-group-addon.patient-status-label
+{
+    padding-right: 80px;
+}
+
+span.input-group-addon.date-from-label
+{
+    padding-right: 82px;
+}
+
+.input-group-sm > .input-group-addon.patientEducation-label,
+.input-group-sm > .input-group-addon.standardTest
+{
+    padding-right: 83px;
+}
+
+.input-group-sm > .case-vists-label,
+span.input-group-addon.discipline-label
+{
+    padding-right: 88px;
+}
+
+.input-group-sm > .case-label,
+.input-group-sm > .case-dob-label
+{
+    padding-right: 90px;
+}
+
+.input-group-sm > .input-group-addon.pmh-label
+{
+    padding-right: 92px;
+}
+
+.input-group-sm > .input-group-addon.psh-label
+{
+    padding-right: 96px;
+}
+
+span.input-group-addon.date-to-label,
+.input-group-sm > .input-group-addon.current-status
+{
+    padding-right: 98px;
+}
+
+.input-group-sm > .input-group-addon.prognosis-label
+{
+    padding-right: 128px;
+}
+
+.input-group-sm > .input-group-addon.subj-complaint-label
+{
+    padding-right: 140px;
+}
+
+#CreateEvaluationTab > .k-content > div,
+#UpdateEvaluationTab > .k-content > div,
+#UpdateDailyNoteTab > .k-content > div,
+#CreateDailyNoteTab > .k-content > div,
+#CreateReEvaluationNoteTab > .k-content > div,
+#UpdateReEvaluationNoteTab > .k-content > div,
+#CreateDischargeTab > .k-content > div,
+#UpdateDischargeTab > .k-content > div,
+#CreateCommunicationNoteTab > .k-content > div,
+#UpdateCommunicationNoteTab > .k-content > div,
+#CreateProgressNoteTab > .k-content > div,
+#UpdateProgressNoteTab > .k-content > div {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#CreateCommunicationNoteTab > .k-content,
+#UpdateCommunicationNoteTab > .k-content,
+#CreateEvaluationTab > .k-content,
+#UpdateEvaluationTab > .k-content,
+#UpdateDailyNoteTab > .k-content,
+#CreateDailyNoteTab > .k-content,
+#CreateReEvaluationNoteTab > .k-content,
+#UpdateReEvaluationNoteTab > .k-content,
+#CreateDischargeTab > .k-content,
+#UpdateDischargeTab > .k-content,
+#CreateProgressNoteTab > .k-content,
+#UpdateProgressNoteTab > .k-content {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#CreateCommunicationNoteTab > .k-content > div > div > div,
+#UpdateCommunicationNoteTab > .k-content > div > div > div,
+#CreateEvaluationTab > .k-content > div > div > div,
+#UpdateEvaluationTab > .k-content > div > div > div,
+#UpdateDailyNoteTab > .k-content > div > div > div,
+#CreateDailyNoteTab > .k-content > div > div > div,
+#CreateDischargeTab > .k-content > div > div > div,
+#UpdateDischargeTab > .k-content > div > div > div,
+#CreateReEvaluationNoteTab > .k-content > div > div > div,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div, 
+#CreateProgressNoteTab > .k-content > div > div > div,
+#UpdateProgressNoteTab > .k-content > div > div > div,
+#CreatePrimaryFunctionalLimitation > div > div,
+#CreateObjectiveTest > div > div,
+#CreateStatus > div > div,
+#CreateNewPMH > div > div, 
+#CreateNewDME > div > div, 
+#CreateNewPSH > div > div, 
+#CreateNewBalance > div > div,
+#CreateNewSpecialTest > div > div,
+#CreateNewExercisesPerformed > div > div,
+#CreateNewMedications > div > div,
+#PrintMultipleProgressNotes > div > div,
+#formPrintFlowsheet > div > div
+{
+    padding: 0px;
+}
+
+
+#CreateCommunicationNoteTab > .k-content,
+#UpdateCommunicationNoteTab > .k-content,
+#CreateEvaluationTab > .k-content,
+#UpdateEvaluationTab > .k-content,
+#UpdateDailyNoteTab > .k-content,
+#CreateDailyNoteTab > .k-content,
+#CreateReEvaluationNoteTab > .k-content,
+#UpdateReEvaluationNoteTab > .k-content,
+#CreateDischargeTab > .k-content,
+#UpdateDischargeTab > .k-content,
+#CreateProgressNoteTab > .k-content,
+#UpdateProgressNoteTab > .k-content {
+    padding: 15px;
+}
+
+#CreateCommunicationNoteTab > .k-content > div > .col-md-12,
+#UpdateCommunicationNoteTab > .k-content > div > .col-md-12,
+#CreateEvaluationTab > .k-content > div > .col-md-12,
+#UpdateEvaluationTab > .k-content > div > .col-md-12,
+#CreateReEvaluationNoteTab > .k-content > div > .col-md-12,
+#UpdateReEvaluationNoteTab > .k-content > div > .col-md-12, 
+#UpdateDailyNoteTab > .k-content > div > .col-md-12,
+#CreateDailyNoteTab > .k-content > div > .col-md-12,
+#CreateDischargeTab > .k-content > div > .col-md-12,
+#UpdateDischargeTab > .k-content > div > .col-md-12,
+#CreateProgressNoteTab > .k-content > div > .col-md-12,
+#UpdateProgressNoteTab > .k-content > div > .col-md-12  
+{
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#CopyToForm > div > .col-md-12
+{
+    padding: 0;
+}
+
+#CreateCommunicationNoteTab > .k-content > div > div > .col-md-12,
+#UpdateCommunicationNoteTab > .k-content > div > div > .col-md-12,
+#CreateEvaluationTab > .k-content > div > div > .col-md-12,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-12,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-12,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-12,
+#CreateDischargeTab > .k-content > div > div > .col-md-12,
+#UpdateDischargeTab > .k-content > div > div > .col-md-12,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-12,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-12,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-12,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-12 {
+    width: 100%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-12.page2,
+#CreateEvaluationTab > .k-content > div > div > .col-md-12.page3,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-12.page2,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-12.page3,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-12.page2,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-12.page3,
+#CreateDischargeTab > .k-content > div > div > .col-md-12.page2,
+#CreateDischargeTab > .k-content > div > div > .col-md-12.page3,
+#UpdateDischargeTab > .k-content > div > div > .col-md-12.page2,
+#UpdateDischargeTab > .k-content > div > div > .col-md-12.page3,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-12.page2,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-12.page3,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-12.page2,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-12.page3,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-12.page2,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-12.page2,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-12.page3,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-12.page3
+{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#CreateNewPMH > div > .col-md-11,
+#CreateNewDME > div > .col-md-11,
+#CreateNewPSH > div > .col-md-11{
+    width: 88%;
+}
+
+#CreateNewBalance > div > .col-md-10,
+#CreateNewSpecialTest > div > .col-md-10,
+#CreateNewMedications > div > .col-md-10{
+    padding: 0;
+    width: 85%;
+}
+
+#CreateCommunicationNoteTab > .k-content > div > div > .col-md-10,
+#UpdateCommunicationNoteTab > .k-content > div > div > .col-md-10,
+#CreateEvaluationTab > .k-content > div > div > .col-md-10,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-10,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-10,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-10,
+#CreateDischargeTab > .k-content > div > div > .col-md-10,
+#UpdateDischargeTab > .k-content > div > div > .col-md-10,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-10,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-10,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-10,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-10 {
+    width: 80%;
+}
+
+#UpdateDailyNoteTab > .k-content > div > div > div > .col-md-10,
+#CreateDailyNoteTab > .k-content > div > div > div > .col-md-10     
+{
+    width: 75%;
+    padding-left: 0;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-10.page2,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-10.page2,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-10.page2,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-10.page2,
+#CreateDischargeTab > .k-content > div > div > .col-md-10.page2,
+#UpdateDischargeTab > .k-content > div > div > .col-md-10.page2,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-10.page2,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-10.page2,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-10.page2,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-10.page2 {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-9,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-9,
+#CreateDischargeTab > .k-content > div > div > .col-md-9,
+#UpdateDischargeTab > .k-content > div > div > .col-md-9,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-9,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-9,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-9,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-9 {
+    width: 72%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-8,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-8,
+#CreateDischargeTab > .k-content > div > div > .col-md-8,
+#UpdateDischargeTab > .k-content > div > div > .col-md-8,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-8,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-8,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-8,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-8 {
+    width: 80%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-7,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-7,
+#CreateDischargeTab > .k-content > div > div > .col-md-7,
+#UpdateDischargeTab > .k-content > div > div > .col-md-7,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-7,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-7,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-7,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-7 {
+    width: 56%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-6,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-6,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-6,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-6,
+#CreateDischargeTab > .k-content > div > div > .col-md-6,
+#UpdateDischargeTab > .k-content > div > div > .col-md-6,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-6,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-6,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-6,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-6 {
+    width: 50%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-6.page2,
+#CreateEvaluationTab > .k-content > div > div > .col-md-6.page3,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-6.page2,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-6.page3,
+#CreateDischargeTab > .k-content > div > div > .col-md-6.page2,
+#CreateDischargeTab > .k-content > div > div > .col-md-6.page3,
+#UpdateDischargeTab > .k-content > div > div > .col-md-6.page2,
+#UpdateDischargeTab > .k-content > div > div > .col-md-6.page3
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-2,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-2,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-3,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-3,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-6.page2,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-6.page3,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-6.page2,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-6.page3
+{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-5,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-5,
+#CreateDischargeTab > .k-content > div > div > .col-md-5,
+#UpdateDischargeTab > .k-content > div > div > .col-md-5,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-5,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-5,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-5,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-5 {
+    width: 40%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > div > .col-md-4,
+#UpdateEvaluationTab > .k-content > div > div > div > .col-md-4,
+#CreateDischargeTab > .k-content > div > div > div > .col-md-4,
+#UpdateDischargeTab > .k-content > div > div > div > .col-md-4,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-4,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-4,
+#CreateProgressNoteTab > .k-content > div > div > div > .col-md-4,
+#UpdateProgressNoteTab > .k-content > div > div > div > .col-md-4 {
+    width: 30.4%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-4,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-4,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-4,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-4,
+#CreateDischargeTab > .k-content > div > div > .col-md-4,
+#UpdateDischargeTab > .k-content > div > div > .col-md-4,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-4,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-4,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-4,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-4 {
+    width: 32%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-4.rlb, 
+#UpdateEvaluationTab > .k-content > div > div > .col-md-4.rlb,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-4.rlb,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-4.rlb,
+#UpdateDischargeTab > .k-content > div > div > .col-md-4.rlb,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-4.rlb,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-4.rlb,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-4.rlb,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-4.rlb
+{
+    width: 30.4%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-4.page3,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-4.page3,
+#CreateDischargeTab > .k-content > div > div > .col-md-4.page3,
+#UpdateDischargeTab > .k-content > div > div > .col-md-4.page3
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-4.page3,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-4.page3,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-4.page3,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-4.page3
+{
+    width: 33%;
+}
+
+#CreateCommunicationNoteTab > .k-content > div > div > .col-md-3,
+#UpdateCommunicationNoteTab > .k-content > div > div > .col-md-3,
+#CreateEvaluationTab > .k-content > div > div > .col-md-3,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-3,
+#CreateDischargeTab > .k-content > div > div > .col-md-3,
+#UpdateDischargeTab > .k-content > div > div > .col-md-3,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-3,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-3,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-3,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-3,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-3,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-3 {
+    width: 25%;
+    margin-right: 10px;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-3.page3,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-3.page3,
+#CreateDischargeTab > .k-content > div > div > .col-md-3.page3,
+#UpdateDischargeTab > .k-content > div > div > .col-md-3.page3,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-3.page3,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-3.page3,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-3.page3,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-3.page3
+{
+    width: 25%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-2,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-2,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-2,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-2,
+#CreateDischargeTab > .k-content > div > div > .col-md-2,
+#UpdateDischargeTab > .k-content > div > div > .col-md-2,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-2,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-2,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-2,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-2
+{
+    width: 16%;    
+    margin-right: 10px;
+}
+
+
+#UpdateDailyNoteTab > .k-content > div > div > div > .col-md-2,
+#CreateDailyNoteTab > .k-content > div > div > div > .col-md-2,
+#CreateDischargeTab > .k-content > div > div > div > .col-md-2,
+#UpdateDischargeTab > .k-content > div > div > div > .col-md-2,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-2,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-2,
+#CreateProgressNoteTab > .k-content > div > div > div > .col-md-2,
+#UpdateProgressNoteTab > .k-content > div > div > div > .col-md-2 {
+    width: 12%;
+    padding-right: 0;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-2.page2,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-2.page2,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-2.page2,
+#CreateDischargeTab > .k-content > div > div > .col-md-2.page2,
+#UpdateDischargeTab > .k-content > div > div > .col-md-2.page2,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-2.page2,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-2.page2,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-2.page2,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-2.page2 {
+    width: 20%;
+}
+
+#CreateNewPMH > div > .col-md-1,
+#CreateNewDME > div > .col-md-1,
+#CreateNewPSH > div > .col-md-1 {
+    width: 8%;
+}
+
+#CreateNewBalance > div > .col-md-2,
+#CreateNewSpecialTest > div > .col-md-2,
+#CreateNewMedications > div > .col-md-2 {
+    padding-left:0;
+    width: 8% !important;
+}
+
+#UpdateDischargeTab > .k-content > div > div > .col-md-6.office-doctor,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-6.office-doctor,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-6.office-doctor,
+#CreateDischargeTab > .k-content > div > div > .col-md-6.office-doctor,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-6.office-doctor,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-6.office-doctor,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-6.office-doctor,
+#CreateEvaluationTab > .k-content > div > div > .col-md-6.office-doctor,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-6.office-doctor,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-6.office-doctor {
+    padding-left: 2%;
+    padding-right: 0;
+}
+
+#UpdateDischargeTab > .k-content > div > div > .col-md-6.first-name,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-6.first-name,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-6.first-name,
+#CreateDischargeTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#CreateDischargeTab > .k-content > div > div > .col-md-6.first-name,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-6.first-name,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-6.first-name,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-6.first-name,
+#CreateEvaluationTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#CreateEvaluationTab > .k-content > div > div > .col-md-6.first-name #UpdateEvaluationTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#UpdateDischargeTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-6.secondary-diagnosis,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-6.first-name,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-6.first-name {
+    padding-right: 0;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-4.evaluation-date,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-4.evaluation-date,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-4.evaluation-date,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-4.evaluation-date,
+#CreateDischargeTab > .k-content > div > div > .col-md-4.evaluation-date,
+#UpdateDischargeTab > .k-content > div > div > .col-md-4.evaluation-date,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-4.evaluation-date,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-4.evaluation-date,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-4.evaluation-date,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-4.evaluation-date {
+    margin-right: 10px;
+}
+
+#CreateEvaluationTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#UpdateDailyNoteTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#CreateDailyNoteTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#UpdateEvaluationTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#CreateDischargeTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#UpdateDischargeTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#CreateReEvaluationNoteTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#UpdateReEvaluationNoteTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#CreateProgressNoteTab > .k-content > div > div > .col-md-4.pain-with-activity,
+#UpdateProgressNoteTab > .k-content > div > div > .col-md-4.pain-with-activity {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb,
+#UpdateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb,
+#UpdateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb,
+#CreateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb,
+#CreateReEvaluationNoteTab > .k-content > div > div > div.radio-buttons-rlb,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div.radio-buttons-rlb,
+#CreateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb,
+#UpdateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb {
+    margin-top: 7px;
+    width: 100%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > div > div.radio-buttons-discipline,
+#UpdateEvaluationTab > .k-content > div > div > div > div.radio-buttons-discipline,
+#UpdateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-discipline,
+#CreateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-discipline,
+#CreateDischargeTab > .k-content > div > div > div > div.radio-buttons-discipline,
+#UpdateDischargeTab > .k-content > div > div > div > div.radio-buttons-discipline,
+#CreateReEvaluationNoteTab > .k-content > div > div > div.radio-buttons-discipline,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div.radio-buttons-discipline,
+#CreateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-discipline,
+#UpdateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-discipline {
+    margin-top: 7px;
+    width: 100%;
+}
+
+#CreateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#UpdateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#UpdateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#CreateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#CreateDischargeTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#UpdateDischargeTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#CreateReEvaluationNoteTab > .k-content > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#CreateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label,
+#UpdateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > label.k-radio-label {
+    margin-left: 10px;
+}
+
+textarea#DocumentPath.form-control,
+textarea#PaymentComment,
+textarea#BillComment,
+#CreateEvaluationTab > .k-content > div > div > div > #PatientEducation,
+#CreateDischargeTab > .k-content > div > div > div > #PatientEducation,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #PatientEducation,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #PatientEducation,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #ObjectiveComments,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #ObjectiveComments,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #SecondaryDiagnosis,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #SecondaryDiagnosis,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #SeverityRationale,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #SeverityRationale,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #Vitals,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #Vitals,
+#CreateProgressNoteTab > .k-content > div > div > div > #PatientEducation,
+#CreateEvaluationTab > .k-content > div > div > div > #ObjectiveComments,
+#CreateDischargeTab > .k-content > div > div > div > #ObjectiveComments,
+#UpdateDischargeTab > .k-content > div > div > div > #PatientEducation,
+#UpdateDischargeTab > .k-content > div > div > div > #ObjectiveComments,
+#UpdateDischargeTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#UpdateDischargeTab > .k-content > div > div > div > div > #SeverityRationale,
+#CreateProgressNoteTab > .k-content > div > div > div > #ObjectiveComments,
+#UpdateEvaluationTab > .k-content > div > div > div > #PatientEducation,
+#UpdateProgressNoteTab > .k-content > div > div > div > #PatientEducation,
+#UpdateEvaluationTab > .k-content > div > div > div > #ObjectiveComments,
+#UpdateProgressNoteTab > .k-content > div > div > div > #ObjectiveComments,
+#CreateEvaluationTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#CreateEvaluationTab > .k-content > div > div > div > div > #SeverityRationale,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#CreateDailyNoteTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#UpdateDailyNoteTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#CreateDischargeTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #SecondaryDiagnosis,
+#CreateEvaluationTab > .k-content > div > div > div > div > #SeverityRationale,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #SeverityRationale,
+#CreateDischargeTab > .k-content > div > div > div > div > #SeverityRationale,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #SeverityRationale,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #SeverityRationale,
+#CreateNewPatientForm > div > div > div > #Comments,
+textarea#ReferralComment.form-control,
+textarea#Comment.k-textbox,
+#CreateNewPatientForm > div > div > div > #Address,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #Vitals,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #Vitals,
+#CreateDischargeTab > .k-content > div > div > div > div > #Vitals,
+#UpdateDischargeTab > .k-content > div > div > div > div > #Vitals,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #Vitals,
+#CreateEvaluationTab > .k-content > div > div > div > div > #Vitals,
+#updateAccountInfoForm > div > div > div > div > textarea#Comments {
+    /*height: 60px;*/
+    min-height: 60px;
+    resize: vertical;
+}
+
+textarea#Address1.form-control {
+    /*height: 70px;*/
+    min-height: 70px;
+    resize: vertical;
+}
+
+textarea#TextValue{
+    min-height:110px;
+    resize:none;
+}
+
+#CreateEvaluationTab > .k-content > div > div > div > div > #Assessment,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #Assessment,
+#CreateEvaluationTab > .k-content > div > div > div > #SubjectiveComplaint,
+#UpdateEvaluationTab > .k-content > div > div > div > #SubjectiveComplaint,
+#CreateDailyNoteTab > .k-content > div > div > div > div > #SubjectiveComplaint,
+#UpdateDailyNoteTab > .k-content > div > div > div > div > #SubjectiveComplaint,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #SubjectiveComplaint,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #SubjectiveComplaint,
+#CreateProgressNoteTab > .k-content > div > div > div > #SubjectiveComplaint,
+#CreateDischargeTab > .k-content > div > div > div > #SubjectiveComplaint,
+#UpdateProgressNoteTab > .k-content > div > div > div > #SubjectiveComplaint,
+#UpdateDischargeTab > .k-content > div > div > div > #SubjectiveComplaint,
+#CreateDailyNoteTab > .k-content > div > div > div > div > #Assessment,
+#UpdateDailyNoteTab > .k-content > div > div > div > div > #Assessment,
+#CreateDischargeTab > .k-content > div > div > div > div > #Assessment,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #Assessment,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #Assessment,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #Assessment,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #Assessment,
+#UpdateDischargeTab > .k-content > div > div > div > div > #Assessment,
+#CreateEvaluationTab > .k-content > div > div > div > div > #MedicalDiagnosis,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #MedicalDiagnosis,
+#CreateDischargeTab > .k-content > div > div > div > div > #MedicalDiagnosis,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #MedicalDiagnosis,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #MedicalDiagnosis,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #MedicalDiagnosis,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #MedicalDiagnosis,
+#UpdateDischargeTab > .k-content > div > div > div > div > #MedicalDiagnosis,
+#CreateDischargeTab > .k-content > div > div > div > div > #StandardizedTest,
+#CreateDischargeTab > .k-content > div > div > div > div > #OtherAreas,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #StandardizedTest,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #StandardizedTest,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #StandardizedTest,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #StandardizedTest,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #StandardizedTest,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > div > #OtherAreas,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > div > #OtherAreas,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #OtherAreas,
+#CreateEvaluationTab > .k-content > div > div > div > div > #StandardizedTest,
+#CreateEvaluationTab > .k-content > div > div > div > div > #OtherAreas,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #StandardizedTest,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #OtherAreas,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #StandardizedTest,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #OtherAreas,
+#UpdateDischargeTab > .k-content > div > div > div > div > #StandardizedTest,
+#UpdateDischargeTab > .k-content > div > div > div > div > #OtherAreas,
+#CreateEvaluationTab > .k-content > div > div > div > div > #Precautions,
+#CreateEvaluationTab > .k-content > div > div > div > div > #SocialHistory,
+#CreateDischargeTab > .k-content > div > div > div > div > #Precautions,
+#CreateDischargeTab > .k-content > div > div > div > div > #SocialHistory,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #Precautions,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #Precautions,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #Precautions,
+#CreateProgressNoteTab > .k-content > div > div > div > div > #SocialHistory,
+#CreateReEvaluationNoteTab > .k-content > div > div > div > #SocialHistory,
+#UpdateReEvaluationNoteTab > .k-content > div > div > div > #SocialHistory,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #Precautions,
+#UpdateEvaluationTab > .k-content > div > div > div > div > #SocialHistory,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #Precautions,
+#UpdateProgressNoteTab > .k-content > div > div > div > div > #SocialHistory,
+#UpdateDischargeTab > .k-content > div > div > div > div > #Precautions,
+#UpdateDischargeTab > .k-content > div > div > div > div > #SocialHistory,
+#CreateDailyNoteTab > .k-content > div > div > div > #Objective,
+#UpdateDailyNoteTab > .k-content > div > div > div > #Objective,
+form#CreateNewPCP > div.k-edit-form-container > div.k-edit-field > textarea#Comment.k-textbox,
+#CreateObjectiveTest > div > div > div #objectiveTestValue,
+#CreatePrimaryFunctionalLimitation > div > div > div #PrimaryFunctionalLimitationValue,
+#CreateStatus > div > div > div #statusValue,
+textarea#BehaviorDuringSessionSp.form-control,
+textarea#HomeworkcommentsSp.form-control,
+textarea#AdditonalCommentsSp.form-control,
+textarea#SummarySp.form-control,
+textarea#RecommendationsSp.form-control,
+textarea#SeverityRationale.form-control,
+textarea#ReasonForReferral.form-control,
+textarea#OccupationalProfile.form-control,
+textarea#RelevantBackground.form-control,
+textarea#PastTreatmentReceived.form-control,
+textarea#HistoryPresentComplaint,
+textarea#PatientGoals,
+textarea#TreatmentDescription.k-textbox,
+textarea#PediatricComment,
+textarea#InsuranceComment {
+    height: 60px;
+    resize: vertical;
+}
+
+@media (min-width: 1349px) {
+    #CreateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateDischargeTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateDischargeTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio {
+        margin-left: 30px;
+    }
+
+    #CreateEvaluationTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateEvaluationTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateDischargeTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateDischargeTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child) {
+        margin-right: 5%;
+    }
+}
+
+@media (min-width: 1903px) {
+    #CreateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateEvaluationTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateDischargeTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateDischargeTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #CreateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio,
+    #UpdateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-rlb > input.k-radio {
+        margin-left: 60px;
+    }
+
+    #CreateEvaluationTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateEvaluationTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateDailyNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateDischargeTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateDischargeTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateReEvaluationNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #CreateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child),
+    #UpdateProgressNoteTab > .k-content > div > div > div > div.radio-buttons-discipline > label.k-radio-label:not(:last-child) {
+        margin-right: 15%;
+    }
+}
+
+.margin-button{
+    margin-top: 10px !important;
+}
+
+.input-gap-right{
+    margin-right: 10px;
+}
+
+.input-gap-bottom{
+    margin-bottom: 10px;
+}
+
+.utility-add-button{
+    height: 30px;
+    text-align:center !important;
+    border-radius: 3px !important;
+    font-size: 12px !important;
+    width: 124% !important;
+}
+
+#UpdateDailyNoteTab > .utility-add-button {
+    height: 15px !important;
+    text-align: center !important;
+    border-radius: 3px !important;
+    font-size: 12px !important;
+}
+
+.wrap-label{
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+.form-control-num-text{
+    width:100% !important;
+}
+
+.page-header{
+    padding:0;
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+.h3{
+    margin:-5px;
+}
+
+/*span.input-group-addon
+{
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
+}*/
+
+.ok-bg-color{
+    color:#39B741 !important;
+}
+
+.ns-bg-color{
+    color:#FF3939 !important;
+}
+
+.cx-bg-color{
+    color:#FFF440 !important;
+}
+
+/*span.k-dropdown-wrap{
+    height: 27px;
+}*/
+
+
+div.k-widget.k-multiselect,
+div.k.k-multiselect-wrap.k-floatwrap {
+    height: 29px;
+}
+
+.text-align-center{
+    text-align: center;
+}
+
+table#table-pediaFineMotor,
+table#table-pediaSocialEmotionalPlaySelfRegulationDysfunctions,
+table#table-pediaDysfunctions,
+table#table-pediaSelfCare,
+table#table-pediaOralMotorAndRespiratoryControl,
+table#table-pediaAuditoryAndLanguage,
+table#table-pediaVisual,
+table#underlyingImpairmentsLeft_pt,
+table#underlyingImpairmentsRight_pt,
+table#underlyingImpairmentsLeft_Ot,
+table#underlyingImpairmentsRight_Ot,
+table#functionalDeficitsLeft_pt,
+table#functionalDeficitsRight_pt,
+table#functionalDeficitsLeft_Ot,
+table#functionalDeficitsRight_Ot,
+table#functionalLimitationsTbl,
+table#functionalDeficitsLeft_st,
+table#pediatric-section,
+table#sensory-pediatric,
+table#sensory-pediatric-VMI,
+table#sensory-pediatric-motorfree,
+table#sensory-pediatric-reyOsterreith,
+table#sensory-pediatric-bruninks,
+table#sensory-pediatric-sensoryProfile,
+table#sensory-pediatric-motorFunction,
+table#sensory-pediatric-sensorydescrimination,
+table#sensory-pediatric-executivefunctionMultitaskingBehavior,
+table#findings_st {
+    width: 100%;
+    table-layout: fixed;
+}
+
+table#pediatric-section th, td,
+table#sensory-pediatric th, td,
+table#findings_st th, td,
+table#functionalDeficitsLeft_st th, td,
+table#underlyingImpairmentsLeft_pt th, td,
+table#underlyingImpairmentsRight_pt th, td,
+table#underlyingImpairmentsLeft_Ot th, td,
+table#underlyingImpairmentsRight_Ot th, td,
+table#functionalDeficitsLeft_pt th, td,
+table#functionalDeficitsRight_pt th, td,
+table#functionalDeficitsLeft_Ot th, td,
+table#functionalDeficitsRight_Ot th, td,
+table#functionalLimitationsTbl th, td 
+{
+    padding: 5px;
+}
+
+table#pediatric-section tr.border_bottom th,
+table#sensory-pediatric tr.border_bottom th,
+table#findings_st tr.border_bottom th,
+table#functionalDeficitsLeft_st tr.border_bottom th,
+table#underlyingImpairmentsRight_pt tr.border_bottom th,
+table#underlyingImpairmentsLeft_pt tr.border_bottom th,
+table#underlyingImpairmentsRight_Ot tr.border_bottom th,
+table#underlyingImpairmentsLeft_Ot tr.border_bottom th,
+table#functionalDeficitsLeft_pt tr.border_bottom th,
+table#functionalDeficitsRight_pt tr.border_bottom th,
+table#functionalDeficitsLeft_Ot tr.border_bottom th,
+table#functionalDeficitsRight_Ot tr.border_bottom th, 
+table#functionalLimitationsTbl tr.border_bottom th
+{
+  border-bottom:1pt solid black;
+}
+
+table#sensory-pediatric-VMI,
+table#sensory-pediatric-motorfree,
+table#sensory-pediatric-reyOsterreith,
+table#sensory-pediatric-bruninks,
+table#sensory-pediatric-sensoryProfile,
+table#sensory-pediatric-motorFunction,
+table#sensory-pediatric-sensorydescrimination,
+table#sensory-pediatric-executivefunctionMultitaskingBehavior {
+    border-collapse: collapse;
+}
+
+    table#sensory-pediatric-VMI thead tr th,
+    table#sensory-pediatric-motorfree tr th,
+    table#sensory-pediatric-reyOsterreith tr th,
+    table#sensory-pediatric-bruninks tr th,
+    table#sensory-pediatric-sensoryProfile tr th,
+    table#sensory-pediatric-motorFunction tr th,
+    table#sensory-pediatric-sensorydescrimination tr th,
+    table#sensory-pediatric-executivefunctionMultitaskingBehavior tr th {
+        border: 2px solid #d3d3d3;
+        padding: 5px;
+        text-align: center;
+    }
+
+    table#sensory-pediatric-VMI tbody tr td,
+    table#sensory-pediatric-motorfree tr td,
+    table#sensory-pediatric-reyOsterreith tr td,
+    table#sensory-pediatric-bruninks tr td,
+    table#sensory-pediatric-sensoryProfile tr td,
+    table#sensory-pediatric-motorFunction tr td,
+    table#sensory-pediatric-sensorydescrimination tr td,
+    table#sensory-pediatric-executivefunctionMultitaskingBehavior tr td {
+        border: 2px solid #d3d3d3;
+    }
+
+#CreateEvaluationTab-3 div div table tbody tr td input,
+#UpdateEvaluationTab-3 div div table tbody tr td input,
+#CreateReEvaluationNoteTab-3 div div table tbody tr td input,
+#UpdateReEvaluationNoteTab-3 div div table tbody tr td input,
+#CreateDischargeTab-3 div div table tbody tr td input,
+#UpdateDischargeTab-3 div div table tbody tr td input {
+    padding: 0;
+    border-color: transparent;
+    width: 96%;
+}
+
+#CreateEvaluationTab-3 div div table thead tr th.main-title,
+#UpdateEvaluationTab-3 div div table thead tr th.main-title,
+#CreateReEvaluationNoteTab-3 div div table thead tr th.main-title,
+#UpdateReEvaluationNoteTab-3 div div table thead tr th.main-title,
+#CreateDischargeTab-3 div div table thead tr th.main-title,
+#UpdateDischargeTab-3 div div table thead tr th.main-title {
+    background-color: #a8a8a8;
+}
+
+#CreateEvaluationTab-3 div div table thead tr th.sub-title,
+#UpdateEvaluationTab-3 div div table thead tr th.sub-title,
+#CreateReEvaluationNoteTab-3 div div table thead tr th.sub-title,
+#UpdateReEvaluationNoteTab-3 div div table thead tr th.sub-title,
+#CreateDischargeTab-3 div div table thead tr th.sub-title,
+#UpdateDischargeTab-3 div div table thead tr th.sub-title {
+    background-color: lightgray;
+}
+
+
+#CreateNewPatientForm > div > div > div > div.emergencycontact-first
+{
+    padding-left: 0px !important;
+}
+
+#CreateNewPatientForm > div > div > div > div.emergencycontact-second
+{
+    padding-right: 0px !important;
+}
+
+.full-width-dtpicker {
+    width: 100% !important;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+#GridPanel_StaticEventsList_active_cell span.k-widget.k-datetimepicker.k-header.full-width
+{
+    width: 92% !important;
+}
+
+div#window_StaticEvents.k-window-content.k-content div.row{
+    margin:0;
+    width: 97%;
+}
+
+.login-form{
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.login-form input{
+	display: block;
+	margin:0 auto 15px;
+	width:90%;
+	background: #FFF;
+	/*border:1px solid #777;*/
+	color:#6c6c6c;
+	padding: 8px;
+	opacity: .8;
+	-webkit-transition: opacity .5s ease-in-out;
+	-moz-transition: opacity .5s ease-in-out;
+	-o-transition: opacity .5s ease-in-out;
+	transition: opacity .5s ease-in-out;
+}
+.login-form input:focus{
+	opacity:1;
+	border:1px solid #fff;
+}
+
+.login-form.btn{
+    padding-right:10px;
+}
+
+.login-link{
+    padding-left: 25px;
+}
+
+.btn-group{
+    padding-right:25px;
+}
+
+.panel-primary {
+  /*border-color: #448E22;*/
+  border-color: transparent;
+}
+
+
+.panel {
+    border:none;
+}
+.panel-primary > .panel-heading {
+    color: #fff;
+    /*background-color: #51b53f;
+    border-color: #51b53f;*/
+
+    background-color: #6699FF;
+    border-color:#6699FF;
+}
+.panel-primary > .panel-heading + .panel-collapse > .panel-body {
+    
+    /*border-top-color: #51b53f;*/
+    border-top-color: #6699FF;
+    
+}
+.panel-primary > .panel-heading .badge {
+    /*color: #51b53f;*/
+    color: #6699FF;
+    background-color: #fff;
+}
+.panel-primary > .panel-footer + .panel-collapse > .panel-body {
+    /*border-bottom-color: #51b53f;*/
+    border-bottom-color: #6699FF;
+    
+}
+
+.navbar-inverse {
+    /*background-color: #222;*/
+    background-color: #6699FF;
+    border-color: #6699FF;
+    /*height:58px;*/
+}
+
+
+
+.container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+    margin-right: 0;
+    margin-left: 0;
+    /*height: 80px;*/
+}
+
+
+
+/*.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}*/
+.row-login {
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top:150px;
+}
+
+p {
+    /*margin: 0 0 10px;*/
+    color: #5A9EEC;
+    margin-left: 38px;
+}   
+
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    color: whitesmoke;
+    background-color: whitesmoke;
+}
+/*.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+    color: whitesmoke !important;
+}*/
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+    /*color: whitesmoke !important;*/
+    background-color: whitesmoke;
+    width:inherit;
+}
+
+
+.navbar-nav .open .dropdown-menu {
+    position: absolute;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    /*width:400px;*/
+}
+
+.navbar.navbar-static-top a, .nav.navbar-nav li a {
+    color:whitesmoke !important;
+   
+}
+
+.navbar-nav > li > .dropdown-menu {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color:rgb(74, 97, 147) !important;    
+    width:200px;
+   
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    color: rgb(53, 63, 79) !important;    
+    border-color: #6699FF;
+    width:200px;
+}
+
+
+
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+    color: #fff;
+    background-color:#337ab7;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus, .navbar-inverse .navbar-nav > li > a:hover {
+    color: #fff;
+    background-color: #337ab7;
+}
+
+
+
+
+.login-box {
+    max-width: 480px;
+    background-size: 3px 3px;
+    background-color:whitesmoke;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+
+#brandname {    
+    color:whitesmoke;
+}
+
+.blue-color,
+.draft-note
+{
+    color: blue;
+}
+
+.helloNote-blue {
+    color: #5A9EEC;
+}
+
+.green-color,
+.final-note{
+    color: green !important;
+}
+
+.red-color,
+.cancel-note
+{
+    color: red;
+}
+
+.yellow-color,
+.cosign-note
+{
+    color: yellow;
+}
+
+.blue-green-color{
+    color:cyan;
+}
+
+.purple-color,
+.com-note{
+    color:purple !important;
+}
+
+.remove-padding{
+    padding-right:0 !important;
+    padding-left:0 !important;
+}
+
+.k-grid .k-alt {
+    background-color:lightgray;
+}
+
+#ShowLoading {    
+    cursor: wait;
+    position: fixed;
+    margin: auto;
+	width: 130px;
+	height: 130px;
+	z-index: 9999;
+	background: url('/Images/loading-bars.svg') no-repeat;
+    background-position: center center;
+    top: 50%;
+    left: 50%;
+}
+
+.disable-elements
+{
+    opacity: 0.5;
+}
+
+#DivSearchDescription > div > input,
+#DivSearchDescription > div > #btn_SearchDescription,
+#DivSearchDescription > div > #btn_GetICDID
+{
+    width: 100%;
+}
+
+/*#DivSearchDescription > div > #btn_SearchDescription
+{
+    height: 33px;
+}*/
+
+#DivSearchDescription > div > #SearchDescription
+{
+    height: 14px;
+    width: 95%;
+}
+
+#DivSearchDescription > div.col-sm-12,
+#DivSearchDescription
+{
+    margin-top: 1%;
+}
+
+.HideGridHeaders.k-grid .k-header {
+   display: none;
+}
+
+#DivSearchDescription > .col-sm-12
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#DivSearchDescription > div.ICDButtons
+{
+    text-align: right;
+}
+
+/*#DivSearchDescription > .col-sm-8
+{
+    padding-left: 0px;
+}
+
+#DivSearchDescription > .col-sm-2
+{
+    width: 14.3%;
+    padding-right: 0px;
+}*/
+
+.k-grid tr.k-state-selected {
+    color: black !important;
+}
+
+.center-menu {
+    display:table;
+    margin: 0 auto;
+}
+
+#SearchMedicationList > div > #btn_SearchKey {
+    width: 100%;
+}
+
+#SearchMedicationList > div > input {
+    height: 14px;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#SearchMedicationList > .col-md-12 {
+    margin-top: 1%;
+}
+
+#SearchMedicationList > .col-md-10 {
+    width: 75%;
+    padding-right: 0;
+}
+
+#SearchMedicationList > .col-md-2 {
+    padding-right: 0px;
+}
+
+#SearchMedicationList
+{
+    width: 92%;  
+}
+
+#SearchMedicationListRow
+{
+    width: 105%;
+}
+
+#alt_notify{
+    /*opacity: .8;
+    z-index: 10;
+    width: 50%;
+    position: absolute;
+    top: 110px;
+    left: 25%;*/
+    opacity: .8;
+    position:absolute;
+    width: 50%;
+    top:50%;
+    left:50%;
+    margin-left:-480px;
+    margin-top:-270px;
+    z-index:60;
+}
+
+#PatientCase > .k-edit-label,
+#CreateNewAuthorization div > .k-edit-label
+{
+    text-align: left !important;
+    margin: 0px;
+}
+
+#PatientCase > .k-edit-field,
+#CreateNewAuthorization > div > .k-edit-field
+{
+    margin: 0px !important;
+}
+
+#CreateNewAuthorization > .col-md-12.col-sm-12
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#CreateNewPatientCase > .col-md-12.col-sm-12,
+#window_DeleteCase > .col-md-12.col-sm-12,
+#window_DeleteNote > .col-md-12.col-sm-12,
+#window_Notification > .col-md-12.col-sm-12,
+#window_Confirmation > .col-md-12.col-sm-12
+{
+    padding: 0px;
+}
+
+#btn_AddCase
+{
+    margin-bottom: 10px;
+}
+
+.Discharged
+{
+    color: red;
+    background-image: url("/Icons/reddot.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Active
+{
+    color: green;
+    background-image: url('/Icons/greendot.png');
+    background-repeat: no-repeat;
+    padding: 0px !important;
+    background-position: center;
+}
+
+.IsFavorite
+{
+    background-color: yellow;
+}
+
+.Ot{
+    background-image: url('/Icons/ot.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.Pt{
+    background-image: url('/Icons/pt.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.OtPt{
+    background-image: url('/Icons/otpt.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pending-poc-certification
+{
+    color:black;
+    background-color:yellow !important;
+}
+
+.overdue-poc-certification
+{
+    color:black;
+    background-color: red !important;
+}
+
+.complied-poc-certification
+{
+    color:white;
+    background-color: green !important;
+}
+
+.button-add-new
+{
+    width: 15em;
+    height: 2em;
+}
+
+span.input-group-addon.history-present-complain-label
+{
+    padding-right: 96px;
+}
+
+span.input-group-addon.patientGoals-label
+{
+    padding-right: 18px;
+}
+
+.download-wrapper
+{
+    display:block;
+    float:left;
+    clear:both;
+    width:96%;
+    padding: .4em 0 1em;
+    margin-left: 2%;
+    margin-bottom:5px;
+}
+
+div.k-widget.k-multiselect.k-header.form-control
+{
+    height:5% !important;
+}
+
+.k-grid  .k-grid-header  .k-header  .k-link {
+    text-align:center;
+    height: auto;
+}
+  
+.k-grid  .k-grid-header  .k-header {
+    white-space: normal;
+}
+
+i.fa.fa-plus-square
+{
+    color: green
+}
+
+i.fa.fa-pencil-square-o,
+i.fa.fa-eye
+{
+    color:blue
+}
+
+i.fa.fa-pencil
+{
+    color:orange
+}
+
+i.fa.fa-trash
+{
+    color: red
+}
+
+i.fa.fa-print
+{
+    color: black
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 15px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/*input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}*/
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+  width:46px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*.k-grid tbody .k-button{
+    min-width: 20px !important;
+}*/
+
+table.event-width
+{
+    width: 100%;
+    height: 100%;
+}
+
+span#graphDetail.label.label-primary
+{
+    background-color:darkblue;
+}
+
+.window-success.k-window-titlebar
+{
+    background-color: forestgreen;
+}
+
+.window-info.k-window-titlebar
+{
+    background-color: cornflowerblue;
+}
+
+.window-error.k-window-titlebar
+{
+    background-color:red;
+}
+
+.k-button .fa 
+{
+    font-size: inherit;
+    line-height: inherit;
+    width: auto;
+    height: auto;
+    margin-left: 0;
+}
+
+/*Customize code*/
+.k-animation-container, .k-animation-container *, .k-animation-container *::after, .k-block .k-header, .k-list-container, .k-widget, .k-widget *, .k-widget *::before {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    /*color: #333333;*/
+}
+
+.k-menu .k-item, .k-menu.k-header {
+    border-color: #aea717;
+    border-top-color: rgb(174, 167, 23);
+    border-right-color: rgb(174, 167, 23);
+    border-left-color: rgb(174, 167, 23);        
+    /*background-color: #6699FF;*/
+    border: none;
+    /*padding: 5px;*/
+    background-color: #1d222b;
+}
+
+
+
+.dark-menu {    
+
+    /*background-color: #1d222b !important;*/
+    background-color: #777676;
+    
+}
+
+.light-menu {
+
+}
+
+
+
+.navbar-inverse {
+    background-color: #6699FF !important;
+    border-color: #6699FF !important;
+}
+
+/*.light{
+    background-color: #E6E6E6 !important;
+}*/
+
+/*.switchbox{    
+    color: #6699FF !important;
+}*/
+
+.k-dropdown-wrap .k-input, .k-numeric-wrap .k-input, .k-picker-wrap .k-input {
+    border-radius: 1px 0 0 1px;
+    margin-left: 6px;
+}
+
+.k-button .fa 
+{
+    font-size: inherit;
+    line-height: inherit;
+    width: auto;
+    height: auto;
+    margin-left: 0;
+}
+
+a.k-button.k-button-icontext.k-primary.k-grid-update
+{
+    color: #4d4d4d
+}
+
+.hellonote-eligibility-tab
+{
+    padding:0;
+}
+
+.card-information 
+{
+    margin: 15px 0;
+}
+.card-information .row 
+{
+    align-items: center;
+    display: flex;
+}
+
+#billing-row-menu
+{
+    margin-top: -15px;
+}
+
+#Menu_Billing
+{
+    margin-top: -37px;
+    background-color: transparent;
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+#Menu_Billing > li.k-state-selected.dark_nav > a.k-link
+{
+    color: #FFFFFF;
+}
+
+#Menu_Billing > li.k-state-selected.light_nav > a.k-link
+{
+    color: #353F4F;
+}
+
+ol#billing-breadcrumb.breadcrumb
+{
+    padding-left: 53px;
+}
+
+td div.k-grid-header
+{
+    display: none;
+}
+
+.input-group-sm > .input-group-addon.total-minutes-untimed-label
+{
+    padding-right: 52px;
+}
+
+#GridPanel_GoalList.k-grid .k-dirty{
+    display: none;
+}
+
+button#btn_AddGoal.k-button.k-button-icon > span.k-sprite.fa.fa-plus
+{
+    color: green
+}
+
+#GridOfficeUser.k-widget.k-grid div.k-grid-header
+{
+    display: none;
+}
+
+span.input-group-addon.date-to-label,
+span.input-group-addon.date-from-label,
+span.input-group-addon.ns-patients-label,
+span.input-group-addon.cx-patients-label,
+span.input-group-addon.ok-patients-label,
+span.input-group-addon.total-patients-label,
+span.input-group-addon.total-copay-label,
+span.input-group-addon.discipline-label,
+span.input-group-addon.year-label,
+span.input-group-addon.evaluation-date-label,
+span.input-group-addon.dob-label,
+span.input-group-addon.id-label,
+span.input-group-addon.assessment-label,
+span.input-group-addon.patientEducation-label,
+span.input-group-addon.treat-weeks-label,
+span.input-group-addon.prognosis-label,
+span.input-group-addon.rec-treat-label,
+span.input-group-addon.severity-rationale,
+span.input-group-addon.proj-goal-status,
+span.input-group-addon.current-status,
+span.input-group-addon.primary-functional-limit,
+span.input-group-addon.objComments-label,
+span.input-group-addon.objComments-label,
+span.input-group-addon.posture-label,
+span.input-group-addon.palpation-label,
+span.input-group-addon.dme-label,
+span.input-group-addon.exercise-perform-label,
+span.input-group-addon.total-minutes-untimed-label,
+span.input-group-addon.patientGoals-label,
+span.input-group-addon.socialHistory-label,
+span.input-group-addon.bmi-label,
+span.input-group-addon.weight-label,
+span.input-group-addon.height-label,
+span.input-group-addon.history-present-complain-label,
+span.input-group-addon.subj-complaint-label,
+span.input-group-addon.psh-label,
+span.input-group-addon.pmh-label,
+span.input-group-addon.reasonForReferral-label,
+span.input-group-addon.treatmentReceivedinthePast-label,
+span.input-group-addon.relevantBackground-label,
+span.input-group-addon.occupationalProfile-label,
+h5.form-label,
+span.input-group-addon.form-label,
+label.form-label,
+span.input-group-addon.precaution-label,
+span.input-group-addon.vitals-label {
+    color: gray;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+span.k-link
+{
+    color: gray !important;
+}
+
+#btnFillSettings span.k-sprite.fa.fa-magic
+{
+    color: #5A9EEC !important;
+}
+
+#btnFillSettings span.k-sprite.fa.fa-magic
+{
+    color: #5A9EEC !important;
+}
+
+div#ActivationCompleteness.k-widget.k-progressbar.k-progressbar-horizontal ul.k-reset li.k-item.k-state-selected{
+    background-color:yellowgreen;
+}
+
+button#btnAddStatus,
+button#btnSubmitFactor,
+button#btnActivateFactor,
+button#btnSubmitQuestion,
+button#btnSubmitChallenge {
+    color: white;
+    background-color: green;
+    border-color: green;
+}
+
+/*.k-grid .k-auto-scrollable {
+    height: auto !important;
+    overflow-y: visible !important;
+}*/
+
+table#functionalDeficitsLeft_pt,
+table#functionalDeficitsLeft_Ot,
+table#functionalDeficitsRight_pt,
+table#functionalDeficitsRight_Ot,
+table#underlyingImpairmentsLeft_pt,
+table#underlyingImpairmentsLeft_Ot,
+table#underlyingImpairmentsRight_pt,
+table#underlyingImpairmentsRight_Ot {
+    table-layout: fixed;
+}
+
+.toggle-green
+{
+    background-color: forestgreen !important;
+    border-color:forestgreen !important;
+    color: white !important;
+}
+
+.main-menu-icon
+{
+    height: 32px;
+    width:32px;
+}
+
+.scheduler-event-icon 
+{
+    height: 16px;
+    width: 16px;
+}
+
+.xmlIcdFile,
+.excelIcdFile {
+    display: block;
+    margin: 5px auto 5px;
+}
+
+a.k-button.k-button-icontext.k-grid-Unfinalize{
+    color:blue;
+}
+
+a.k-button.k-button-icontext.k-grid-Finalize{
+    color:green;
+}
+
+div.col-md-8.col-sm-8.col-xs-8.info-label{
+    font-size:medium;
+}
+
+.zoomed-element{
+    zoom: 1;
+    -moz-transform: scale(1);
+    -webkit-transform: scale(1);
+}
+
+.card,
+.hellonote-div.card,
+.statistics.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+    .statistics.card.active-patients {
+        background-color: #389af0;    
+    }
+
+    .statistics.card.new-referrals {
+        background-color: #E67D21;
+    }
+
+    .statistics.card.notes-completed {
+        background-color: #4844ad;
+    }
+
+    .statistics.card.pending-cosign {
+        background-color: #28a745;
+    }
+
+div.statistics.card div.stat ul.list-group
+{
+    width: 100%;
+}
+
+ul.list-group.dashboard-list{
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+button#BtnStaticEvents.k-button {
+    background-color: #6699ff;
+    border-color: #6699ff;
+}
+
+span.k-widget.k-colorpicker.k-header
+{
+    width: 60px;
+}
+
+#btnNew_Patient.k-primary.save-button.k-button,
+#btnNew_Patient-bottom.k-primary.save-button.k-button {
+    background-color: #74d348;
+    border-color: #74d348;
+}
+
+label.k-radio-label
+{
+    line-height: 1.4em;
+}
+
+input#IsEveryDay.check-box{
+    margin-left:15px;
+}
+
+span.k-widget.k-datetimepicker.k-header.full-width-dtpicker span.k-picker-wrap.k-state-default
+{
+    width:72%
+}
+
+#GridPanel_Audited > div > div > table > thead > tr > th > label.k-checkbox-label,
+#GridPanel_ReadyToSend > div > div > table > thead > tr > th > label.k-checkbox-label {
+    margin-top: -18px;
+    margin-left: 4px;
+}
+
+#GridPanel_Audited > div.k-grid-content table > tbody > tr > td > input,
+#GridPanel_ReadyToSend > div.k-grid-content table > tbody > tr > td > input {
+    margin-left: 5px;
+}
+
+#collapse-stats > i.fa.fa-times{
+    margin-left:-2px;
+}
+
+div.k-recur-view div.k-edit-field ul.k-reset li{
+    margin-top: 0px;
+}
+
+#IsCheckScheduleTip {
+    background-color: #5a9eec;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    padding: 10px;
+    color: whitesmoke;
+    position: absolute;
+    top: 445px;
+    left: 150px; 
+    z-index:9999;
+}
+
+#IsMedicareToolTip {
+    background-color: #5a9eec;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    padding: 10px;
+    color: whitesmoke;
+    position: absolute;
+    top: 400px;
+    left: 150px;
+    z-index:9999;
+}
+
+span.k-widget.k-autocomplete.k-header.text-box.multi-line{
+    width: 100%;
+}
+
+textarea#BehaviorDuringSessionSp.text-box.multi-line.k-input,
+textarea#HomeworkcommentsSp.text-box.multi-line.k-input,
+textarea#AdditonalCommentsSp.text-box.multi-line.k-input,
+textarea#SummarySp.text-box.multi-line.k-input,
+textarea#RecommendationsSp.text-box.multi-line.k-input,
+textarea#PastTreatmentReceived.text-box.multi-line.k-input,
+textarea#RelevantBackground.text-box.multi-line.k-input,
+textarea#OccupationalProfile.text-box.multi-line.k-input,
+textarea#ComNote.text-box.multi-line.k-input,
+textarea#Objective.text-box.multi-line.k-input,
+textarea#Assessment.text-box.multi-line.k-input,
+textarea#PatientEducation.text-box.multi-line.k-input,
+textarea#SeverityRationale.text-box.multi-line.k-input,
+textarea#ObjectiveComments.text-box.multi-line.k-input,
+textarea#OtherAreas.text-box.multi-line.k-input,
+textarea#PediatricComment.text-box.multi-line.k-input,
+textarea#PatientGoals.text-box.multi-line.k-input,
+textarea#Vitals.text-box.multi-line.k-input,
+textarea#SocialHistory.text-box.multi-line.k-input,
+textarea#Precautions.text-box.multi-line.k-input,
+textarea#HistoryPresentComplaint.text-box.multi-line.k-input,
+textarea#SubjectiveComplaint.text-box.multi-line.k-input,
+textarea#ReasonForReferral.text-box.multi-line.k-input {
+    height: 60px;
+}
+
+li.k-virtual-item.k-item{
+    white-space:pre-wrap !important;
+}
+
+.new-autocomplete-buttons {
+    padding-top:135px;
+    display:block;
+}
+
+.left-gap{
+    margin-left: 5px !important;
+}
+
+#Grid_CopayVisitPaymentReport.k-grid .k-grid-header .k-header .k-link {
+    height: auto;
+}
+
+#Grid_CopayVisitPaymentReport.k-grid .k-grid-header .k-header {
+    white-space: normal;
+}
+
+#Grid_CopayVisitPaymentReport td[role="gridcell"] {
+    white-space: nowrap;
+}
+
+#UpdateEvaluationTab-3 div div table tbody tr td input[type=checkbox],
+#CreateEvaluationTab-3 div div table tbody tr td input[type=checkbox],
+#CreateReEvaluationNoteTab-3 div div table tbody tr td input[type=checkbox],
+#UpdateReEvaluationNoteTab-3 div div table tbody tr td input[type=checkbox],
+#CreateDischargeTab-3 div div table tbody tr td input[type=checkbox],
+#UpdateDischargeTab-3 div div table tbody tr td input[type=checkbox] 
+{
+    width: 5%;
+}

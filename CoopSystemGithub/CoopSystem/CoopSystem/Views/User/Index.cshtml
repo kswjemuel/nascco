@@ -1,0 +1,52 @@
+﻿@using Kendo.Mvc.UI;
+@model CoopSystemWebApp.Models.UserModel
+@{    
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+
+
+<div class="row-login">
+    <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+        <h2 id="brandname">                     
+             NASCCO <strong><sup>&trade;</sup>Sign-in</strong>
+        </h2>
+
+        <div class="login-box clearfix">
+
+            <div class="alert-danger text-center small">
+                <span style="color:red" id="MsgError"><b>@ViewBag.Error</b></span>
+            </div>
+            <div class="alert-success text-center small">
+                <span style="color:dodgerblue" id="MsgSuccess"><b>@ViewBag.Success</b></span>
+            </div>
+            <div class="login-form">
+                @using (Html.BeginForm("Login", "User", FormMethod.Post))
+                {
+                    @Html.TextBoxFor(m => m.Username, new { @placeholder = "Username", @class = "form-control", required = "required", autofocus = "autofocus" })
+                    @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @class = "form-control", required = "required" })
+                    <div class="pull-right">
+                        <div class="btn-group">                           
+                            <button id="btnLogin" class="btn btn-success" type="submit">Login</button>
+                        </div>
+                    </div>
+
+                    <div class="small login-link">                       
+                        @Html.ActionLink("Forgot Password", "ResetPasswordTemplate", "UserAccount")
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    @if (ViewBag.IsMaintenanceMode == "true")
+    {
+        <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4" style="margin-top: 10px;">
+            <span class="label label-warning">
+                <i class="fa fa-exclamation-circle" aria-hidden="true">&nbsp Site is under maintenace.</i>
+            </span>
+        </div>
+    }
+</div>

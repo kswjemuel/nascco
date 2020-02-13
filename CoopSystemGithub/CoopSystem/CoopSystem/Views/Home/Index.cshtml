@@ -1,0 +1,64 @@
+﻿@using Kendo.Mvc.UI;
+@{
+    ViewBag.Title = "Home";
+}
+
+
+
+<div class="row card">    
+    <div class="col-md-12 col-sm-12">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h1 style="color:#f7931d;"><b>BE PRESENT </b></h1>                
+                <h2 class="no-margin semi-bold" style="color:#442060;">When They Need You The Most </h2>
+
+                <p>
+                    When a loved one occurs in the family it comes weighs heavy on everyone. Risala last expense cover will provide financial relief in the time of loss which helps families deal with grief rather than worry about marriage expenses.
+                    We will provide a lump sum of cash required within 48 hours of approval of claim to offset the bills.
+                </p>
+
+            </div>
+            <div class="col-md-6">                
+                <img src="~/Images/splash.jpg" class="img-responsive m-t-20" style="max-width: 350px">
+            </div>
+            <div class="col-md-12">
+                <h3 class="m-t-10 m-b-0 semi-bold" style="color:#442060;">UP TO <span class="bold" style="color:#f7931d;"><b>10</b></span> Family Members Covered </h3>
+                <h4 class="semi-bold m-t-5" style="color:#442060;">Here and Back At Home </h4>
+                <p>Includes principal, spouse, max of four children, parents and parents in law below 75 years</p>
+                @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+            </div>
+            <div class="col-md-8">
+                <h1 class="m-t-20 m-b-0 bold" style="color:#f7931d;">THE DEAL</h1>
+                <h2 class="no-margin semi-bold" style="color:#442060;">What the Package Covers </h2>
+                <p>CIC Group marriage plan provides for the payment of a fixed amount upon the demise of any declared member to cater for the costs of arranging the marriage for the following members:</p>
+                <ol>
+                    <li>Principal member</li>
+                    <li>Spouse of the member</li>
+                    <li>Children of the member (Max. 4)</li>
+                    <li>Parents of the member (Max.2)</li>
+                    <li>Parents in-law of the member (Max.2)</li>
+                </ol>
+                @*<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+<script>
+    function onRowBound_GridPanel_GridCommercial() {
+        $(".k-grid-SalesByUser").find("span").addClass("fa fa-credit-card");
+        $(".k-grid-Sales").find("span").addClass("fa fa-credit-card-alt");
+        $(".k-grid-Cancel").find("span").addClass("fa fa-times");
+        $(".k-grid-Delete").find("span").addClass("fa fa-trash-o fa-fw");
+        $(".k-grid-Edit").find("span").addClass("fa fa-pencil");
+        $(".k-grid-View").find("span").addClass("fa fa-list");
+        $(".k-grid-DetailInvoice").find("span").addClass("fa fa-list-ol");
+    };
+    
+</script>

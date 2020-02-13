@@ -1,0 +1,60 @@
+﻿@using Kendo.Mvc.UI;
+@{
+    Layout = null;
+}
+
+@*Coop Start*@
+
+@(Html.Kendo().Window()
+        .Name("window_Record")
+        .Title("Delete Record")
+        .Modal(true)
+        .Actions(a => a.Close())
+        .LoadContentFrom("DeleteConfirmation", "Common")
+        .Draggable(true)
+        .Visible(false)
+)
+
+@(Html.Kendo().Window()
+                            .Name("window_SpouseCreate")
+                            .Title("Add Spouse")
+                            .Modal(true)
+                            .Width(450)
+                            .Actions(a => a.Close())
+                            .LoadContentFrom("CreateSpouse", "Member")
+                            .Draggable(true)
+                            .Visible(false)
+                            .AutoFocus(true)
+                            .Scrollable(false)
+
+)
+
+@(Html.Kendo().Window()
+                            .Name("window_MemberCreate")
+                            .Title("Add Member")
+                            .Modal(true)
+                            .Width(450)
+                            .Actions(a => a.Close())
+                            .LoadContentFrom("Create", "Member")
+                            .Draggable(true)
+                            .Visible(false)
+                            .AutoFocus(true)
+                            .Scrollable(false)
+
+)
+
+@(Html.Kendo().Window()
+                            .Name("window_UserCreate")
+                            .Title("Add User")
+                            .Modal(true)
+                            .Width(450)
+                            .Actions(a => a.Close())
+                            .LoadContentFrom("Create", "User")
+                            .Draggable(true)
+                            .Visible(false)
+                            .AutoFocus(true)
+                            .Scrollable(false)
+
+)
+@*Coop End*@
+

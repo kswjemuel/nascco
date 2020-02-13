@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e4988a137c7445c5b82e5c6ac7278f1b" Name="Diagram1">
+        <EntityTypeShape EntityType="insurancedbModel.card_processor" Width="1.5" PointX="6.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.commercial" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.coverage" Width="1.5" PointX="10.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.customer" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.group_options" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.member_info" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.option" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.option_limit" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.registered_group" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.role" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.status" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.transaction" Width="1.5" PointX="8.5" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.transaction_type" Width="1.5" PointX="6.25" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="insurancedbModel.user_account" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <AssociationConnector Association="insurancedbModel.FK_transaction_card_processor_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_commercial_option_one_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_commercial_option_three_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_commercial_option_two_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_commercial_status_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_customer_coverage_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_group_options_member_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_group_options_option_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_group_options_registered_group_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_member_info_created_by" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_member_info_registered_group_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_member_info_status_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_option_limit_option_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_registered_group_created_by" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_registered_group_status_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_transaction_registered_group_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_role_status_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_user_account_role_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_transaction_status_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_user_account_status_id" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_transaction_created_by" ManuallyRouted="false" />
+        <AssociationConnector Association="insurancedbModel.FK_transaction_transaction_type_id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

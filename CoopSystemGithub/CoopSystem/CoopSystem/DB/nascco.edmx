@@ -1,0 +1,1130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="nasccoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="employment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="date_hired" Type="date" Nullable="false" />
+          <Property Name="employer" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="employer_address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="contact_numbers" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="monthly_income" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fees_category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fees_masterfile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="fees_category_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loan_application">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="terms_of_payment" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="loan_type_id" Type="int" Nullable="false" />
+          <Property Name="date_created" Type="date" Nullable="false" />
+          <Property Name="from_date" Type="date" />
+          <Property Name="to_date" Type="date" />
+        </EntityType>
+        <EntityType Name="loan_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pmes_certificate_number" Type="varchar" MaxLength="255" />
+          <Property Name="date_of_application" Type="date" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="middlename" Type="varchar" MaxLength="255" />
+          <Property Name="date_of_birth" Type="date" Nullable="false" />
+          <Property Name="place_of_birth" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="height" Type="varchar" MaxLength="50" />
+          <Property Name="weight" Type="varchar" MaxLength="50" />
+          <Property Name="tin" Type="varchar" MaxLength="50" />
+          <Property Name="sss_number" Type="varchar" MaxLength="50" />
+          <Property Name="others_id" Type="varchar" MaxLength="255" />
+          <Property Name="highest_education" Type="varchar" MaxLength="255" />
+          <Property Name="course" Type="varchar" MaxLength="255" />
+          <Property Name="present_address" Type="text" Nullable="false" />
+          <Property Name="address_status" Type="varchar" MaxLength="50" />
+          <Property Name="provincial_address" Type="varchar" MaxLength="255" />
+          <Property Name="present_address_lenght_of_time" Type="varchar" MaxLength="255" />
+          <Property Name="contact_numbers" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="email_address" Type="varchar" MaxLength="50" />
+          <Property Name="statuses_id" Type="int" Nullable="false" />
+          <Property Name="employee_id" Type="int" Nullable="false" />
+          <Property Name="created_by_user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fees_masterfile_id" Type="int" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="date_created" Type="date" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="references">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="full_name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="contact_number" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="relation" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="status_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="settings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="value" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="fees_masterfile_id" Type="int" />
+          <Property Name="tags" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="spouse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="middlename" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="date_of_birth" Type="date" Nullable="false" />
+          <Property Name="occupation" Type="varchar" MaxLength="255" />
+          <Property Name="employer" Type="varchar" MaxLength="255" />
+          <Property Name="employer_address" Type="varchar" MaxLength="255" />
+          <Property Name="employer_contact" Type="varchar" MaxLength="255" />
+          <Property Name="monthly_income" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="contact_numbers" Type="varchar" MaxLength="255" />
+          <Property Name="employment_status" Type="int" Nullable="false" />
+          <Property Name="date_started" Type="date" />
+          <Property Name="date_ended" Type="date" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="created_by_user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="statuses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="roles_id" Type="int" Nullable="false" />
+          <Property Name="statuses_id" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="text" Nullable="false" />
+          <Property Name="created_by_user_id" Type="int" Nullable="false" />
+          <Property Name="date_created" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_employment_member_id">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="employment" Type="Self.employment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employment">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fees_masterfile_fees_category_id">
+          <End Role="fees_category" Type="Self.fees_category" Multiplicity="1" />
+          <End Role="fees_masterfile" Type="Self.fees_masterfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fees_category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fees_masterfile">
+              <PropertyRef Name="fees_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_loan_application_loan_type_id">
+          <End Role="loan_type" Type="Self.loan_type" Multiplicity="1" />
+          <End Role="loan_application" Type="Self.loan_application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loan_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loan_application">
+              <PropertyRef Name="loan_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_loan_application_member_id">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="loan_application" Type="Self.loan_application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loan_application">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_created_by_user_id">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="created_by_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_statuses_id">
+          <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+          <End Role="member" Type="Self.member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="statuses_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payment_fees_masterfile_id">
+          <End Role="fees_masterfile" Type="Self.fees_masterfile" Multiplicity="1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fees_masterfile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="fees_masterfile_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payment_member_id">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="payment" Type="Self.payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_references_member_id">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="references" Type="Self.references" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="references">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_status_id">
+          <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+          <End Role="roles" Type="Self.roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roles">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_settings_fees_masterfile_id">
+          <End Role="fees_masterfile" Type="Self.fees_masterfile" Multiplicity="0..1" />
+          <End Role="settings" Type="Self.settings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fees_masterfile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="settings">
+              <PropertyRef Name="fees_masterfile_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spouse_created_by_user_id">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="spouse" Type="Self.spouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spouse">
+              <PropertyRef Name="created_by_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spouse_employment_status">
+          <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+          <End Role="spouse" Type="Self.spouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spouse">
+              <PropertyRef Name="employment_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spouse_member_id">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="spouse" Type="Self.spouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spouse">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_member_id">
+          <End Role="member" Type="Self.member" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_accounts_roles_id">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="roles_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_accounts_statuses_id">
+          <End Role="statuses" Type="Self.statuses" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="statuses_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nasccoModelStoreContainer">
+          <EntitySet Name="employment" EntityType="Self.employment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fees_category" EntityType="Self.fees_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fees_masterfile" EntityType="Self.fees_masterfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loan_application" EntityType="Self.loan_application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loan_type" EntityType="Self.loan_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="references" EntityType="Self.references" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="settings" EntityType="Self.settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="spouse" EntityType="Self.spouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="statuses" EntityType="Self.statuses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_employment_member_id" Association="Self.FK_employment_member_id">
+            <End Role="member" EntitySet="member" />
+            <End Role="employment" EntitySet="employment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fees_masterfile_fees_category_id" Association="Self.FK_fees_masterfile_fees_category_id">
+            <End Role="fees_category" EntitySet="fees_category" />
+            <End Role="fees_masterfile" EntitySet="fees_masterfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_loan_application_loan_type_id" Association="Self.FK_loan_application_loan_type_id">
+            <End Role="loan_type" EntitySet="loan_type" />
+            <End Role="loan_application" EntitySet="loan_application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_loan_application_member_id" Association="Self.FK_loan_application_member_id">
+            <End Role="member" EntitySet="member" />
+            <End Role="loan_application" EntitySet="loan_application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_created_by_user_id" Association="Self.FK_member_created_by_user_id">
+            <End Role="users" EntitySet="users" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_statuses_id" Association="Self.FK_member_statuses_id">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="member" EntitySet="member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payment_fees_masterfile_id" Association="Self.FK_payment_fees_masterfile_id">
+            <End Role="fees_masterfile" EntitySet="fees_masterfile" />
+            <End Role="payment" EntitySet="payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payment_member_id" Association="Self.FK_payment_member_id">
+            <End Role="member" EntitySet="member" />
+            <End Role="payment" EntitySet="payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_references_member_id" Association="Self.FK_references_member_id">
+            <End Role="member" EntitySet="member" />
+            <End Role="references" EntitySet="references" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_status_id" Association="Self.FK_role_status_id">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="roles" EntitySet="roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_settings_fees_masterfile_id" Association="Self.FK_settings_fees_masterfile_id">
+            <End Role="fees_masterfile" EntitySet="fees_masterfile" />
+            <End Role="settings" EntitySet="settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spouse_created_by_user_id" Association="Self.FK_spouse_created_by_user_id">
+            <End Role="users" EntitySet="users" />
+            <End Role="spouse" EntitySet="spouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spouse_employment_status" Association="Self.FK_spouse_employment_status">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="spouse" EntitySet="spouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spouse_member_id" Association="Self.FK_spouse_member_id">
+            <End Role="member" EntitySet="member" />
+            <End Role="spouse" EntitySet="spouse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_member_id" Association="Self.FK_user_account_member_id">
+            <End Role="member" EntitySet="member" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_accounts_roles_id" Association="Self.FK_user_accounts_roles_id">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_accounts_statuses_id" Association="Self.FK_user_accounts_statuses_id">
+            <End Role="statuses" EntitySet="statuses" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="nasccoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="employment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="position" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="date_hired" Nullable="false" Precision="0" Type="DateTime" />
+          <Property Name="employer" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="employer_address" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="contact_numbers" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="monthly_income" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="member_id" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="member" Relationship="nasccoModel.FK_employment_member_id" FromRole="employment" ToRole="member" />
+        </EntityType>
+        <EntityType Name="fees_category">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <NavigationProperty Name="fees_masterfile" Relationship="Self.FK_fees_masterfile_fees_category_id" FromRole="fees_category" ToRole="fees_masterfile" />
+        </EntityType>
+        <EntityType Name="fees_masterfile">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="fees_category_id" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="fees_category" Relationship="Self.FK_fees_masterfile_fees_category_id" FromRole="fees_masterfile" ToRole="fees_category" />
+          <NavigationProperty Name="payments" Relationship="Self.FK_payment_fees_masterfile_id" FromRole="fees_masterfile" ToRole="payment" />
+          <NavigationProperty Name="settings" Relationship="Self.FK_settings_fees_masterfile_id" FromRole="fees_masterfile" ToRole="settings" />
+        </EntityType>
+        <EntityType Name="loan_application">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="member_id" Nullable="false" Type="Int32" />
+          <Property Name="terms_of_payment" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="loan_type_id" Nullable="false" Type="Int32" />
+          <Property Name="date_created" Nullable="false" Precision="0" Type="DateTime" />
+          <Property Name="from_date" Precision="0" Type="DateTime" />
+          <Property Name="to_date" Precision="0" Type="DateTime" />
+          <NavigationProperty Name="loan_type" Relationship="Self.FK_loan_application_loan_type_id" FromRole="loan_application" ToRole="loan_type" />
+          <NavigationProperty Name="member" Relationship="nasccoModel.FK_loan_application_member_id" FromRole="loan_application" ToRole="member" />
+        </EntityType>
+        <EntityType Name="loan_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <NavigationProperty Name="loan_application" Relationship="Self.FK_loan_application_loan_type_id" FromRole="loan_type" ToRole="loan_application" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="fees_masterfile_id" Nullable="false" Type="Int32" />
+          <Property Name="amount" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+          <Property Name="date_created" Nullable="false" Precision="0" Type="DateTime" />
+          <Property Name="member_id" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="fees_masterfile" Relationship="Self.FK_payment_fees_masterfile_id" FromRole="payment" ToRole="fees_masterfile" />
+          <NavigationProperty Name="member" Relationship="nasccoModel.FK_payment_member_id" FromRole="payment" ToRole="member" />
+        </EntityType>
+        <EntityType Name="reference">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="full_name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="address" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="contact_number" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="relation" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="member_id" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="member" Relationship="nasccoModel.FK_references_member_id" FromRole="reference" ToRole="member" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="description" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="status_id" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="status" Relationship="Self.FK_role_status_id" FromRole="roles" ToRole="statuses" />
+          <NavigationProperty Name="users" Relationship="nasccoModel.FK_user_accounts_roles_id" FromRole="role" ToRole="user" />
+        </EntityType>
+        <EntityType Name="setting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="description" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="value" Nullable="false" Precision="18" Scale="2" Type="Decimal" />
+          <Property Name="fees_masterfile_id" Type="Int32" />
+          <Property Name="tags" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+          <NavigationProperty Name="fees_masterfile" Relationship="Self.FK_settings_fees_masterfile_id" FromRole="settings" ToRole="fees_masterfile" />
+        </EntityType>
+        <EntityType Name="status">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="description" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
+          <NavigationProperty Name="roles" Relationship="Self.FK_role_status_id" FromRole="statuses" ToRole="roles" />
+          <NavigationProperty Name="members" Relationship="nasccoModel.FK_member_statuses_id" FromRole="status" ToRole="member" />
+          <NavigationProperty Name="users" Relationship="nasccoModel.FK_user_accounts_statuses_id" FromRole="status" ToRole="user" />
+          <NavigationProperty Name="spouses" Relationship="nasccoModel.FK_spouse_employment_status" FromRole="status" ToRole="spouse" />
+        </EntityType>
+        <Association Name="FK_fees_masterfile_fees_category_id">
+          <End Type="Self.fees_category" Multiplicity="1" Role="fees_category" />
+          <End Type="Self.fees_masterfile" Multiplicity="*" Role="fees_masterfile" />
+          <ReferentialConstraint>
+            <Principal Role="fees_category">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fees_masterfile">
+              <PropertyRef Name="fees_category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payment_fees_masterfile_id">
+          <End Type="Self.fees_masterfile" Multiplicity="1" Role="fees_masterfile" />
+          <End Type="Self.payment" Multiplicity="*" Role="payment" />
+          <ReferentialConstraint>
+            <Principal Role="fees_masterfile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="fees_masterfile_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_settings_fees_masterfile_id">
+          <End Type="Self.fees_masterfile" Multiplicity="0..1" Role="fees_masterfile" />
+          <End Type="Self.setting" Multiplicity="*" Role="settings" />
+          <ReferentialConstraint>
+            <Principal Role="fees_masterfile">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="settings">
+              <PropertyRef Name="fees_masterfile_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_loan_application_loan_type_id">
+          <End Type="Self.loan_type" Multiplicity="1" Role="loan_type" />
+          <End Type="Self.loan_application" Multiplicity="*" Role="loan_application" />
+          <ReferentialConstraint>
+            <Principal Role="loan_type">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loan_application">
+              <PropertyRef Name="loan_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_role_status_id">
+          <End Type="Self.status" Multiplicity="1" Role="statuses" />
+          <End Type="Self.role" Multiplicity="*" Role="roles" />
+          <ReferentialConstraint>
+            <Principal Role="statuses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roles">
+              <PropertyRef Name="status_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nasccoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="employments" EntityType="Self.employment" />
+          <EntitySet Name="fees_category" EntityType="Self.fees_category" />
+          <EntitySet Name="fees_masterfile" EntityType="Self.fees_masterfile" />
+          <EntitySet Name="loan_application" EntityType="Self.loan_application" />
+          <EntitySet Name="loan_type" EntityType="Self.loan_type" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <EntitySet Name="references" EntityType="Self.reference" />
+          <EntitySet Name="roles" EntityType="Self.role" />
+          <EntitySet Name="settings" EntityType="Self.setting" />
+          <EntitySet Name="statuses" EntityType="Self.status" />
+          <AssociationSet Name="FK_fees_masterfile_fees_category_id" Association="Self.FK_fees_masterfile_fees_category_id">
+            <End EntitySet="fees_category" Role="fees_category" />
+            <End EntitySet="fees_masterfile" Role="fees_masterfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payment_fees_masterfile_id" Association="Self.FK_payment_fees_masterfile_id">
+            <End EntitySet="fees_masterfile" Role="fees_masterfile" />
+            <End EntitySet="payments" Role="payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_settings_fees_masterfile_id" Association="Self.FK_settings_fees_masterfile_id">
+            <End EntitySet="fees_masterfile" Role="fees_masterfile" />
+            <End EntitySet="settings" Role="settings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_loan_application_loan_type_id" Association="Self.FK_loan_application_loan_type_id">
+            <End EntitySet="loan_type" Role="loan_type" />
+            <End EntitySet="loan_application" Role="loan_application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_role_status_id" Association="Self.FK_role_status_id">
+            <End EntitySet="statuses" Role="statuses" />
+            <End EntitySet="roles" Role="roles" />
+          </AssociationSet>
+          <EntitySet Name="members" EntityType="nasccoModel.member" />
+          <AssociationSet Name="FK_employment_member_id" Association="nasccoModel.FK_employment_member_id">
+            <End Role="member" EntitySet="members" />
+            <End Role="employment" EntitySet="employments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_loan_application_member_id" Association="nasccoModel.FK_loan_application_member_id">
+            <End Role="member" EntitySet="members" />
+            <End Role="loan_application" EntitySet="loan_application" />
+          </AssociationSet>
+          <AssociationSet Name="FK_member_statuses_id" Association="nasccoModel.FK_member_statuses_id">
+            <End Role="status" EntitySet="statuses" />
+            <End Role="member" EntitySet="members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payment_member_id" Association="nasccoModel.FK_payment_member_id">
+            <End Role="member" EntitySet="members" />
+            <End Role="payment" EntitySet="payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_references_member_id" Association="nasccoModel.FK_references_member_id">
+            <End Role="member" EntitySet="members" />
+            <End Role="reference" EntitySet="references" />
+          </AssociationSet>
+          <EntitySet Name="users" EntityType="nasccoModel.user" />
+          <AssociationSet Name="FK_member_created_by_user_id" Association="nasccoModel.FK_member_created_by_user_id">
+            <End Role="user" EntitySet="users" />
+            <End Role="member" EntitySet="members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_account_member_id" Association="nasccoModel.FK_user_account_member_id">
+            <End Role="member" EntitySet="members" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_accounts_roles_id" Association="nasccoModel.FK_user_accounts_roles_id">
+            <End Role="role" EntitySet="roles" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_accounts_statuses_id" Association="nasccoModel.FK_user_accounts_statuses_id">
+            <End Role="status" EntitySet="statuses" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <EntitySet Name="spouses" EntityType="nasccoModel.spouse" />
+          <AssociationSet Name="FK_spouse_member_id" Association="nasccoModel.FK_spouse_member_id">
+            <End Role="member" EntitySet="members" />
+            <End Role="spouse" EntitySet="spouses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spouse_created_by_user_id" Association="nasccoModel.FK_spouse_created_by_user_id">
+            <End Role="user" EntitySet="users" />
+            <End Role="spouse" EntitySet="spouses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_spouse_employment_status" Association="nasccoModel.FK_spouse_employment_status">
+            <End Role="status" EntitySet="statuses" />
+            <End Role="spouse" EntitySet="spouses" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pmes_certificate_number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_application" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="lastname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="firstname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="middlename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="place_of_birth" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="weight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sss_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="others_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="highest_education" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="course" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="present_address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="provincial_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="present_address_lenght_of_time" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="contact_numbers" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="statuses_id" Type="Int32" Nullable="false" />
+          <Property Name="employee_id" Type="Int32" Nullable="false" />
+          <Property Name="created_by_user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="employments" Relationship="nasccoModel.FK_employment_member_id" FromRole="member" ToRole="employment" />
+          <NavigationProperty Name="loan_application" Relationship="nasccoModel.FK_loan_application_member_id" FromRole="member" ToRole="loan_application" />
+          <NavigationProperty Name="status" Relationship="nasccoModel.FK_member_statuses_id" FromRole="member" ToRole="status" />
+          <NavigationProperty Name="payments" Relationship="nasccoModel.FK_payment_member_id" FromRole="member" ToRole="payment" />
+          <NavigationProperty Name="references" Relationship="nasccoModel.FK_references_member_id" FromRole="member" ToRole="reference" />
+          <NavigationProperty Name="user" Relationship="nasccoModel.FK_member_created_by_user_id" FromRole="member" ToRole="user" />
+          <NavigationProperty Name="users" Relationship="nasccoModel.FK_user_account_member_id" FromRole="member" ToRole="user" />
+          <NavigationProperty Name="spouses" Relationship="nasccoModel.FK_spouse_member_id" FromRole="member" ToRole="spouse" />
+        </EntityType>
+        <Association Name="FK_employment_member_id">
+          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
+          <End Type="nasccoModel.employment" Role="employment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="employment">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_loan_application_member_id">
+          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
+          <End Type="nasccoModel.loan_application" Role="loan_application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="loan_application">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_member_statuses_id">
+          <End Type="nasccoModel.status" Role="status" Multiplicity="1" />
+          <End Type="nasccoModel.member" Role="member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="statuses_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payment_member_id">
+          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
+          <End Type="nasccoModel.payment" Role="payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="payment">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_references_member_id">
+          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
+          <End Type="nasccoModel.reference" Role="reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reference">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="roles_id" Type="Int32" Nullable="false" />
+          <Property Name="statuses_id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="created_by_user_id" Type="Int32" Nullable="false" />
+          <Property Name="date_created" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="members" Relationship="nasccoModel.FK_member_created_by_user_id" FromRole="user" ToRole="member" />
+          <NavigationProperty Name="member" Relationship="nasccoModel.FK_user_account_member_id" FromRole="user" ToRole="member" />
+          <NavigationProperty Name="role" Relationship="nasccoModel.FK_user_accounts_roles_id" FromRole="user" ToRole="role" />
+          <NavigationProperty Name="status" Relationship="nasccoModel.FK_user_accounts_statuses_id" FromRole="user" ToRole="status" />
+          <NavigationProperty Name="spouses" Relationship="nasccoModel.FK_spouse_created_by_user_id" FromRole="user" ToRole="spouse" />
+        </EntityType>
+        <Association Name="FK_member_created_by_user_id">
+          <End Type="nasccoModel.user" Role="user" Multiplicity="1" />
+          <End Type="nasccoModel.member" Role="member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="member">
+              <PropertyRef Name="created_by_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_account_member_id">
+          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
+          <End Type="nasccoModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_accounts_roles_id">
+          <End Type="nasccoModel.role" Role="role" Multiplicity="1" />
+          <End Type="nasccoModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="roles_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_accounts_statuses_id">
+          <End Type="nasccoModel.status" Role="status" Multiplicity="1" />
+          <End Type="nasccoModel.user" Role="user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="statuses_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="spouse">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lastname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="firstname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="middlename" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="occupation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="employer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="employer_address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="employer_contact" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="monthly_income" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="contact_numbers" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="employment_status" Type="Int32" Nullable="false" />
+          <Property Name="date_started" Type="DateTime" Precision="0" />
+          <Property Name="date_ended" Type="DateTime" Precision="0" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="created_by_user_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="member" Relationship="nasccoModel.FK_spouse_member_id" FromRole="spouse" ToRole="member" />
+          <NavigationProperty Name="user" Relationship="nasccoModel.FK_spouse_created_by_user_id" FromRole="spouse" ToRole="user" />
+          <NavigationProperty Name="status" Relationship="nasccoModel.FK_spouse_employment_status" FromRole="spouse" ToRole="status" />
+        </EntityType>
+        <Association Name="FK_spouse_member_id">
+          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
+          <End Type="nasccoModel.spouse" Role="spouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spouse">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spouse_created_by_user_id">
+          <End Type="nasccoModel.user" Role="user" Multiplicity="1" />
+          <End Type="nasccoModel.spouse" Role="spouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spouse">
+              <PropertyRef Name="created_by_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_spouse_employment_status">
+          <End Type="nasccoModel.status" Role="status" Multiplicity="1" />
+          <End Type="nasccoModel.spouse" Role="spouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="status">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="spouse">
+              <PropertyRef Name="employment_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="nasccoModelStoreContainer" CdmEntityContainer="nasccoEntities">
+          <EntitySetMapping Name="employments">
+            <EntityTypeMapping TypeName="nasccoModel.employment">
+              <MappingFragment StoreEntitySet="employment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="date_hired" ColumnName="date_hired" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="employer_address" ColumnName="employer_address" />
+                <ScalarProperty Name="contact_numbers" ColumnName="contact_numbers" />
+                <ScalarProperty Name="monthly_income" ColumnName="monthly_income" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fees_category">
+            <EntityTypeMapping TypeName="nasccoModel.fees_category">
+              <MappingFragment StoreEntitySet="fees_category">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fees_masterfile">
+            <EntityTypeMapping TypeName="nasccoModel.fees_masterfile">
+              <MappingFragment StoreEntitySet="fees_masterfile">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="fees_category_id" ColumnName="fees_category_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loan_application">
+            <EntityTypeMapping TypeName="nasccoModel.loan_application">
+              <MappingFragment StoreEntitySet="loan_application">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="terms_of_payment" ColumnName="terms_of_payment" />
+                <ScalarProperty Name="loan_type_id" ColumnName="loan_type_id" />
+                <ScalarProperty Name="date_created" ColumnName="date_created" />
+                <ScalarProperty Name="from_date" ColumnName="from_date" />
+                <ScalarProperty Name="to_date" ColumnName="to_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loan_type">
+            <EntityTypeMapping TypeName="nasccoModel.loan_type">
+              <MappingFragment StoreEntitySet="loan_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="nasccoModel.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fees_masterfile_id" ColumnName="fees_masterfile_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="date_created" ColumnName="date_created" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="references">
+            <EntityTypeMapping TypeName="nasccoModel.reference">
+              <MappingFragment StoreEntitySet="references">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+                <ScalarProperty Name="relation" ColumnName="relation" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="nasccoModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status_id" ColumnName="status_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="settings">
+            <EntityTypeMapping TypeName="nasccoModel.setting">
+              <MappingFragment StoreEntitySet="settings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="fees_masterfile_id" ColumnName="fees_masterfile_id" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="statuses">
+            <EntityTypeMapping TypeName="nasccoModel.status">
+              <MappingFragment StoreEntitySet="statuses">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="members">
+            <EntityTypeMapping TypeName="nasccoModel.member">
+              <MappingFragment StoreEntitySet="member">
+                <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="statuses_id" ColumnName="statuses_id" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="contact_numbers" ColumnName="contact_numbers" />
+                <ScalarProperty Name="present_address_lenght_of_time" ColumnName="present_address_lenght_of_time" />
+                <ScalarProperty Name="provincial_address" ColumnName="provincial_address" />
+                <ScalarProperty Name="address_status" ColumnName="address_status" />
+                <ScalarProperty Name="present_address" ColumnName="present_address" />
+                <ScalarProperty Name="course" ColumnName="course" />
+                <ScalarProperty Name="highest_education" ColumnName="highest_education" />
+                <ScalarProperty Name="others_id" ColumnName="others_id" />
+                <ScalarProperty Name="sss_number" ColumnName="sss_number" />
+                <ScalarProperty Name="tin" ColumnName="tin" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="place_of_birth" ColumnName="place_of_birth" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="date_of_application" ColumnName="date_of_application" />
+                <ScalarProperty Name="pmes_certificate_number" ColumnName="pmes_certificate_number" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="nasccoModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="date_created" ColumnName="date_created" />
+                <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="statuses_id" ColumnName="statuses_id" />
+                <ScalarProperty Name="roles_id" ColumnName="roles_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="spouses">
+            <EntityTypeMapping TypeName="nasccoModel.spouse">
+              <MappingFragment StoreEntitySet="spouse">
+                <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="date_ended" ColumnName="date_ended" />
+                <ScalarProperty Name="date_started" ColumnName="date_started" />
+                <ScalarProperty Name="employment_status" ColumnName="employment_status" />
+                <ScalarProperty Name="contact_numbers" ColumnName="contact_numbers" />
+                <ScalarProperty Name="monthly_income" ColumnName="monthly_income" />
+                <ScalarProperty Name="employer_contact" ColumnName="employer_contact" />
+                <ScalarProperty Name="employer_address" ColumnName="employer_address" />
+                <ScalarProperty Name="employer" ColumnName="employer" />
+                <ScalarProperty Name="occupation" ColumnName="occupation" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="middlename" ColumnName="middlename" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

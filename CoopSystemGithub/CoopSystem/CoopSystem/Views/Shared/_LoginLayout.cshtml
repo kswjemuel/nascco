@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>NASCCO&trade;</title>
+
+    @*<link href='~/Content/OpenSans.css' rel='stylesheet' type='text/css'>*@
+
+    <!-- Commented 7/19/2017 -->
+    @*<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">*@
+
+    <!-- EXT NET style -->
+    @*@Styles.Render("~/bundles/ext/css")*@
+
+    <!-- Primary vendor style -->
+    @Styles.Render("~/bundles/font-awesome/css")
+    @Styles.Render("~/bundles/animate/css")
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/peicon7stroke/css")
+
+    <!-- Add local styles, mostly for plugins css file -->
+    @if (IsSectionDefined("Styles"))
+    {
+        @RenderSection("Styles", required: false)
+    }
+
+    <!-- Customize CSS -->
+    @Styles.Render("~/bundles/custom/css")
+
+    <!-- Primary HOMER style -->
+    @Styles.Render("~/bundles/homer/css")
+
+    @*Telerik*@
+    <link href="@Url.Content("~/Content/kendo/2016.3.914/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.3.914/kendo.material.min.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/kendo.timezones.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.3.914/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.serialize-object.min.js")"></script>
+
+    <!--jQuery Confirm-->
+    <script src="@Url.Content("~/Scripts/jquery-confirm.min.js")"></script>
+    <link href="@Url.Content("~/Content/jquery-confirm.min.css")" rel="stylesheet" />
+</head>
+<body>      
+
+    <!-- Main view  -->
+    <div id="wrappertemp">
+        <div class="content animate-panel zoomed-element">
+            @RenderBody()
+        </div>
+    </div>
+
+
+    <div id="footer">
+        @Html.Partial("_Footer")
+    </div>
+
+    <!-- Section for main scripts render -->
+    @*@Scripts.Render("~/bundles/jquery/js") removed to avoid duplication with jquery call above*@
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/homer/js")
+    @*@Scripts.Render("~/bundles/ext/js")*@
+
+
+
+
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

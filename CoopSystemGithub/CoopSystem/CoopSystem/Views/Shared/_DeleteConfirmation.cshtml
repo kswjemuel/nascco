@@ -1,0 +1,15 @@
+﻿@using Kendo.Mvc.UI;
+<div class="col-md-12 col-sm-12" style="padding:0">
+    <h4>Are you sure you want to delete this record?</h4>
+    <div class="k-content">
+        @(Html.Kendo().Button().Name("Yes")
+                                      .Content("Yes")
+                                      .HtmlAttributes(new { @class = "k-primary pull-right k-button", type = "button", @style = "margin-left: 5px;" })
+        )
+
+        @(Html.Kendo().Button().Name("No")
+                                  .Content("No")
+                                  .HtmlAttributes(new { @class = "pull-right k-button", type = "button" })
+        )
+    </div>
+</div>

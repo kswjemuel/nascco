@@ -1,0 +1,192 @@
+﻿@using Kendo.Mvc.UI;
+@model CoopSystemWebApp.Models.UserModel
+@{
+    ViewBag.Title = "Create User";
+}
+
+
+<div id="divErrorUser" class="text-center red-color hidden" style="color:red">
+    <label id="lblErrorUser"></label>
+</div>
+
+<div class="alert-danger text-center small">
+    <span style="color:red"><b>@ViewBag.Error</b></span>
+</div>
+
+
+
+@using (Html.BeginForm("Save", "User", FormMethod.Post, new { @id = "SaveUserForm" }))
+{
+    @Html.HiddenFor(m => m.UserId)
+
+    <div class="k-edit-form-container">
+        <div class="forMember">
+            <div class="k-edit-label">
+                @Html.Label("Member")
+            </div>
+            @if (Model.UserIsEditMode)
+            {
+                <div data-container-for="MemberId" class="k-edit-field">
+                    @(Html.Kendo().DropDownListFor(m => m.UserMemberId)
+                                                                .OptionLabel("Choose Member")
+                                                                .DataTextField("FullName")
+                                                                .DataValueField("MemberId")
+                                                                .DataSource(ds =>
+                                                                {
+                                                                    ds.Read(r => r.Action("GetMember", "Common"));
+                                                                })
+                                                                .HtmlAttributes(new { @style = "width: 100%" })
+                    )
+                </div>
+
+            }
+            else
+            {
+                <div data-container-for="MemberId" class="k-edit-field">
+                    @(Html.Kendo().DropDownListFor(m => m.UserMemberId)
+                                                                .OptionLabel("Choose Member")
+                                                                .DataTextField("FullName")
+                                                                .DataValueField("MemberId")
+                                                                .DataSource(ds =>
+                                                                {
+                                                                    ds.Read(r => r.Action("GetMemberEdit", "Common"));
+                                                                })
+                                                                .HtmlAttributes(new { @style = "width: 100%" })
+                    )
+                </div>
+            }
+            <div class="k-edit-label">
+                @Html.Label("Role")
+            </div>
+            <div data-container-for="Status_Id" class="k-edit-field">
+                @(Html.Kendo().DropDownListFor(m => m.RolesId)
+                                                            .OptionLabel("Choose Role")
+                                                            .DataTextField("RoleDescription")
+                                                            .DataValueField("RoleId")
+                                                            .DataSource(ds =>
+                                                            {
+                                                                ds.Read(r => r.Action("GetRole", "Common"));
+                                                            })
+                                                            .HtmlAttributes(new { @style = "width: 100%" })
+                )
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Status")
+            </div>
+            <div data-container-for="Status_Id" class="k-edit-field">
+                @(Html.Kendo().DropDownListFor(m => m.UserStatusesId)
+                                                                .OptionLabel("Select Status")
+                                                                .DataTextField("StatusDescription")
+                                                                .DataValueField("StatusesId")
+                                                                .DataSource(ds =>
+                                                                {
+                                                                    ds.Read(r => r.Action("GetStatus", "Common"));
+                                                                })
+                                                                .HtmlAttributes(new { @style = "width: 100%" })
+                )
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Username")
+            </div>
+            <div data-container-for="Course" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.Username).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.Username)
+            </div>
+
+
+            @if (Model.UserIsEditMode)
+            {
+                <div class="k-edit-label hidden">
+                    @Html.Label("Password")
+                </div>
+                <div data-container-for="User_Account_Password" class="k-edit-field hidden">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", @autocomplete = "off", @value = "test123" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+
+                <div class="k-edit-label hidden">
+                    @Html.Label("Confirm Password")
+                </div>
+                <div data-container-for="Options_Option_Description_Mf" class="k-edit-field hidden">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "test123" })
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+            }
+            else
+            {
+                <div class="hidden">
+                    <div class="k-edit-label">
+                        @Html.Label("Password")
+                    </div>
+                    <div data-container-for="User_Account_Password" class="k-edit-field">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "temp" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+
+                    <div class="k-edit-label">
+                        @Html.Label("Confirm Password")
+                    </div>
+                    <div data-container-for="Options_Option_Description_Mf" class="k-edit-field">
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "temp" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+}
+
+
+<div class="k-content">
+    @if (Model.UserIsEditMode)
+    {
+        @Html.Kendo().Button().Name("btnUpdateUser").Content("Update").Events(e => e.Click("onClick_UpdateUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+
+    }
+    else
+    {
+        @Html.Kendo().Button().Name("btnSaveUser").Content("Save").Events(e => e.Click("onClick_SaveUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+    }
+    @Html.Kendo().Button().Name("btnCancelUser").Content("Cancel").Events(e => e.Click("onClick_CancelUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+</div>
+
+
+
+
+<script type="text/javascript">
+    //delete
+    function onClick_DeleteGroup(e) {
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        var wnd = $("#window_Record").data("kendoWindow");
+        var window_processing = $("#window_processing").data("kendoWindow");
+        $("#window_Record h4").html("Are you sure you want to delete this record?");
+        wnd.center().open();
+        e.preventDefault();
+        var values = {
+            Id: dataItem.Group_Id
+        };
+
+        $("#window_Record > div > div > #Yes").click(function () {
+            wnd.close();
+            $.ajax({
+                dataType: "html",
+                type: "POST",
+                url: "@(Url.Action("RemoveGroup", "Group"))",
+                data: values,
+                success: function (result) {
+                    var grid = $("#GridGroup").data("kendoGrid");
+                    grid.dataSource.read();
+                }
+            });
+
+        });
+
+        $("#window_Record > div > div > #No").click(function () {
+            wnd.close();
+        });
+    };
+</script>

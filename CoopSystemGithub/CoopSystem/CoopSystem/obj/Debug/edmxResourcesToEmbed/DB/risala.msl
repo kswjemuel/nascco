@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="insurancedbModelStoreContainer" CdmEntityContainer="insurancedbEntities">
+    <EntitySetMapping Name="card_processor">
+      <EntityTypeMapping TypeName="insurancedbModel.card_processor">
+        <MappingFragment StoreEntitySet="card_processor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="consumer_key" ColumnName="consumer_key" />
+          <ScalarProperty Name="api_key" ColumnName="api_key" />
+          <ScalarProperty Name="end_point" ColumnName="end_point" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="commercials">
+      <EntityTypeMapping TypeName="insurancedbModel.commercial">
+        <MappingFragment StoreEntitySet="commercial">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="option_one_id" ColumnName="option_one_id" />
+          <ScalarProperty Name="option_two_id" ColumnName="option_two_id" />
+          <ScalarProperty Name="option_three_id" ColumnName="option_three_id" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="coverages">
+      <EntityTypeMapping TypeName="insurancedbModel.coverage">
+        <MappingFragment StoreEntitySet="coverage">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="insurancedbModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id_number" ColumnName="id_number" />
+          <ScalarProperty Name="spouse" ColumnName="spouse" />
+          <ScalarProperty Name="bio_child" ColumnName="bio_child" />
+          <ScalarProperty Name="bio_child_over_eighten" ColumnName="bio_child_over_eighten" />
+          <ScalarProperty Name="bio_child_over_twenty_six" ColumnName="bio_child_over_twenty_six" />
+          <ScalarProperty Name="living_parents_in_law_under_seventy_six" ColumnName="living_parents_in_law_under_seventy_six" />
+          <ScalarProperty Name="living_bio_parents_under_seventy_six" ColumnName="living_bio_parents_under_seventy_six" />
+          <ScalarProperty Name="additional_relations" ColumnName="additional_relations" />
+          <ScalarProperty Name="coverage_id" ColumnName="coverage_id" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="created_by_id" ColumnName="created_by_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="group_options">
+      <EntityTypeMapping TypeName="insurancedbModel.group_options">
+        <MappingFragment StoreEntitySet="group_options">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="registered_group_id" ColumnName="registered_group_id" />
+          <ScalarProperty Name="option_id" ColumnName="option_id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="member_info">
+      <EntityTypeMapping TypeName="insurancedbModel.member_info">
+        <MappingFragment StoreEntitySet="member_info">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="random_id_number" ColumnName="random_id_number" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="registered_group_id" ColumnName="registered_group_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="options">
+      <EntityTypeMapping TypeName="insurancedbModel.option">
+        <MappingFragment StoreEntitySet="option">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="assured_amount" ColumnName="assured_amount" />
+          <ScalarProperty Name="option_description" ColumnName="option_description" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="limit" ColumnName="limit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="option_limit">
+      <EntityTypeMapping TypeName="insurancedbModel.option_limit">
+        <MappingFragment StoreEntitySet="option_limit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="option_id" ColumnName="option_id" />
+          <ScalarProperty Name="limit" ColumnName="limit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="registered_group">
+      <EntityTypeMapping TypeName="insurancedbModel.registered_group">
+        <MappingFragment StoreEntitySet="registered_group">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="id_number" ColumnName="id_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="insurancedbModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="status">
+      <EntityTypeMapping TypeName="insurancedbModel.status">
+        <MappingFragment StoreEntitySet="status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactions">
+      <EntityTypeMapping TypeName="insurancedbModel.transaction">
+        <MappingFragment StoreEntitySet="transaction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="date_updated" ColumnName="date_updated" />
+          <ScalarProperty Name="registered_group_id" ColumnName="registered_group_id" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="card_number" ColumnName="card_number" />
+          <ScalarProperty Name="card_type" ColumnName="card_type" />
+          <ScalarProperty Name="card_last_four" ColumnName="card_last_four" />
+          <ScalarProperty Name="card_processor_id" ColumnName="card_processor_id" />
+          <ScalarProperty Name="cvv" ColumnName="cvv" />
+          <ScalarProperty Name="gateway_transaction_id" ColumnName="gateway_transaction_id" />
+          <ScalarProperty Name="transaction_type_id" ColumnName="transaction_type_id" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="exp_year" ColumnName="exp_year" />
+          <ScalarProperty Name="exp_month" ColumnName="exp_month" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transaction_type">
+      <EntityTypeMapping TypeName="insurancedbModel.transaction_type">
+        <MappingFragment StoreEntitySet="transaction_type">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_account">
+      <EntityTypeMapping TypeName="insurancedbModel.user_account">
+        <MappingFragment StoreEntitySet="user_account">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status_id" ColumnName="status_id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
