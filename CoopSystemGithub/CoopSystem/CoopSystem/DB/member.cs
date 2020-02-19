@@ -20,9 +20,9 @@ namespace CoopSystemWebApp.DB
             this.employments = new HashSet<employment>();
             this.loan_application = new HashSet<loan_application>();
             this.payments = new HashSet<payment>();
-            this.references = new HashSet<reference>();
             this.users = new HashSet<user>();
             this.spouses = new HashSet<spouse>();
+            this.references = new HashSet<reference>();
         }
     
         public int id { get; set; }
@@ -57,12 +57,12 @@ namespace CoopSystemWebApp.DB
         public virtual status status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<payment> payments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reference> references { get; set; }
         public virtual user user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<user> users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<spouse> spouses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reference> references { get; set; }
     }
 }

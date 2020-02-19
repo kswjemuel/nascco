@@ -26,5 +26,7 @@ namespace CoopSystemWebApp.Models
         public int ReferencesMemberId { get; set; }
 
         public string ReferencesMemberName { get; set; }
+        public bool ReferencesIsEditMode { get; set; }
+        public int ReferencesCreatedByUserId{ get; set; }
     }
 }

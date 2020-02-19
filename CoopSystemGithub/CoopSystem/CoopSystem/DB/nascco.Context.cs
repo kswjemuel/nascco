@@ -31,12 +31,12 @@ namespace CoopSystemWebApp.DB
         public virtual DbSet<loan_application> loan_application { get; set; }
         public virtual DbSet<loan_type> loan_type { get; set; }
         public virtual DbSet<payment> payments { get; set; }
-        public virtual DbSet<reference> references { get; set; }
         public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<setting> settings { get; set; }
         public virtual DbSet<status> statuses { get; set; }
         public virtual DbSet<member> members { get; set; }
         public virtual DbSet<user> users { get; set; }
         public virtual DbSet<spouse> spouses { get; set; }
+        public virtual DbSet<reference> references { get; set; }
     }
 }

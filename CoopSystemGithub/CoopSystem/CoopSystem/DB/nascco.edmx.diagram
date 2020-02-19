@@ -11,7 +11,6 @@
         <EntityTypeShape EntityType="nasccoModel.loan_application" PointX="3" PointY="8" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="nasccoModel.loan_type" PointX="0.75" PointY="8.5" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="nasccoModel.payment" PointX="5.25" PointY="4" Width="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="nasccoModel.reference" PointX="7.75" PointY="9.75" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="nasccoModel.role" PointX="10" PointY="6.625" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="nasccoModel.setting" PointX="5.25" PointY="1.125" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="nasccoModel.status" PointX="7.75" PointY="4" Width="1.5" IsExpanded="true" />
@@ -25,7 +24,6 @@
         <AssociationConnector Association="nasccoModel.FK_loan_application_member_id" />
         <AssociationConnector Association="nasccoModel.FK_member_statuses_id" />
         <AssociationConnector Association="nasccoModel.FK_payment_member_id" />
-        <AssociationConnector Association="nasccoModel.FK_references_member_id" />
         <EntityTypeShape EntityType="nasccoModel.user" Width="1.5" PointX="16.75" PointY="4.25" />
         <AssociationConnector Association="nasccoModel.FK_member_created_by_user_id" />
         <AssociationConnector Association="nasccoModel.FK_user_account_member_id" />
@@ -35,6 +33,9 @@
         <AssociationConnector Association="nasccoModel.FK_spouse_member_id" />
         <AssociationConnector Association="nasccoModel.FK_spouse_created_by_user_id" />
         <AssociationConnector Association="nasccoModel.FK_spouse_employment_status" />
+        <EntityTypeShape EntityType="nasccoModel.reference" Width="1.5" PointX="22" PointY="4.5" />
+        <AssociationConnector Association="nasccoModel.FK_references_member_id" />
+        <AssociationConnector Association="nasccoModel.FK_references_created_by_user_id" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

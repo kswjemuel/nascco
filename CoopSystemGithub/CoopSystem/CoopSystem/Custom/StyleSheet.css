@@ -185,13 +185,18 @@ section {
     border-radius: 4px;
     padding: 10px;
     background: white;
-    margin: 30px;
+    margin: 20px;
+    /*margin-left: 40px;
+    /*margin-left: 40px;
+    margin-bottom: 30px;*/
 }
+
+
 
 .card-sidebar {
     border-radius: 4px;
     padding: 10px;
-    background: white;   
+    background: white;
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 30px;
@@ -208,3 +213,20 @@ nav.sidebar.navbar {
     background-color: #c9ced4;
 }
 
+
+.footer {
+    /*position: fixed;*/
+    left: 0;
+    bottom: 0;
+    width: 100%;   
+    text-align: center;
+}
+
+.active {
+    /*background-color: #567ac1 !important;*/
+    background-color: #468BDA !important;
+}
+
+div#calendar.k-widget.k-calendar{
+    width:auto;
+}

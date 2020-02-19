@@ -11,6 +11,35 @@ namespace CoopSystemWebApp.Manager
 {
     public class UserManager
     {
+        public string RemoveUser(int id)
+        {
+            ResultHelper _resultHelper = new ResultHelper();
+            using (var db = new nasccoEntities())
+            {
+                using (DbContextTransaction dbTran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var record = (from x in db.users
+                                      where x.id == id
+                                      select x).FirstOrDefault();
+                        db.users.Remove(record);
+                        db.SaveChanges();
+
+
+
+                        dbTran.Commit();
+                        return _resultHelper.Success();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbTran.Rollback();
+                        return ex.Message;
+                    }
+                }
+            }
+        }
+
         public int GetEmployeeId(int id)
         {
             int employeeId = 0;
@@ -85,6 +114,32 @@ namespace CoopSystemWebApp.Manager
             }
         }
 
+        public string ChangePassword(UserModel model)
+        {
+            ResultHelper _resultHelper = new ResultHelper();
+            using (var db = new nasccoEntities())
+            {
+                using (DbContextTransaction dbTran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var data = db.users.FirstOrDefault(x => x.id == model.UserId);                        
+                        data.password = EncryptDecryptString.Encrypt(model.Password);                        
+                        db.SaveChanges();
+
+                        //Save if no issues
+                        dbTran.Commit();
+                        return _resultHelper.Success();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbTran.Rollback();
+                        return ex.Message;
+                    }
+                }
+            }
+        }
+
         public List<UserModel> GetUserList()
         {
             nasccoEntities db = new nasccoEntities();
@@ -127,7 +182,8 @@ namespace CoopSystemWebApp.Manager
             {
                 try
                 {
-                    var data = db.users.FirstOrDefault(x => x.username == username);
+                    var data = db.users.FirstOrDefault(x => x.username == username &&
+                                    (x.statuses_id == 1 || x.statuses_id == 3 || x.statuses_id == 7));
                     if(data != null)
                     {
                         if(data.password == password)
@@ -157,6 +213,40 @@ namespace CoopSystemWebApp.Manager
             }
 
             return null;
+        }
+
+        public string CheckPassword(string username, string password)
+        {
+            ResultHelper _resultHelper = new ResultHelper();
+            password = EncryptDecryptString.Encrypt(password);
+            using (var db = new nasccoEntities())
+            {
+                try
+                {
+                    var data = db.users.FirstOrDefault(x => x.username == username &&
+                                    (x.statuses_id == 1 || x.statuses_id == 3 || x.statuses_id == 7));
+                    if (data != null)
+                    {
+                        if (data.password == password)
+                        {
+                            return _resultHelper.Success();
+                        }
+                        else
+                        {
+                            return "failed";
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                    string err = ex.Message;
+
+                }
+            }
+
+            return "failed";
         }
 
 

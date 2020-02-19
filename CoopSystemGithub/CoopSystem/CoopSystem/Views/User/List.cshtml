@@ -34,7 +34,7 @@
                             c.Command(command =>
                             {
                                 command.Custom("Edit").Click("onClick_EditUser").Text(" ").HtmlAttributes(new { @title = "Modify user" });
-                                //command.Custom("Sales").Click("onClick_CreateTransaction").Text(" ").HtmlAttributes(new { @title = "Pay" });
+                                command.Custom("Delete").Click("onClick_DeleteUser").Text(" ").HtmlAttributes(new { @title = "Delete user." });
                             });
 
                         })

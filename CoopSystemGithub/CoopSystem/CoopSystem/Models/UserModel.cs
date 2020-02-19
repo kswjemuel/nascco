@@ -16,7 +16,8 @@ namespace CoopSystemWebApp.Models
         public string RoleDescription { get; set; }
         public string StatusDescription { get; set; }
         public bool UserIsEditMode { get; set; }
-        public int CreatedByUserId { get; set; }        
+        public int CreatedByUserId { get; set; }
+        public String OldPassword { get; set; }
 
         [Required]
         [Display(Name = "Username")]
@@ -24,7 +25,7 @@ namespace CoopSystemWebApp.Models
         public String Username { get; set; }
 
         [DataType(DataType.Password)]
-        [StringLength(100, ErrorMessage = "Your password must be at least 8 characters long.", MinimumLength = 1)]
+        [StringLength(100, ErrorMessage = "Your password must be at least 8 characters long.", MinimumLength = 8)]
         public String Password { get; set; }
 
         [Display(Name = "Confirm Password")]

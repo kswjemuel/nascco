@@ -64,18 +64,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="references">
-      <EntityTypeMapping TypeName="nasccoModel.reference">
-        <MappingFragment StoreEntitySet="references">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="full_name" ColumnName="full_name" />
-          <ScalarProperty Name="address" ColumnName="address" />
-          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
-          <ScalarProperty Name="relation" ColumnName="relation" />
-          <ScalarProperty Name="member_id" ColumnName="member_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="roles">
       <EntityTypeMapping TypeName="nasccoModel.role">
         <MappingFragment StoreEntitySet="roles">
@@ -166,6 +154,20 @@
           <ScalarProperty Name="middlename" ColumnName="middlename" />
           <ScalarProperty Name="firstname" ColumnName="firstname" />
           <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="references">
+      <EntityTypeMapping TypeName="nasccoModel.reference">
+        <MappingFragment StoreEntitySet="references">
+          <ScalarProperty Name="date_created" ColumnName="date_created" />
+          <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="relation" ColumnName="relation" />
+          <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

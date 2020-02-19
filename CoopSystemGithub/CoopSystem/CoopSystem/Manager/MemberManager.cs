@@ -11,6 +11,35 @@ namespace CoopSystemWebApp.Manager
 {
     public class MemberManager
     {
+        
+        public string RemoveReferences(int id)
+        {
+            ResultHelper _resultHelper = new ResultHelper();
+            using (var db = new nasccoEntities())
+            {
+                using (DbContextTransaction dbTran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var record = (from x in db.references
+                                      where x.id == id
+                                      select x).FirstOrDefault();
+                        db.references.Remove(record);
+                        db.SaveChanges();
+
+
+
+                        dbTran.Commit();
+                        return _resultHelper.Success();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbTran.Rollback();
+                        return ex.Message;
+                    }
+                }
+            }
+        }
         public string RemoveSpouse(int id)
         {
             ResultHelper _resultHelper = new ResultHelper();
@@ -39,7 +68,8 @@ namespace CoopSystemWebApp.Manager
                 }
             }
         }
-
+        
+        
         public string UpdateSpouse(SpouseModel model)
         {
             ResultHelper _resultHelper = new ResultHelper();
@@ -70,6 +100,60 @@ namespace CoopSystemWebApp.Manager
             }
         }
 
+        public string UpdateReferences(ReferencesModel model)
+        {
+            ResultHelper _resultHelper = new ResultHelper();
+            using (var db = new nasccoEntities())
+            {
+                try
+                {
+                    var data = db.references.FirstOrDefault(x => x.id == model.ReferencesId);
+                    data.full_name = model.ReferencesFullName;
+                    data.relation = model.ReferencesRelation;
+                    data.address = model.ReferencesAddress;
+                    data.contact_number = model.ReferencesContactNumber;
+                    db.SaveChanges();
+                    return _resultHelper.Success();
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+            }
+        }
+        public string SaveReferences(ReferencesModel model)
+        {
+            ResultHelper _resultHelper = new ResultHelper();
+            using (var db = new nasccoEntities())
+            {
+                using (DbContextTransaction dbTran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var data = db.references.Create();
+                        data.full_name = model.ReferencesFullName;
+                        data.relation = model.ReferencesRelation;
+                        data.address = model.ReferencesAddress;
+                        data.contact_number = model.ReferencesContactNumber;                        
+                        data.member_id = model.ReferencesMemberId;
+                        data.created_by_user_id = model.ReferencesCreatedByUserId;
+                        data.date_created = DateTime.Now;
+
+                        db.references.Add(data);
+                        db.SaveChanges();
+
+                        //Save if no issues
+                        dbTran.Commit();
+                        return _resultHelper.Success();
+                    }
+                    catch (Exception ex)
+                    {
+                        dbTran.Rollback();
+                        return ex.Message;
+                    }
+                }
+            }
+        }
         public string SaveSpouse(SpouseModel model)
         {
             ResultHelper _resultHelper = new ResultHelper();
@@ -393,6 +477,21 @@ namespace CoopSystemWebApp.Manager
         }
 
         
+        public ReferencesModel GetReferencesDetail(int id)
+        {
+            nasccoEntities db = new nasccoEntities();
+            ReferencesModel model = new ReferencesModel();
+            var c = db.references.FirstOrDefault(x => x.id == id);
+            if (c != null)
+            {
+                model.ReferencesId = c.id;
+                model.ReferencesFullName = c.full_name;
+                model.ReferencesRelation = c.relation;
+                model.ReferencesAddress = c.address;
+                model.ReferencesContactNumber = c.contact_number;
+            }
+            return model;
+        }
         public SpouseModel GetSpouseDetail(int id)
         {
             nasccoEntities db = new nasccoEntities();

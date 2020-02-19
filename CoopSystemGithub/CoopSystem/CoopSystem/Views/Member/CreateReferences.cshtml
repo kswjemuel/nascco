@@ -1,0 +1,78 @@
+﻿@using Kendo.Mvc.UI;
+@model CoopSystemWebApp.Models.ReferencesModel
+@{
+    ViewBag.Title = "Add Reference";
+}
+
+
+<div id="divErrorReferences" class="text-center red-color hidden" style="color:red">
+    <label id="lblErrorReferences"></label>
+</div>
+
+<div class="alert-danger text-center small">
+    <span style="color:red"><b>@ViewBag.Error</b></span>
+</div>
+
+
+
+
+@using (Html.BeginForm("SaveReferences", "Member", FormMethod.Post, new { @id = "SaveReferencesForm" }))
+{
+    @Html.HiddenFor(m => m.ReferencesId)
+    @Html.HiddenFor(m => m.ReferencesMemberId)
+    <div class="k-edit-form-container">
+        <div class="forMember">
+            <div class="k-edit-label">
+                @Html.Label("Fullname")
+            </div>
+            <div data-container-for="Lastname" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.ReferencesFullName).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ReferencesFullName)
+            </div>
+
+
+            <div class="k-edit-label">
+                @Html.Label("Address")
+            </div>
+            <div data-container-for="ReferencesAddress" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.ReferencesAddress).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ReferencesAddress)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Contact")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.ReferencesContactNumber).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ReferencesContactNumber)
+            </div>
+
+            <div class="k-edit-label">
+                @Html.Label("Relation")
+            </div>
+            <div data-container-for="Middle_Name" class="k-edit-field">
+                @Html.Kendo().TextBoxFor(m => m.ReferencesRelation).HtmlAttributes(new { @style = "width: 100%", autocomplete = "off" })
+                @Html.ValidationMessageFor(m => m.ReferencesRelation)
+            </div>
+
+
+        </div>
+    </div>
+
+}
+
+
+<div class="k-content">
+    @if (Model.ReferencesIsEditMode)
+    {
+        @Html.Kendo().Button().Name("btnUpdateReferences").Content("Update").Events(e => e.Click("onClick_UpdateReferences")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+
+    }
+    else
+    {
+        @Html.Kendo().Button().Name("btnSaveReferences").Content("Save").Events(e => e.Click("onClick_SaveReferences")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+    }
+    @Html.Kendo().Button().Name("btnCancelReferences").Content("Cancel").Events(e => e.Click("onClick_CancelReferences")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+</div>
+
+

@@ -20,7 +20,10 @@ namespace CoopSystemWebApp.DB
         public string contact_number { get; set; }
         public string relation { get; set; }
         public int member_id { get; set; }
+        public int created_by_user_id { get; set; }
+        public System.DateTime date_created { get; set; }
     
         public virtual member member { get; set; }
+        public virtual user user { get; set; }
     }
 }

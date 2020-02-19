@@ -96,6 +96,8 @@
     <Property Name="contact_number" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="relation" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="member_id" Type="int" Nullable="false" />
+    <Property Name="created_by_user_id" Type="int" Nullable="false" />
+    <Property Name="date_created" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="roles">
     <Key>
@@ -252,6 +254,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_references_created_by_user_id">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="references" Type="Self.references" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="references">
+        <PropertyRef Name="created_by_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_references_member_id">
     <End Role="member" Type="Self.member" Multiplicity="1" />
     <End Role="references" Type="Self.references" Multiplicity="*" />
@@ -405,6 +419,10 @@
     <AssociationSet Name="FK_payment_member_id" Association="Self.FK_payment_member_id">
       <End Role="member" EntitySet="member" />
       <End Role="payment" EntitySet="payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_references_created_by_user_id" Association="Self.FK_references_created_by_user_id">
+      <End Role="users" EntitySet="users" />
+      <End Role="references" EntitySet="references" />
     </AssociationSet>
     <AssociationSet Name="FK_references_member_id" Association="Self.FK_references_member_id">
       <End Role="member" EntitySet="member" />

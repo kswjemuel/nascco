@@ -19,6 +19,7 @@ namespace CoopSystemWebApp.DB
         {
             this.members = new HashSet<member>();
             this.spouses = new HashSet<spouse>();
+            this.references = new HashSet<reference>();
         }
     
         public int id { get; set; }
@@ -37,5 +38,7 @@ namespace CoopSystemWebApp.DB
         public virtual status status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<spouse> spouses { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reference> references { get; set; }
     }
 }

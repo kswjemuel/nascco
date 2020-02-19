@@ -1,58 +1,232 @@
-﻿<!-- Header Menu-->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+﻿
+@using CoopSystemWebApp.Models;
+@{
+    var user = Session["activeUserData"] as ActiveUserDataModel;
+}
 
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Home", "Index", "Home")</li>               
-            </ul>
-            @Html.Partial("_LoginPartial")
-        </div>
+<head>
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>*@
+
+
+</head>
+<body>
+
+    <div class="col-md-3 col-sm-3">
+        @if (ViewBag.IsMaintenanceMode == "true")
+        {
+            <div class="col-md-12" style="margin-top:5px; margin-bottom:5px;">
+                <span class="label label-warning">
+                    <i class="fa fa-exclamation-circle" aria-hidden="true">&nbsp Site is under maintenace.</i>
+                </span>
+            </div>
+        }
     </div>
-</div>
 
-<!-- Sidebar Menu-->
-
-<div class="col-md-2 col-sm-2 card-sidebar">
-    <nav class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="navbar navbar-inverse">
         <div class="container-fluid">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <a href='@Url.Action("MyAction", "MyController")'>
-                    <img src="~/Images/NasccoLogo.png" class="img-responsive m-t-20" style="max-width: 218px; margin-left: -10px;">
+                @*@if (user.RoleName.ToLower() == "master-admin" || user.RoleName.ToLower() == "host" || user.RoleName.ToLower() == "admin")
+                {
+                    <a class="navbar-brand hidden-sm hidden-xs" href="@Url.Action("Index", "Home")" title="To my Dashboard">
+                        <img alt="Brand" src="~/Images/NasccoLogo.png">
+                    </a>
+                }
+                else
+                {
+                    <a class="navbar-brand hidden-sm hidden-xs" href="@Url.Action("Index", "Patient")" title="To Patients">
+                        <img alt="Brand" src="~/Images/NasccoLogo.svg">
+                    </a>
+                }*@    
+    
+                <a class="navbar-brand hidden-sm hidden-xs" href="@Url.Action("Index", "Home")" title="To my Dashboard">
+                    <img alt="Brand" src="~/Images/NasccoLogo.png" style="width: 146px; margin-top: -16px;">
                 </a>
+                @*<a class="navbar-brand hidden-md hidden-lg" href="#">
+                    <img alt="Brand" src="~/Images/NasccoLogo.png">
+                </a>*@
             </div>
-
-            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/home/index">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="/Member">Members<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-                        <ul class="dropdown-menu forAnimate" role="menu">
-                            @*<li><a href="/Options/Index">Insurance Options<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-                            <li class="divider"></li>*@
-                            <li><a href="/User/List">Users<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-                            <li class="divider"></li>
-                        </ul>
+            <div class="navbar-collapse collapse">
+                <ul id="nav" class="nav navbar-nav">
+                    <li>
+                        <a id="patientMenu" href="@Url.Action("Index", "Member")" class="links">
+                            <img class="main-menu-icon" src="@Url.Content("~/Icons/010-user.svg")">
+                            Member
+                        </a>
                     </li>
 
+                    @*<li>
+                        <a id="ScheduleMenu" href="@Url.Action("Index", "Schedule")" class="links">
+                            <img class="main-menu-icon" src="@Url.Content("~/Icons/035-calendar.svg")">
+                            Schedule
+                        </a>
+                    </li>*@
+
+                    @*@if (user.RoleName.ToLower() == "admin" || user.RoleName.ToLower() == "host" || user.RoleName.ToLower() == "biller" || user.RoleName.ToLower() == "admin")
+                    {
+                        <li>
+                            <a id="BillingMenu" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="main-menu-icon" src="@Url.Content("~/Icons/035-envelope.svg")">
+                                Billing <b class="fa fa-chevron-down"></b>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Claims", "Index", "Billing")</li>                                    
+                                </ul>
+                            </a>
+                        </li>
+                    }*@
+
+                    @*<li>
+                            <a id="ReportsMenu" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="main-menu-icon" src="@Url.Content("~/Icons/049-analytics.svg")" />
+                                Reports <b class="fa fa-chevron-down"></b>
+                                <ul class="dropdown-menu">
+                                    @if (user.RoleName.ToLower() == "admin" || user.RoleName.ToLower() == "host" || user.RoleName.ToLower() == "biller" || user.ParentRoleName.ToLower() == "admin")
+                                    {
+                                        <li>@Html.ActionLink("Active Cases", "ActiveCases", "Reports")</li>
+                                        <li>@Html.ActionLink("Active Patients", "ActivePatients", "Reports")</li>
+                                        <li>@Html.ActionLink("Billing", "Billing", "Reports")</li>
+                                        <li>@Html.ActionLink("Compliance", "ComplianceReport", "Reports")</li>
+                                        <li>@Html.ActionLink("Copay/Visit Payments", "CopayVisitPayment", "Reports")</li>
+                                        <li>@Html.ActionLink("Evaluations", "Evaluations", "Reports")</li>
+                                        <li>@Html.ActionLink("Expired POC", "ExpiredPOC", "Reports")</li>
+                                        <li>@Html.ActionLink("Notes With Missing POC Signatures", "NotesWithMissingPOCSignatures", "Reports")</li>
+                                        <li>@Html.ActionLink("Patient Birthday", "PatientBirthday", "Reports")</li>
+                                        <li>@Html.ActionLink("Patients By Total Note Count", "PatientsByTotalRecCount", "Reports")</li>
+                                        <li>@Html.ActionLink("Patients Scheduled With MissingNotes", "PatientsScheduledWithMissingNotes", "Reports")</li>
+                                        <li>@Html.ActionLink("Patient Status", "PatientStatus", "Reports")</li>
+                                        <li>@Html.ActionLink("Patients With Draft Notes", "PatientsWithDraftNotes", "Reports")</li>
+                                        <li>@Html.ActionLink("Patients With Expired Authorizations", "PatientsWithExpiredAuthorizations", "Reports")</li>
+                                        <li>@Html.ActionLink("Pending Cosign", "PendingCosignReport", "Reports")</li>
+                                        <li>@Html.ActionLink("Referrals", "Referrals", "Reports")</li>
+                                        <li>@Html.ActionLink("Supervision", "Supervision", "Reports")</li>
+                                        <li>@Html.ActionLink("Total Therapist Invoice", "TotalInvoiceReport", "Reports")</li>
+                                        <li>@Html.ActionLink("Visits By Payer", "VisitsByPayerReport", "Reports")</li>
+                                    }
+                                    <li>@Html.ActionLink("Therapist Invoice", "TherapistInvoice", "Reports")</li>
+                                </ul>
+                            </a>
+                        </li>*@
+
+                    <li>
+                        <a id="SettingsMenu" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            @*<img src="@Url.Content("~/Design/img/gear.svg")">*@
+                            <img class="main-menu-icon" src="@Url.Content("~/Icons/012-settings.svg")">
+                            Settings <b class="fa fa-chevron-down"></b>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("User Account", "List", "User")</li>
+                                @*<li>@Html.ActionLink("Autocomplete", "AutoCompleteLibrary", "Settings")</li>
+                                <li>@Html.ActionLink("Notes", "EvaluationNoteMaintenance", "Settings")</li>*@
+                                @*@if (user.RoleName.ToLower() != "biller")
+                                    {
+                                        <li>@Html.ActionLink("Visit Type", "VisitType", "Settings")</li>
+                                    }
+                                    @if (user.RoleName.ToLower() == "admin" || user.RoleName.ToLower() == "host" || user.ParentRoleName.ToLower() == "admin")
+                                    {
+                                        <li>@Html.ActionLink("Import Patients", "ImportPatients", "Settings")</li>
+                                        <li>@Html.ActionLink("Hours", "HoursMaintenance", "Settings")</li>
+                                        <li>@Html.ActionLink("PCP/Referral", "PhysicianInfo", "PrimaryCarePhysician")</li>
+                                        <li>@Html.ActionLink("Office", "OfficeInfo", "Settings")</li>
+                                        <li>@Html.ActionLink("Role", "Role", "Settings")</li>
+                                        <li>@Html.ActionLink("ICD-10", "ICD", "Settings")</li>
+                                        <li>@Html.ActionLink("PayerID Match", "InsuranceMaintenance", "Insurance")</li>
+                                    }
+                                    @if (user.RoleName.ToLower() != "biller")
+                                    {
+                                        <li>@Html.ActionLink("Fax Status", "Fax", "Reports")</li>
+                                    }
+                                    @if (user.RoleName.ToLower().Contains("host"))
+                                    {
+                                        <li>@Html.ActionLink("Feature Updates", "Fax", "Reports", new { id = "FeatureUpdates" })</li>
+                                        <li>@Html.ActionLink("Migrate Users to Okta", "Fax", "Reports", new { id = "MigrateUsersToOkta" })</li>
+                                    }
+
+                                    @if (user.RoleName.ToLower() == "admin" || user.RoleName.ToLower() == "host")
+                                    {
+                                        <li>@Html.ActionLink("Card Connect", "Fax", "Reports", new { id = "CardConnectSettings" })</li>
+                                    }*@
+
+                                @*<li style="padding-left: 20px;">
+                                    Light/Dark
+                                    <div class="switchbox" style="padding-top:2px;">
+                                        <label class="switch">
+                                            <input id="IsChangeColor" type="checkbox" checked onchange="onChangeColor()">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </li>*@
+                                @*<li id="divider">&nbsp;</li>
+                                    <li>@Html.ActionLink("Sign out " + @user.FullName, "Logout", "UserAccount", new { @id = "LogoutLink" })</li>*@
+                            </ul>
+                        </a>
+                    </li>
+
+
+
+                    @*<li>
+                        <a id="ExternalLinkMenu" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img class="main-menu-icon" src="@Url.Content("~/Icons/icons8-circled-right-64.png")">
+                            External <b class="fa fa-chevron-down"></b>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Healigo", "", "", new { id = "Healigo" })</li>
+                            </ul>
+                        </a>
+                    </li>*@
+
+
+
+
+
+                    <li class="logout-link-minified" style="display:none;">
+                        <a href="@Url.Action("Logout", "User")" class="links">
+                            <img class="main-menu-icon" src="@Url.Content("~/Icons/010-exit.svg")">
+                            Logout
+                        </a>
+                    </li>
                 </ul>
+                <!--End Main Nav-->
+
+                <ul id="nav" class="nav navbar-nav navbar-right logout-link-right">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-left:30px">
+                            @*<img style="width:40px; height:auto" src="@Url.Content("~/Design/img/person-icon-blue.png")">*@
+                            <img class="main-menu-icon" src="@Url.Content("~/Icons/010-exit.svg")">
+                            <b class="fa fa-chevron-down"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Sign out " + @user.FullName, "Logout", "User")</li>                          
+                            <li>@Html.ActionLink("Change Password", null, null ,new { @id= "ChangePassword" })</li>
+                        </ul>
+                    </li>
+                </ul>
+
             </div>
         </div>
-    </nav>
-</div>
+    </div>
+
+    @*@if (user.AccountStandingId == 2)
+    {
+        <div class="trialPeriodInfo">
+            <label style="color:red; margin-left:10px">@user.TrialDaysLeft </label>
+        </div>
+    }
+
+    @if (user.VerificationMessage != null && user.VerificationMessage != "")
+    {
+        <div class="AccountVerificationInfo">
+            <label id="lblAccountVerificationInfo" style="color:red; margin-left:10px">@user.VerificationMessage </label>
+        </div>
+    }*@
+
+</body>
+
+
+

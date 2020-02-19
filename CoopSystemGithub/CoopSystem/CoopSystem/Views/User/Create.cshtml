@@ -102,7 +102,7 @@
                     @Html.Label("Password")
                 </div>
                 <div data-container-for="User_Account_Password" class="k-edit-field hidden">
-                    @Html.PasswordFor(m => m.Password, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", @autocomplete = "off", @value = "test123" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", @autocomplete = "off", @value = "12345678" })
                     @Html.ValidationMessageFor(m => m.Password)
                 </div>
 
@@ -110,7 +110,7 @@
                     @Html.Label("Confirm Password")
                 </div>
                 <div data-container-for="Options_Option_Description_Mf" class="k-edit-field hidden">
-                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "test123" })
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "12345678" })
                     @Html.ValidationMessageFor(m => m.ConfirmPassword)
                 </div>
             }
@@ -121,7 +121,7 @@
                         @Html.Label("Password")
                     </div>
                     <div data-container-for="User_Account_Password" class="k-edit-field">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "temp" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "12345678" })
                         @Html.ValidationMessageFor(m => m.Password)
                     </div>
 
@@ -129,7 +129,7 @@
                         @Html.Label("Confirm Password")
                     </div>
                     <div data-container-for="Options_Option_Description_Mf" class="k-edit-field">
-                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "temp" })
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control k-edit-field", @style = "width: 100%; height:20px; margin-right: auto;", autocomplete = "off", @value = "12345678" })
                         @Html.ValidationMessageFor(m => m.ConfirmPassword)
                     </div>
                 </div>
@@ -141,18 +141,19 @@
 }
 
 
-<div class="k-content">
-    @if (Model.UserIsEditMode)
-    {
-        @Html.Kendo().Button().Name("btnUpdateUser").Content("Update").Events(e => e.Click("onClick_UpdateUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+    <div class="k-content">
+        @if (Model.UserIsEditMode)
+        {
+            @Html.Kendo().Button().Name("btnUpdateUser").Content("Update").Events(e => e.Click("onClick_UpdateUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
 
-    }
-    else
-    {
-        @Html.Kendo().Button().Name("btnSaveUser").Content("Save").Events(e => e.Click("onClick_SaveUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
-    }
-    @Html.Kendo().Button().Name("btnCancelUser").Content("Cancel").Events(e => e.Click("onClick_CancelUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
-</div>
+        }
+        else
+        {
+            @Html.Kendo().Button().Name("btnSaveUser").Content("Save").Events(e => e.Click("onClick_SaveUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+            
+        }
+        @Html.Kendo().Button().Name("btnCancelUser").Content("Cancel").Events(e => e.Click("onClick_CancelUser")).HtmlAttributes(new { @style = "margin:5px", @class = "k-primary pull-right" })
+    </div>
 
 
 

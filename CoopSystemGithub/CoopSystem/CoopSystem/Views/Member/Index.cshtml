@@ -31,9 +31,12 @@
                                                                                     //c.Bound(m => m.PresentAddress).Title("Address");
                                                                                     c.Command(command =>
                                                                                     {
-                                                                                        command.Custom("Edit").Click("onClick_EditMember").Text(" ").HtmlAttributes(new { @title = "View/Modify member." });
-                                                                                        command.Custom("ViewSpouse").Click("onClick_ViewMember").Text(" ").HtmlAttributes(new { @title = "Spouse/References Details" });
-                                                                                        command.Custom("Add").Click("onClick_CreateSpouse").Text(" ").HtmlAttributes(new { @title = "Add Spouse" });
+                                                                                        command.Custom("View").Click("onClick_EditMember").Text(" ").HtmlAttributes(new { @title = "View/Modify member." });
+                                                                                        command.Custom("Details").Click("onClick_ViewMember").Text(" ").HtmlAttributes(new { @title = "Spouse/References Details" });
+                                                                                        command.Custom("Spouse").Click("onClick_CreateSpouse").Text(" ").HtmlAttributes(new { @title = "Add Spouse" });
+                                                                                        command.Custom("Reference").Click("onClick_CreateReferences").Text(" ").HtmlAttributes(new { @title = "Add Reference" });
+
+
                                                                                     });
 
                                                                                 })
@@ -79,7 +82,7 @@
                                                                     c.Command(command =>
                                                                     {
 
-                                                                        command.Custom("Edit").Click("onClick_EditSpouse").Text(" ").HtmlAttributes(new { @title = "Edit spouse." });
+                                                                        command.Custom("View").Click("onClick_EditSpouse").Text(" ").HtmlAttributes(new { @title = "Edit spouse." });
                                                                         command.Custom("Delete").Click("onClick_DeleteSpouse").Text(" ").HtmlAttributes(new { @title = "Delete spouse." });
 
                                                                     });
@@ -116,14 +119,13 @@
                                                                     c.Bound(m => m.ReferencesMemberName).Title("Member");
                                                                     c.Bound(m => m.ReferencesFullName).Title("Name");
                                                                     c.Bound(m => m.ReferencesContactNumber).Title("Contact");
-                                                                    c.Bound(m => m.ReferencesAddress).Title("Address");                                                                    
+                                                                    c.Bound(m => m.ReferencesAddress).Title("Address");
                                                                     c.Command(command =>
                                                                     {
+                                                                        command.Custom("View").Click("onClick_EditReferences").Text(" ").HtmlAttributes(new { @title = "Modify Member Info." });
+                                                                        command.Custom("Delete").Click("onClick_DeleteReferences").Text(" ").HtmlAttributes(new { @title = "Delete spouse." });
 
-                                                                    //command.Custom("Edit").Click("onClick_EditMember").Text(" ").HtmlAttributes(new { @title = "Modify Member Info." });
-                                                                    //command.Custom("Delete").Click("onClick_DeleteMember").Text(" ").HtmlAttributes(new { @title = "Delete Member." });
-
-                                                                });
+                                                                    });
 
                                                                 })
                                                                 .Pageable(pageable => pageable.ButtonCount(5))
@@ -146,42 +148,5 @@
     </div>
 </div>
 
-<script>
 
-
-    @*function onClick_DeleteGroup(e) {
-        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
-        var wnd = $("#window_Record").data("kendoWindow");
-        //var window_processing = $("#window_processing").data("kendoWindow");
-        $("#window_Record h4").html("Are you sure you want to delete this record?");
-        wnd.center().open();
-        e.preventDefault();
-        var values = {
-            Id: dataItem.Group_Id
-        };
-
-        $("#window_Record > div > div > #Yes").click(function () {
-            wnd.close();
-            $.ajax({
-                dataType: "html",
-                type: "POST",
-                url: "@(Url.Action("RemoveGroup", "Group"))",
-                data: values,
-                success: function (result) {
-                    var grid = $("#GridGroup").data("kendoGrid");
-                    grid.dataSource.read();
-                }
-            });
-
-        });
-
-        $("#window_Record > div > div > #No").click(function () {
-            wnd.close();
-        });
-    };*@
-
-
-
-
-</script>
 

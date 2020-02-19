@@ -101,6 +101,8 @@
           <Property Name="contact_number" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="relation" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="created_by_user_id" Type="int" Nullable="false" />
+          <Property Name="date_created" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -254,6 +256,18 @@
             </Principal>
             <Dependent Role="payment">
               <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_references_created_by_user_id">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="references" Type="Self.references" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="references">
+              <PropertyRef Name="created_by_user_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -411,6 +425,10 @@
             <End Role="member" EntitySet="member" />
             <End Role="payment" EntitySet="payment" />
           </AssociationSet>
+          <AssociationSet Name="FK_references_created_by_user_id" Association="Self.FK_references_created_by_user_id">
+            <End Role="users" EntitySet="users" />
+            <End Role="references" EntitySet="references" />
+          </AssociationSet>
           <AssociationSet Name="FK_references_member_id" Association="Self.FK_references_member_id">
             <End Role="member" EntitySet="member" />
             <End Role="references" EntitySet="references" />
@@ -519,18 +537,6 @@
           <NavigationProperty Name="fees_masterfile" Relationship="Self.FK_payment_fees_masterfile_id" FromRole="payment" ToRole="fees_masterfile" />
           <NavigationProperty Name="member" Relationship="nasccoModel.FK_payment_member_id" FromRole="payment" ToRole="member" />
         </EntityType>
-        <EntityType Name="reference">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
-          <Property Name="full_name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="address" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="contact_number" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="relation" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" Type="String" />
-          <Property Name="member_id" Nullable="false" Type="Int32" />
-          <NavigationProperty Name="member" Relationship="nasccoModel.FK_references_member_id" FromRole="reference" ToRole="member" />
-        </EntityType>
         <EntityType Name="role">
           <Key>
             <PropertyRef Name="id" />
@@ -630,7 +636,6 @@
           <EntitySet Name="loan_application" EntityType="Self.loan_application" />
           <EntitySet Name="loan_type" EntityType="Self.loan_type" />
           <EntitySet Name="payments" EntityType="Self.payment" />
-          <EntitySet Name="references" EntityType="Self.reference" />
           <EntitySet Name="roles" EntityType="Self.role" />
           <EntitySet Name="settings" EntityType="Self.setting" />
           <EntitySet Name="statuses" EntityType="Self.status" />
@@ -671,10 +676,6 @@
             <End Role="member" EntitySet="members" />
             <End Role="payment" EntitySet="payments" />
           </AssociationSet>
-          <AssociationSet Name="FK_references_member_id" Association="nasccoModel.FK_references_member_id">
-            <End Role="member" EntitySet="members" />
-            <End Role="reference" EntitySet="references" />
-          </AssociationSet>
           <EntitySet Name="users" EntityType="nasccoModel.user" />
           <AssociationSet Name="FK_member_created_by_user_id" Association="nasccoModel.FK_member_created_by_user_id">
             <End Role="user" EntitySet="users" />
@@ -704,6 +705,15 @@
           <AssociationSet Name="FK_spouse_employment_status" Association="nasccoModel.FK_spouse_employment_status">
             <End Role="status" EntitySet="statuses" />
             <End Role="spouse" EntitySet="spouses" />
+          </AssociationSet>
+          <EntitySet Name="references" EntityType="nasccoModel.reference" />
+          <AssociationSet Name="FK_references_member_id" Association="nasccoModel.FK_references_member_id">
+            <End Role="member" EntitySet="members" />
+            <End Role="reference" EntitySet="references" />
+          </AssociationSet>
+          <AssociationSet Name="FK_references_created_by_user_id" Association="nasccoModel.FK_references_created_by_user_id">
+            <End Role="user" EntitySet="users" />
+            <End Role="reference" EntitySet="references" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="member">
@@ -738,10 +748,10 @@
           <NavigationProperty Name="loan_application" Relationship="nasccoModel.FK_loan_application_member_id" FromRole="member" ToRole="loan_application" />
           <NavigationProperty Name="status" Relationship="nasccoModel.FK_member_statuses_id" FromRole="member" ToRole="status" />
           <NavigationProperty Name="payments" Relationship="nasccoModel.FK_payment_member_id" FromRole="member" ToRole="payment" />
-          <NavigationProperty Name="references" Relationship="nasccoModel.FK_references_member_id" FromRole="member" ToRole="reference" />
           <NavigationProperty Name="user" Relationship="nasccoModel.FK_member_created_by_user_id" FromRole="member" ToRole="user" />
           <NavigationProperty Name="users" Relationship="nasccoModel.FK_user_account_member_id" FromRole="member" ToRole="user" />
           <NavigationProperty Name="spouses" Relationship="nasccoModel.FK_spouse_member_id" FromRole="member" ToRole="spouse" />
+          <NavigationProperty Name="references" Relationship="nasccoModel.FK_references_member_id" FromRole="member" ToRole="reference" />
         </EntityType>
         <Association Name="FK_employment_member_id">
           <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
@@ -791,18 +801,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_references_member_id">
-          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
-          <End Type="nasccoModel.reference" Role="reference" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="member">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="reference">
-              <PropertyRef Name="member_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="id" />
@@ -820,6 +818,7 @@
           <NavigationProperty Name="role" Relationship="nasccoModel.FK_user_accounts_roles_id" FromRole="user" ToRole="role" />
           <NavigationProperty Name="status" Relationship="nasccoModel.FK_user_accounts_statuses_id" FromRole="user" ToRole="status" />
           <NavigationProperty Name="spouses" Relationship="nasccoModel.FK_spouse_created_by_user_id" FromRole="user" ToRole="spouse" />
+          <NavigationProperty Name="references" Relationship="nasccoModel.FK_references_created_by_user_id" FromRole="user" ToRole="reference" />
         </EntityType>
         <Association Name="FK_member_created_by_user_id">
           <End Type="nasccoModel.user" Role="user" Multiplicity="1" />
@@ -929,6 +928,45 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="reference">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="full_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contact_number" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="relation" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="created_by_user_id" Type="Int32" Nullable="false" />
+          <Property Name="date_created" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="member" Relationship="nasccoModel.FK_references_member_id" FromRole="reference" ToRole="member" />
+          <NavigationProperty Name="user" Relationship="nasccoModel.FK_references_created_by_user_id" FromRole="reference" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_references_member_id">
+          <End Type="nasccoModel.member" Role="member" Multiplicity="1" />
+          <End Type="nasccoModel.reference" Role="reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="member">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reference">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_references_created_by_user_id">
+          <End Type="nasccoModel.user" Role="user" Multiplicity="1" />
+          <End Type="nasccoModel.reference" Role="reference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="reference">
+              <PropertyRef Name="created_by_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -994,18 +1032,6 @@
                 <ScalarProperty Name="fees_masterfile_id" ColumnName="fees_masterfile_id" />
                 <ScalarProperty Name="amount" ColumnName="amount" />
                 <ScalarProperty Name="date_created" ColumnName="date_created" />
-                <ScalarProperty Name="member_id" ColumnName="member_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="references">
-            <EntityTypeMapping TypeName="nasccoModel.reference">
-              <MappingFragment StoreEntitySet="references">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="full_name" ColumnName="full_name" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="contact_number" ColumnName="contact_number" />
-                <ScalarProperty Name="relation" ColumnName="relation" />
                 <ScalarProperty Name="member_id" ColumnName="member_id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1100,6 +1126,20 @@
                 <ScalarProperty Name="middlename" ColumnName="middlename" />
                 <ScalarProperty Name="firstname" ColumnName="firstname" />
                 <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="references">
+            <EntityTypeMapping TypeName="nasccoModel.reference">
+              <MappingFragment StoreEntitySet="references">
+                <ScalarProperty Name="date_created" ColumnName="date_created" />
+                <ScalarProperty Name="created_by_user_id" ColumnName="created_by_user_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="relation" ColumnName="relation" />
+                <ScalarProperty Name="contact_number" ColumnName="contact_number" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

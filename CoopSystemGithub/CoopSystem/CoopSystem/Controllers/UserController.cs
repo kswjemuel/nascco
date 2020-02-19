@@ -13,7 +13,17 @@ namespace CoopSystemWebApp.Controllers
     public class UserController : Controller
     {
         readonly UserManager _userManager = new UserManager();
-        readonly ResultHelper resultHelper = new ResultHelper();
+        readonly ResultHelper _resultHelper = new ResultHelper();
+
+        
+        public ActionResult RemoveUser(int id)
+        {
+            string result = string.Empty;
+            string message = string.Empty;
+            result = _userManager.RemoveUser(id);
+            return Json(new { message = message, result = result });
+
+        }
 
         [HttpPost]
         public ActionResult Update(UserModel model)
@@ -60,6 +70,51 @@ namespace CoopSystemWebApp.Controllers
             return Json(new { message = message, result = result });
         }
 
+        
+        
+
+        public int NullIdProcessor(int? id)
+        {
+            int Id_ = 0;
+            if (id != null)
+            {
+                Id_ = int.Parse(id.ToString());
+            }
+            return Id_;
+        }
+
+        public ActionResult ChangePassword()
+        {            
+            var model = new UserModel();
+            model.UserId = ActiveUser.UserId;
+            model.Username = ActiveUser.UserName;
+            return PartialView("~/Views/User/ChangePassword.cshtml", model);
+        }
+
+        [HttpPost]
+        public ActionResult ReplacePassword(UserModel model)
+        {
+            var message = "message";
+            var result = "result";
+            var checking = _userManager.CheckPassword(ActiveUser.UserName, model.OldPassword);
+            if (checking != _resultHelper.Success()){
+                result = "Old password is invalid.";
+                message = result;
+            }
+            else if(model != null && ModelState.IsValid)
+            {
+                result = _userManager.ChangePassword(model);
+                message = result;
+            }
+            else
+            {
+                message = ModelState.ModelErrors();
+            }
+                        
+            
+
+            return Json(new { message = message, result = result });
+        }
 
         public ActionResult Create()
         {
@@ -129,7 +184,7 @@ namespace CoopSystemWebApp.Controllers
                 userInfo.RoleName = userInfo.RoleName;
                 userInfo.IsAuthenticated = true;
                 Session["activeUserData"] = userInfo;
-                result = resultHelper.Success();
+                result = _resultHelper.Success();
             }
             return result;
         }

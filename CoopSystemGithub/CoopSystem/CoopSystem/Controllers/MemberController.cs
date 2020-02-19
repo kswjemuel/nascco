@@ -25,6 +25,24 @@ namespace CoopSystemWebApp.Controllers
         }
         
         [HttpPost]
+        public ActionResult SaveReferences(ReferencesModel model)
+        {
+            var message = "message";
+            var result = "result";
+            model.ReferencesCreatedByUserId = ActiveUser.UserId;
+            result = _memberManager.SaveReferences(model);
+            if (model != null && ModelState.IsValid)
+            {
+                message = result;
+            }
+            else
+            {
+                message = ModelState.ModelErrors();
+            }
+
+            return Json(new { message = message, result = result });
+        }
+        [HttpPost]
         public ActionResult SaveSpouse(SpouseModel model)
         {
             var message = "message";
@@ -121,16 +139,24 @@ namespace CoopSystemWebApp.Controllers
 
         public ActionResult Create()
         {
-            var memberModel = new MemberModel();            
-            return PartialView("~/Views/Member/Create.cshtml", memberModel);
+            var model = new MemberModel();            
+            return PartialView("~/Views/Member/Create.cshtml", model);
         }
 
         public ActionResult CreateSpouse(int? id)
         {
             int Id_ = NullIdProcessor(id);
-            var memberModel = new SpouseModel();
-            memberModel.SpouseMemberId = Id_;
-            return PartialView("~/Views/Member/CreateSpouse.cshtml", memberModel);
+            var model = new SpouseModel();
+            model.SpouseMemberId = Id_;
+            return PartialView("~/Views/Member/CreateSpouse.cshtml", model);
+        }
+
+        public ActionResult CreateReferences(int? id)
+        {
+            int Id_ = NullIdProcessor(id);
+            var model = new ReferencesModel();
+            model.ReferencesMemberId = Id_;
+            return PartialView("~/Views/Member/CreateReferences.cshtml", model);
         }
 
         public int NullIdProcessor(int? id)
@@ -142,6 +168,7 @@ namespace CoopSystemWebApp.Controllers
             }
             return Id_;
         }
+
         public ActionResult GetMemberDetail(int Id)
         {
             MemberModel model = new MemberModel();
@@ -149,7 +176,14 @@ namespace CoopSystemWebApp.Controllers
             model.MemberIsEditMode = true;
             return PartialView("~/Views/Member/Create.cshtml", model);
         }
-
+        
+        public ActionResult GetReferencesDetail(int Id)
+        {
+            ReferencesModel model = new ReferencesModel();
+            model = _memberManager.GetReferencesDetail(Id);
+            model.ReferencesIsEditMode = true;
+            return PartialView("~/Views/Member/CreateReferences.cshtml", model);
+        }
         public ActionResult GetSpouseDetail(int Id)
         {
             SpouseModel model = new SpouseModel();
@@ -157,7 +191,15 @@ namespace CoopSystemWebApp.Controllers
             model.SpouseIsEditMode = true;
             return PartialView("~/Views/Member/CreateSpouse.cshtml", model);
         }
+        
+        public ActionResult RemoveReferences(int id)
+        {
+            string result = string.Empty;
+            string message = string.Empty;
+            result = _memberManager.RemoveReferences(id);
+            return Json(new { message = message, result = result });
 
+        }
         public ActionResult RemoveSpouse(int id)
         {
             string result = string.Empty;
@@ -165,6 +207,24 @@ namespace CoopSystemWebApp.Controllers
             result = _memberManager.RemoveSpouse(id);
             return Json(new { message = message, result = result });
 
+        }
+
+        
+        [HttpPost]
+        public ActionResult UpdateReferences(ReferencesModel model)
+        {
+            var message = "message";
+            var result = "result";
+            result = _memberManager.UpdateReferences(model);
+            if (model != null && ModelState.IsValid)
+            {
+                message = result;
+            }
+            else
+            {
+                message = ModelState.ModelErrors();
+            }
+            return Json(new { message = message, result = result });
         }
 
         [HttpPost]
